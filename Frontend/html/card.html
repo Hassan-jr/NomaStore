@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Shopping Card Example</title>
-  <link rel="stylesheet" href="../css/card.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Shopping Card Example</title>
+    <link rel="stylesheet" href="../css/card.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+
 <body>
-  <div class="shopping-card">
-    <a href="itemId.html">
-      <img src="../assets/sneaker.jpg" alt="Product Image" class="product-image">
-      <div class="product-details">
-        <h3 class="product-name">Product Name</h3>
-        <div class="product-rating">
-          <i class="material-icons">star</i>
-          <i class="material-icons">star</i>
-          <i class="material-icons">star</i>
-          <i class="material-icons">star</i>
-          <i class="material-icons">star_half</i>
-          <span class="product-rating-count">(120)</span>
-        </div>
-        <p class="store-name">Sold by: Store Name</p>
-      </div>
-    </a>
-  </div>
+    <div class="shopping-card">
+        <a href="individualCard.html" class="card">
+            <img src="../assets/sneaker.jpg" alt="Product Image" class="product-image">
+                <!-- Product details -->
+            <div class="product-details">
+                <p class="store-name">Sold by: <span class="store_name2">Noma</span> </p>
+                <h2 class="product-name">Nike Shoes</h2>
+                <p class="card_dec">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's </p>
+                    <!-- line break -->
+                    <div class="line-break"></div>
+                <!-- price and ratings -->
+                <div class="price_ratings">
+                    <!-- Price -->
+                    <div>
+                        <h3>Ksh:450</h3>
+                    </div>
+                    <!-- Ratting -->
+                    <div class="product-rating">
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star_half</i>
+                        <span class="product-rating-count">(120)</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
 </body>
+
 </html>
