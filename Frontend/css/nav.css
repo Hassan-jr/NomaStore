@@ -8,6 +8,7 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   height: auto;
+
 }
 
 .navbar {
@@ -17,7 +18,9 @@ body {
   /* background-color: #F7F9FF; */
   height: 60px;
   padding: 0 20px;
-}
+  background: rgb(138,237,246);
+  background: linear-gradient(90deg, rgba(138,237,246,1) 0%, rgba(138,237,246,1) 25%, rgba(96,162,245,1) 59%);
+  }
 
 .navbar a {
   color: rgb(58, 86, 179);;
@@ -57,6 +60,7 @@ body {
   outline: none;
   border:1px solid rgb(58, 86, 179);
   margin-right: 10px;
+  background-color: transparent;
 }
 
 .nav-search button[type="submit"] {
@@ -92,6 +96,8 @@ body {
 .nav-links a{
   font-size: small;
   padding: 5px;
+  font-weight: bold;
+  color: #fff;
 }
 
 @media screen and (max-width: 768px) {

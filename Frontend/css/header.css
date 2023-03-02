@@ -4,21 +4,24 @@ body{
   }
     
 .header{
-    margin-top: -18px;
+    /* margin-top: -18px; */
     padding-top: 10px;
-    height: 400px;
+    height: auto;
     width: 100%;
     /* background-color: red; */
-    
     padding-left: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
+.header_left{
+    flex: 3/4;
+}
 .main_title{
     line-height: 10px;
     padding-bottom: 10px;
+   
 }
 .header_desc{
     line-height: 5px;
@@ -45,14 +48,25 @@ body{
     font-weight: bold;
 }
 .header_btn:hover{
-    background-color: #ffffff;
+    background-color: #ffffffdc;
     color: rgb(58, 86, 179);;
+}
+.header_images{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 .header_img{
     height: auto;
     width: auto;
+    object-fit: contain;
 }
-
+.line-break {
+    height: 1px; /* sets height of line break to 1 pixel */
+    background-color: rgba(15, 19, 107, 0.603); /* sets background color of line break to black */
+    margin: 0 15px; /* adds margin to top and bottom of line break */
+  }
 @media screen and (max-width: 768px) {
     .header{
         margin-top: 10px;
