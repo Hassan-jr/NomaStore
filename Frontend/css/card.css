@@ -1,0 +1,36 @@
+.shopping-card {
+    border: 1px solid #ddd;
+    box-shadow: 0px 2px 2px #eee;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .product-image {
+    width: auto;
+  }
+  
+  .product-details {
+    margin-top: 10px;
+  }
+  
+  .product-name {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .product-rating {
+    color: #f5a623;
+    margin: 5px 0;
+  }
+  
+  .product-rating-count {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+  
+  .store-name {
+    color: #999;
+    font-size: 14px;
+    margin: 0;
+  }
+  
