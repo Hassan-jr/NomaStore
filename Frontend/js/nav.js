@@ -13,11 +13,12 @@ function get_nav(){
     <div class="nav-links ">
       <a href="products.html">Products</a>
       <a href="shop.html">Shops</a>
-      <a href="#">My Store</a>
+      <a href="mystore.html">My Store</a>
       <a href="signIn.html">Sign In</a>
       <a href="signUp.html">Sign Up</a>
-      <a href="#">Cart</a>
-      <a href="#">About Us</a>
+      <a href="cart.html">Cart</a>
+      <a href="about.html">About Us</a>
+      <a href="privacy.html">Privacy Policy</a>
     </div>
     <div class="nav-toggle">
       <span></span>
@@ -29,7 +30,6 @@ function get_nav(){
 }
 
 const result = get_nav();
-console.log("from nav", result);
 const nav = document.getElementById("nav");
 nav.innerHTML = result;
 
