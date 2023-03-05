@@ -13,3 +13,6 @@
 // navToggle.addEventListener("click", () => {
 //   navLinks.classList.toggle("toggle_nav");
 // });
+
+console.log(Math.round(0.5)); 
+console.log(Math.round(-0.5)); 

@@ -129,7 +129,7 @@ const products = [
 // totalRatings_2: ((stars_5 + stars_4 + stars_3 + stars_2 + stars_1)),
 let rattings_2
 let totalRatings_2
-let pointsratting
+let options
 const rate = [1,2,3,4,5]
 // fuction to generate the html file
 function generateProductCard(product) {
@@ -148,20 +148,24 @@ function generateProductCard(product) {
             </div>
             <div class="product-rating">
                ${
-                rattings_2 = ((5*product.stars_5) + (4*product.stars_4)+(3*product.stars_3) + (2*product.stars_2) + (1*product.stars_1))/(product.stars_5 + product.stars_4 + product.stars_3 + product.stars_2 + product.stars_1),
+                rattings_2 = (((5*product.stars_5) + (4*product.stars_4)+(3*product.stars_3) + (2*product.stars_2) + (1*product.stars_1))/(product.stars_5 + product.stars_4 + product.stars_3 + product.stars_2 + product.stars_1)).toFixed(1),
                 console.log("rattings", rattings_2),
-                pointsratting = Math.round(rattings_2),
+                options=1,
                 rate.map(i=> {
+                  console.log(rattings_2);
                   if(i<=rattings_2)
                     return `<i class="material-icons ">star</i>`
-                  else if (pointsratting - rattings_2 != 0 )
-                    return `<i class="material-icons ">star_half</i>`
+                  else if ((i > rattings_2 ) && (i - rattings_2 > 0) && options ===1 ){
+                    options = 0;
+                    return (`<i class="material-icons ">star_half</i>`)
+                  }
                   else
                     return `<i class="material-icons ">star_outline</i>`
                  
                 }).join('')
                }
-              <span class="product-rating-count">${product.stars_5 + product.stars_4 + product.stars_3 + product.stars_2 + product.stars_1}</span>
+               <span class="product-rating-count">${rattings_2}</span>
+               <span class="product-rating-count">${product.stars_5 + product.stars_4 + product.stars_3 + product.stars_2 + product.stars_1}</span>
             </div>
           </div>
         </div>
