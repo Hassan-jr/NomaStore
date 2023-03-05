@@ -1,16 +1,9 @@
-//  Responsive nav
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('toggle_nav');
-  });
-  
 
 //   Sign up page
 const form = document.querySelector('#signup-form');
 
 form.addEventListener('submit', (event) => {
-  event.preventDefault(); // Prevent form submission
+  event.preventDefault(); 
 
   // Get form data
   const firstName = form.elements['first-name'].value;

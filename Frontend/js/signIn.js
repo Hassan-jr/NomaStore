@@ -1,9 +1,3 @@
-//  Responsive nav
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('toggle_nav');
-  });
 
 //   sign in 
 const form = document.getElementById('login-form');
@@ -31,7 +25,7 @@ form.addEventListener('submit', (event) => {
 //   .then(response => {
 //     if (response.ok) {
 //       alert('Login successful!');
-//       window.location.href = '/dashboard.html'; // Redirect to dashboard page
+//       window.location.href = '/index.html'; // Redirect to index page
 //     } else {
 //       alert('Login failed. Please try again.');
 //     }
