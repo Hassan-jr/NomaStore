@@ -1,12 +1,11 @@
 import { data } from "./data.js";
 
+// variables for ratting functionalities
 let rattings_2
-
 let options
 const rate = [1,2,3,4,5]
-// fuction to generate the html file
 
-
+// fuction to generate the html product card
 function generateProductCard(product) {
   
   return `
@@ -60,10 +59,9 @@ function generateProductCards() {
   productCardsContainer.innerHTML = productCardsHTML;
 }
 
-
 generateProductCards();
 
-console.log(document.scripts[0]);
+
 
 
  

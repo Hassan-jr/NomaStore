@@ -1,0 +1,51 @@
+.individualCard{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+/* Slider Css */
+.slider {
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+    background-color: brown;
+  }
+  
+  .slider-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease;
+  }
+  
+  .slider-wrapper img {
+    width: 100%;
+    margin: 10px;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .slider-prev, .slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(70%);
+    background: transparent;
+    border: none;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .slider-prev {
+    left: 0;
+  }
+  
+  .slider-next {
+    right: 0;
+  }
+  /* slider_rightSide */
+  .slider_rightSide{
+    width: 50%;
+    background-color: blue;
+  }

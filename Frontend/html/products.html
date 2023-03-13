@@ -28,7 +28,9 @@
   <script>
     let productID
     function myFunction(id){
-      sessionStorage.setItem('ProductID', id)
+      console.log("Got called by: ", id);
+      sessionStorage.clear();
+      window.sessionStorage.setItem('ProductID', id)
     }
    
     </script>
