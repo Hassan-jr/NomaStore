@@ -8,6 +8,7 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  background-color: #ffffff;
 }
 /* Slider Container */
 .container {
@@ -29,7 +30,7 @@
   margin-right: 5px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 /* sing/e image slide */
@@ -37,6 +38,7 @@
   width: 70%;
   height: 100%;
   object-fit: contain;
+  margin: auto;
 }
 
 /* Hide the images by default */
@@ -107,10 +109,9 @@
   left: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 25%;
-  height: 100%;
-  margin-right: 5px;
+  height: auto;
+  margin: 0;
 }
 
 .row:after {
@@ -122,13 +123,22 @@
 /* Six columns side by side */
 .column {
   float: left;
-  width: 25%;
-  height: 100%;
+  
 }
 
 /* Add a transparency effect for thumnbail images */
 .demo {
   opacity: 0.6;
+  width:50px; 
+  height:50px;
+  margin-top: 2px;
+  margin-left: 20px;
+  padding: 3px;
+  border-radius: 7px;
+background: #ffffff;
+box-shadow:  6px 6px 12px #e3e3e3,
+             -6px -6px 12px #ffffff;
+
 }
 
 .active,
@@ -144,7 +154,65 @@
   width: 50%;
   height: 500px;
 }
+.lightColor{
+  color: #afa7a7;
+  font-weight: normal;
+}
+.bold{
+  color: #000000;
+  font-weight: bold;
+}
+.inStock{
+  width: 90px;
+  padding: 3px;
+  font-weight: bold;
+  background-color: #cfcfcf;
+}
+.price{
+  color: rgb(255, 208, 0);
+  font-weight: bold;
+}
+hr{
+  margin-top: 20px;
+  margin-right: 20px;
+}
 
+/* counter */
+.counter {
+  width: 110px;
+  margin: 0;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f7f7;
+  border-radius: 35%;
+}
+.counter input {
+  width: 50px;
+  border: 0;
+  line-height: 30px;
+  font-size: 20px;
+  text-align: center;
+  color: #000000;
+  background-color: transparent;
+  appearance: none;
+  outline: 0;
+}
+.counter span {
+  display: block;
+  font-size: 25px;
+  padding: 0 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.down,
+.up{
+ 
+  background-color: #d8d2d2;
+  border-radius: 100%;
+  font-size: small;
+}
 /* Responsive */
 @media screen and (max-width: 768px) {
   .card {

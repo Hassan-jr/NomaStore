@@ -20,7 +20,7 @@
 
 
 
-    
+
     <script>
         // slider functionality
         let slideIndex = 1;
@@ -53,10 +53,33 @@
             for (i = 0; i < dots.length; i++) {
                 dots[i].className = dots[i].className.replace(" active", "");
             }
-           
+
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
             captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+
+        // COUNTER FUNCTIONALITY
+        let qty = 1;
+
+        function increaseCount(a, b) {
+            var input = b.previousElementSibling;
+            var value = parseInt(input.value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            input.value = value;
+            qty = value;
+        }
+
+        function decreaseCount(a, b) {
+            var input = b.nextElementSibling;
+            var value = parseInt(input.value, 10);
+            if (value > 1) {
+                value = isNaN(value) ? 0 : value;
+                value--;
+                input.value = value;
+                qty = value;
+            }
         }
     </script>
     <script src="../js/nav.js"></script>

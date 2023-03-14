@@ -1,12 +1,21 @@
 import { data } from "./data.js";
 // get the id for required item from session storage
 let id = window.sessionStorage.getItem("ProductID");
-console.log(id);
+
 
 // get the data of the id
 // +++++++++++++++++++ to be removed later +++++++++++++++++++
 let cardData = data.find((item) => item.id == id);
-console.log("Card data is :", cardData);
+
+
+const images = [
+  "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/71MzaFpWjwL._AC_UL320_.jpg",
+  "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/71F29ae7awL._AC_SX425_.jpg",
+  "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/71aAk1BMhpL._AC_UL320_.jpg",
+  "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/61LFz4eGS6L._AC_UL320_.jpg",
+  "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/61t4mpabO+L._AC_UL320_.jpg",
+  "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/616nC5r+gyL._AC_UL320_.jpg",
+];
 
 // get the individualcard div
 const individualcard = document.getElementById("individualCard");
@@ -17,67 +26,50 @@ individualcard.innerHTML = `
 
 <!-- all images -->
  <div class="images">
-  <!-- Full-width images with number text -->
+  ${images.map(
+    (imgitem) =>
+     ` 
   <div class="mySlides">
-      <img class="slideImage" src="https://www.w3schools.com/howto/img_woods_wide.jpg" style="width:100%">
+    <img class="slideImage" src=${imgitem} style="width:100%">
   </div>
-
-  <div class="mySlides">
-      <img class="slideImage" src="https://www.w3schools.com/howto/img_5terre_wide.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-      <img class="slideImage" src="https://www.w3schools.com/howto/img_mountains_wide.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-      <img class="slideImage" src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-      <img class="slideImage" src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-      <img class="slideImage" src="https://www.w3schools.com/howto/img_snow_wide.jpg" style="width:100%">
-  </div>
+  `
+  ).join('')}
   </div>
 
   <!-- Next and previous buttons -->
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  
-
-  <!-- Image text -->
-  <!-- <div class="caption-container">-->
-  <!--   <p id="caption"></p>-->
-  <!-- </div>-->
 
   <!-- Thumbnail images -->
   <div class="row">
+  ${images.map((imgitem, i)=>
+    `
     <div class="column">
-      <img class="demo cursor" src="https://www.w3schools.com/howto/img_woods.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+      <img class="demo cursor" src=${imgitem} onclick="currentSlide(${i+1})" alt="The Woods">
     </div>
-    <div class="column">
-      <img class="demo cursor" src="https://www.w3schools.com/howto/img_5terre.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://www.w3schools.com/howto/img_mountains.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://www.w3schools.com/howto/img_lights.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://www.w3schools.com/howto/img_nature.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
-    </div>
+    `).join('')}
   </div>
 </div>
 
 <!-- THE TEXT SIDE -->
 <div class="right">
+  <p class="lightColor" >Shop > Noma > <span class="bold">Hassan's Chair</span> </p>
+  <p class="inStock">IN STOCK</p>
+  <h1>Hassan's Chair</h1>
+  <h3 class="price">$ 80.26</h3>
+  <p class="lightColor">Supplement Right Metatarsal-Tarsal Joint with Nonautologous Tissue Substitute, Open Approach Supplement Right Metatarsal-Tarsal Joint with Nonautologous Tissue Substitute, Open Approach</p>
+  <div>
+  <span class="bold">Category: <span class="lightColor">Chair</span></span>
+  </div>
+  <hr/>
+  <!-- ************ COUNTER ********** -->
+  <span>
+  <span class="bold">QTY</span> <span class="counter">
+    <span class="down" onClick='decreaseCount(event, this)'>-</span>
+    <input id="qty" type="text" value="1">
+    <span class="up" onClick='increaseCount(event, this)'>+</span>
+</span>
+</span>
 </div>
 </div>
 
