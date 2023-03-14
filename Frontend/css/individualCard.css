@@ -1,51 +1,146 @@
-.individualCard{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+* {
+  box-sizing: border-box;
+}
+.card{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+  background-color: red;
+  width: 60%;
+  height: 500px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+}
+/* all slide images */
+.images{
+  position: absolute;
+  top: 0;
+  right: 0;
+ width: 70%;
+ height: 100%;
+ margin-right: 5px;
+ display: flex;
+ flex-direction: row;
+ justify-content: flex-end;
+ align-items: center;
+ background-color: purple;
+}
+/* sing/e image slide */
+.slideImage{
+  width: 70%;
+  height: 100%;
+  object-fit: contain;
+ 
 }
 
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
 
-/* Slider Css */
-.slider {
-    position: relative;
-    width: 50%;
-    overflow: hidden;
-    background-color: brown;
-  }
-  
-  .slider-wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    transition: transform 0.5s ease;
-  }
-  
-  .slider-wrapper img {
-    width: 100%;
-    margin: 10px;
-    height: auto;
-    object-fit: contain;
-  }
-  
-  .slider-prev, .slider-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(70%);
-    background: transparent;
-    border: none;
-    font-size: 2em;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .slider-prev {
-    left: 0;
-  }
-  
-  .slider-next {
-    right: 0;
-  }
-  /* slider_rightSide */
-  .slider_rightSide{
-    width: 50%;
-    background-color: blue;
-  }
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.pre{
+  position: absolute;
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+.row{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  height: 100%;
+  background-color: blue;
+  margin-right: 5px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  height: 100%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+/* TEH right SIDE */
+.right{
+  width: 50%;
+  background-color: blue;
+  height: 500px;
+}

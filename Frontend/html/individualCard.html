@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,58 @@
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/individualCard.css">
 </head>
+
 <body>
-     <!-- Nav Bar -->
-     <div id="nav"></div>
-     <!--  -->
-     <div id="individualCard" class="individualCard">
-        
-     </div>
-      <script src="../js/nav.js"></script>
-      <script type="module" src="../js/individualCard.js"></script>
+    <!-- Nav Bar -->
+    <div id="nav"></div>
+    <!--  -->
+    <div id="individualCard" class="individualCard">
+
+    </div>
+
+
+
+    
+    <script>
+        // slider functionality
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides((slideIndex += n));
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides((slideIndex = n));
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+           
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+    </script>
+    <script src="../js/nav.js"></script>
+    <script type="module" src="../js/individualCard.js"></script>
 </body>
+
 </html>

@@ -1,60 +1,91 @@
 import { data } from "./data.js";
 // get the id for required item from session storage
-let id = window.sessionStorage.getItem('ProductID')
+let id = window.sessionStorage.getItem("ProductID");
 console.log(id);
 
 // get the data of the id
 // +++++++++++++++++++ to be removed later +++++++++++++++++++
-let cardData = data.find(item => item.id == id)
+let cardData = data.find((item) => item.id == id);
 console.log("Card data is :", cardData);
 
 // get the individualcard div
-const individualcard = document.getElementById("individualCard")
+const individualcard = document.getElementById("individualCard");
 individualcard.innerHTML = `
+<div class="card">
+<!-- THE IMAGE SLIDE SIDE -->
+<div class="container">
 
-<div class="slider">
-<div class="slider-wrapper">
-  <img src="https://via.placeholder.com/800x400.png?text=Slide+1" alt="Slide 1">
-  <img src="https://via.placeholder.com/800x400.png?text=Slide+2" alt="Slide 2">
-  <img src="https://via.placeholder.com/800x400.png?text=Slide+3" alt="Slide 3">
+<!-- all images -->
+ <div class="images">
+  <!-- Full-width images with number text -->
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+      <img class="slideImage" src="https://www.w3schools.com/howto/img_woods_wide.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+      <img class="slideImage" src="https://www.w3schools.com/howto/img_5terre_wide.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+      <img class="slideImage" src="https://www.w3schools.com/howto/img_mountains_wide.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+      <img class="slideImage" src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+      <img class="slideImage" src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+      <img class="slideImage" src="https://www.w3schools.com/howto/img_snow_wide.jpg" style="width:100%">
+  </div>
+ 
+  </div>
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+
+  <!-- Image text -->
+  <!-- <div class="caption-container">-->
+  <!--   <p id="caption"></p>-->
+  <!-- </div>-->
+
+  <!-- Thumbnail images -->
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="https://www.w3schools.com/howto/img_woods.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://www.w3schools.com/howto/img_5terre.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://www.w3schools.com/howto/img_mountains.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://www.w3schools.com/howto/img_lights.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://www.w3schools.com/howto/img_nature.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+    </div>
+  </div>
 </div>
-<button class="slider-prev">&lt;</button>
-<button class="slider-next">&gt;</button>
+
+<!-- THE TEXT SIDE -->
+<div class="right">
+</div>
 </div>
 
- <div class="slider_rightSide">
- </div>
+`;
 
-`
-
-
-// slider functionality
-const slider = document.querySelector('.slider');
-const sliderWrapper = document.querySelector('.slider-wrapper');
-const sliderPrev = document.querySelector('.slider-prev');
-const sliderNext = document.querySelector('.slider-next');
-
-let slideIndex = 0;
-const slides = sliderWrapper.querySelectorAll('img');
-const slideCount = slides.length;
-
-function showSlide(index) {
-  sliderWrapper.style.transform = `translateX(-${index * 300 / slideCount}%)`;
-}
-
-function nextSlide() {
-  if (slideIndex < slideCount - 1) {
-    slideIndex++;
-    showSlide(slideIndex);
-  }
-}
-
-function prevSlide() {
-  if (slideIndex > 0) {
-    slideIndex--;
-    showSlide(slideIndex);
-  }
-}
-
-sliderPrev.addEventListener('click', prevSlide);
-sliderNext.addEventListener('click', nextSlide);
