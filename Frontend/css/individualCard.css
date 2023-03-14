@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 }
-.card{
+.card {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -9,10 +9,9 @@
   justify-content: center;
   align-items: center;
 }
-/* Position the image container (needed to position the left and right arrows) */
+/* Slider Container */
 .container {
   position: relative;
-  background-color: red;
   width: 60%;
   height: 500px;
   display: flex;
@@ -21,25 +20,23 @@
   align-items: center;
 }
 /* all slide images */
-.images{
+.images {
   position: absolute;
   top: 0;
   right: 0;
- width: 70%;
- height: 100%;
- margin-right: 5px;
- display: flex;
- flex-direction: row;
- justify-content: flex-end;
- align-items: center;
- background-color: purple;
+  width: 70%;
+  height: 100%;
+  margin-right: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
 }
 /* sing/e image slide */
-.slideImage{
+.slideImage {
   width: 70%;
   height: 100%;
   object-fit: contain;
- 
 }
 
 /* Hide the images by default */
@@ -57,10 +54,11 @@
 .next {
   cursor: pointer;
   position: absolute;
-  top: 40%;
+  top: 50%;
   width: auto;
   padding: 16px;
   margin-top: -50px;
+  background-color: #ffffff;
   color: black;
   font-weight: bold;
   font-size: 20px;
@@ -71,13 +69,14 @@
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
+  right: 2px;
   border-radius: 3px 0 0 3px;
 }
-.pre{
+.prev {
   position: absolute;
-  left: 0;
+  left: 30%;
   border-radius: 3px 0 0 3px;
+  z-index: 1;
 }
 
 /* On hover, add a black background color with a little bit see-through */
@@ -102,7 +101,7 @@
   padding: 2px 16px;
   color: white;
 }
-.row{
+.row {
   position: absolute;
   top: 0;
   left: 0;
@@ -111,7 +110,6 @@
   align-items: center;
   width: 25%;
   height: 100%;
-  background-color: blue;
   margin-right: 5px;
 }
 
@@ -136,11 +134,65 @@
 .active,
 .demo:hover {
   opacity: 1;
+  border: 2px solid black;
+  padding: 1px;
+  border-radius: 5px;
 }
 
 /* TEH right SIDE */
-.right{
+.right {
   width: 50%;
-  background-color: blue;
   height: 500px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .row {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-right: 5px;
+  }
+  /* all slide images */
+  .images {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .next {
+    top: 40%;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  .prev {
+    top: 40%;
+    position: absolute;
+    left: 0;
+    border-radius: 3px 0 0 3px;
+    z-index: 1;
+  }
+  .demo{
+    margin: 2px;
+  }
 }

@@ -19,36 +19,30 @@ individualcard.innerHTML = `
  <div class="images">
   <!-- Full-width images with number text -->
   <div class="mySlides">
-    <div class="numbertext">1 / 6</div>
       <img class="slideImage" src="https://www.w3schools.com/howto/img_woods_wide.jpg" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">2 / 6</div>
       <img class="slideImage" src="https://www.w3schools.com/howto/img_5terre_wide.jpg" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">3 / 6</div>
       <img class="slideImage" src="https://www.w3schools.com/howto/img_mountains_wide.jpg" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">4 / 6</div>
       <img class="slideImage" src="https://www.w3schools.com/howto/img_lights_wide.jpg" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">5 / 6</div>
       <img class="slideImage" src="https://www.w3schools.com/howto/img_nature_wide.jpg" style="width:100%">
   </div>
 
   <div class="mySlides">
-    <div class="numbertext">6 / 6</div>
       <img class="slideImage" src="https://www.w3schools.com/howto/img_snow_wide.jpg" style="width:100%">
   </div>
- 
   </div>
+
   <!-- Next and previous buttons -->
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
   <a class="next" onclick="plusSlides(1)">&#10095;</a>
