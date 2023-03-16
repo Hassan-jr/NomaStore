@@ -71,6 +71,7 @@
     background-color: rgba(15, 19, 107, 0.603); /* sets background color of line break to black */
     margin: 0 1px; /* adds margin to top and bottom of line break */
   }
+  
   @media screen and (max-width: 768px) {
     .shopping-card {
         width: 45%;

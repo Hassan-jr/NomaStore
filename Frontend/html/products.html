@@ -26,16 +26,18 @@
   </div>
   <div id="script"></div>
   <script>
-    let productID
-    function myFunction(id){
-      console.log("Got called by: ", id);
-      sessionStorage.clear();
-      window.sessionStorage.setItem('ProductID', id)
+
+
+    function handleCardClick(event) {
+      const productId = event.currentTarget.id;
+      const currentUrl = window.location.href;
+      const newUrl = `${currentUrl.split('/').slice(0, -1).join('/')}/individualCard.html?id=${productId}`;
+      window.location.href = newUrl;
     }
-   
-    </script>
+
+  </script>
   <script type="module" src="../js/products.js"></script>
-  <script  src="../js/nav.js"></script>
+  <script src="../js/nav.js"></script>
 </body>
 
 </html>
