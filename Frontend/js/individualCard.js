@@ -3,14 +3,13 @@ import { data2 } from "./data2.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
-console.log("finalyy", id);
+
 
 // get the individualcard div
 const individualcard = document.getElementById("individualCard");
 
 async function getData() {
   let cardData = await data2.find((item) => item._id == id);
-  console.log("THE DATA", cardData);
 
   if (cardData) {
     individualcard.innerHTML = `
@@ -19,14 +18,15 @@ async function getData() {
    <div class="container">
    
    <!-- all images -->
-    <div class="images">
+    <div class="images ">
      ${cardData.images
        .map(
          (imgitem) =>
            ` 
-     <div class="mySlides">
-       <img class="slideImage " src=${imgitem} style="width:100%">
-     </div>
+          <div class=" mySlides  ">
+           <img id="myimage " class="slideImage " src=${imgitem} style="width:100%" alt="test" >
+           <div id="myresult" class="img-zoom-result"></div>
+         </div>
      `
        )
        .join("")}
@@ -57,21 +57,20 @@ async function getData() {
    <div class="right">
      <p class="lightColor" >Shop> ${cardData.seller} > <span class="bold">${cardData.brand}</span> </p>
      <p class="inStock">IN STOCK</p>
-     <h1>Hassan's Chair</h1>
-     <h3 class="price">$ 80.26</h3>
-     <p class="lightColor">Supplement Right Metatarsal-Tarsal Joint with Nonautologous Tissue Substitute, Open Approach Supplement Right Metatarsal-Tarsal Joint with Nonautologous Tissue Substitute, Open Approach</p>
+     <h1>${cardData.title}</h1>
+     <h3 id="price" class="price">$ 80.26</h3>
+     <p class="lightColor">${cardData.description}</p>
      <div>
-     <span class="bold">Category: <span class="lightColor">Chair</span></span>
+     <span class="bold">Category: <span class="lightColor">${cardData.category}</span></span>
      </div>
      <hr/>
      <!-- ************ COUNTER ********** -->
-     <span>
-     <span class="bold">QTY</span> <span class="counter">
-       <span class="down" onClick='decreaseCount(event, this)'>-</span>
-       <input id="qty" type="text" value="1">
-       <span class="up" onClick='increaseCount(event, this)'>+</span>
-   </span>
-   </span>
+    <div class="quantity-counter">
+     <button class="counter-button decrease" onclick="decrease()">-</button>
+     <span class="quantity">1</span>
+     <button class="counter-button increase" onclick="increase()">+</button>
+    </div>
+   
   <!-- ************************ buttons ****************** -->
   <div class="buttons">
      <button class="btn">Buy</button>
@@ -85,3 +84,9 @@ async function getData() {
 }
 
 getData()
+
+{/* <div class="mySlides">
+       <img class="slideImage " src=${imgitem} style="width:100%">
+     </div> */}
+// image animation
+

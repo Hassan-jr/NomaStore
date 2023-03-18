@@ -3,7 +3,7 @@ const data2 = [
     _id: "628c9b02c5f0f6420a0f1912",
     category: ' "phones"',
     title:
-      "Net10 Motorola Moto e 4G LTE Prepaid Smartphone (Locked) - Midnight Blue - 32GB - Sim Card Included - CDMA",
+      "Net10 Motorola Moto e 4G LTE Prepaid Smartphone ",
     price: 57.24,
     rating: "4.4 ",
     reviews: 62,
@@ -30,7 +30,7 @@ const data2 = [
     _id: "628c9b02c5f0f6420a0f1913",
     category: ' "phones"',
     title:
-      'TCL A30 Unlocked Smartphone with 5.5" HD+ Display, 8MP Rear Camera, 32GB+3GB RAM, 3000mAh Battery, Android 11, Prime Black',
+      'TCL A30 Unlocked Smartphone with 5.5" HD+ Display',
     price: 99.99,
     rating: "4.1 ",
     reviews: 49,
@@ -63,7 +63,7 @@ const data2 = [
     _id: "628c9b02c5f0f6420a0f1914",
     category: ' "phones"',
     title:
-      "Samsung Galaxy A52 5G, Factory Unlocked Smartphone, Android Cell Phone, Water Resistant, 64MP Camera, US Version, 128GB, Black",
+      "Samsung Galaxy A52 5G",
     price: 409.99,
     rating: "4.5 ",
     reviews: 1678,
@@ -108,7 +108,7 @@ const data2 = [
     _id: "628c9b02c5f0f6420a0f1915",
     category: ' "phones"',
     title:
-      "SAMSUNG Electronics Galaxy Z Flip 3 5G Factory Unlocked Android Cell Phone US Version Smartphone Flex Mode Intuitive Camera Compact 256GB Storage US Warranty, Phantom Black",
+      "SAMSUNG Electronics Galaxy Z Flip 3 5G ",
     price: 1010,
     rating: "4.5 ",
     reviews: 196,
@@ -217,7 +217,7 @@ const data2 = [
   {
     _id: "628c9b02c5f0f6420a0f1916",
     category: ' "phones"',
-    title: "Fender Audio - Tour - True Wireless in-Ear Headphones (Black)",
+    title: "True Wireless in-Ear Headphones ",
     price: 179.99,
     rating: "3.3 ",
     reviews: 7,
@@ -252,7 +252,7 @@ const data2 = [
     _id: "628c9b02c5f0f6420a0f1917",
     category: ' "phones"',
     title:
-      "AT&T BL102-4 DECT 6.0 4-Handset Cordless Phone for Home with Answering Machine, Call Blocking, Caller ID Announcer, Audio Assist, Intercom, and Unsurpassed Range, Silver/Black",
+      "AT&T BL102-4 DECT 6.0 4-Handset Cordless Phone",
     price: 94.17,
     rating: "4.3 ",
     reviews: 13221,
@@ -375,7 +375,7 @@ const data2 = [
     _id: "628c9b02c5f0f6420a0f1918",
     category: ' "phones"',
     title:
-      "TracFone Blu View 2 4G LTE Prepaid Smartphone (Locked) - Black - 32GB - Sim Card Included - CDMA",
+      "TracFone Blu View 2 4G LTE Prepaid Smartphone",
     price: 28.98,
     rating: "4.1 ",
     reviews: 637,

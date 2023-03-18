@@ -7,3 +7,12 @@
     gap: 10px;
     margin-top: 20px;
 }
+
+
+.rating .fa{
+    color: #ff523b;
+}
+
+.col-4:hover{
+    transform: translateY(-5px);
+}

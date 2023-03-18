@@ -2,8 +2,9 @@ body{
     background-color: #ffffff;
 }
 .top{
-    background: rgb(138,237,246);
-    background: linear-gradient(90deg, rgba(138,237,246,1) 0%, rgba(138,237,246,1) 25%, rgba(96,162,245,1) 59%);
+    /* background: rgb(138,237,246);
+    background: linear-gradient(90deg, rgba(138,237,246,1) 0%, rgba(138,237,246,1) 25%, rgba(96,162,245,1) 59%); */
+    background-color: #EDF2F8;
     /* background-color: #E8F3D6; */
     height: auto;
 }

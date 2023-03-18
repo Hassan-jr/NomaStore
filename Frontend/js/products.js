@@ -11,6 +11,9 @@ let id = 0
 
 // fuction to generate the html product card
 function generateProductCard(product) {
+
+ 
+
   return `
     <div class="shopping-card" id=${product._id} onclick="handleCardClick(event)">
       <a href="#" class="card" >

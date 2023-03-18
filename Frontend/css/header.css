@@ -25,7 +25,11 @@ body{
 }
 .header_desc{
     line-height: 5px;
+    color: #747E8F;
    
+}
+.blue{
+    color: #313BAC;
 }
 .btn{
     padding-top: 40px;
@@ -39,17 +43,18 @@ body{
    padding-top: 10px;
    margin-right: 40px;
     outline: none;
-    color: #ffffff;
-    background-color: rgb(58, 86, 179);
+    color: #313BAC;
+    background-color: #ff523b;
     padding: 5px;
     /* border-radius: 10px; */
     border: none;
     font-size: 24px;
     font-weight: bold;
+    border-radius: 10px;
 }
 .header_btn:hover{
-    background-color: #ffffffdc;
-    color: rgb(58, 86, 179);;
+    background-color: #313BAC;
+    color: #ff523b;
 }
 .header_images{
     display: flex;

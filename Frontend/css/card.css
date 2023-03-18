@@ -3,10 +3,11 @@
     color: #000000;
 }
 .shopping-card {
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     box-shadow: 0px 3px 3px #eee;
-    width: 300px;
+    width: 18%;
     border-radius: 20px;
+    background-color: red;
     /* background: red;  */
   }
   .shopping-card:hover {
@@ -18,9 +19,9 @@
     border-radius: 20px;
     margin-top: 0;
     background-color: blue;
-    width: 300px;
+    width: 100%;
     height: 250px;
-    /* object-fit: contain; */
+    object-fit: contain;
   }
   
   .product-details {
