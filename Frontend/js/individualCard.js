@@ -8,8 +8,8 @@ const id = urlParams.get("id");
 // get the individualcard div
 const individualcard = document.getElementById("individualCard");
 
-async function getData() {
-  let cardData = await data2.find((item) => item._id == id);
+function getData() {
+  let cardData =  data2.find((item) => item._id == id);
 
   if (cardData) {
     individualcard.innerHTML = `
@@ -23,9 +23,9 @@ async function getData() {
        .map(
          (imgitem) =>
            ` 
-          <div class=" mySlides  ">
-           <img id="myimage " class="slideImage " src=${imgitem} style="width:100%" alt="test" >
-           <div id="myresult" class="img-zoom-result"></div>
+           <div class="img-zoom-container mySlides">
+            <img id="myimage" src=${imgitem} class="slideImage"  width="100%"   alt="Girl">
+           <!--  <div id="myresult" class="img-zoom-result"></div> -->
          </div>
      `
        )
@@ -74,7 +74,7 @@ async function getData() {
   <!-- ************************ buttons ****************** -->
   <div class="buttons">
      <button class="btn">Buy</button>
-     <button class="btn">Add to Cart</button>
+     <button id="cart-id" class="btn" >Add to Cart</button>
   </div>
    </div>
    </div>
@@ -84,9 +84,89 @@ async function getData() {
 }
 
 getData()
+// SAVE ID FOOR CART
+const btn = document.getElementById("cart-id")
+btn.addEventListener("click", function() {
+  console.log("got clicked");
+  // Get existing IDs from local storage (if any)
+  let existingIds = JSON.parse(localStorage.getItem('myIds') || '[]');
+
+  // Check if ID is already in the array
+  if (existingIds.includes(id)) {
+    console.log('ID already exists in array');
+    return;
+  }
+
+  // Add the new ID to the array
+  existingIds.push(id);
+
+  // Save the updated array to local storage
+  localStorage.setItem('myIds', JSON.stringify(existingIds));
+}
+)
 
 {/* <div class="mySlides">
        <img class="slideImage " src=${imgitem} style="width:100%">
      </div> */}
 // image animation
+
+function imageZoom(imgID, resultID) {
+  var img, lens, result, cx, cy;
+  img = document.getElementById(imgID);
+  result = document.getElementById(resultID);
+  /*create lens:*/
+  lens = document.createElement("DIV");
+  lens.setAttribute("class", "img-zoom-lens");
+  /*insert lens:*/
+  img.parentElement.insertBefore(lens, img);
+  /*calculate the ratio between result DIV and lens:*/
+  cx = result.offsetWidth / lens.offsetWidth;
+  cy = result.offsetHeight / lens.offsetHeight;
+  /*set background properties for the result DIV:*/
+  result.style.backgroundImage = "url('" + img.src + "')";
+  result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+  /*execute a function when someone moves the cursor over the image, or the lens:*/
+  lens.addEventListener("mousemove", moveLens);
+  img.addEventListener("mousemove", moveLens);
+  /*and also for touch screens:*/
+  lens.addEventListener("touchmove", moveLens);
+  img.addEventListener("touchmove", moveLens);
+  function moveLens(e) {
+    var pos, x, y;
+    /*prevent any other actions that may occur when moving over the image:*/
+    e.preventDefault();
+    /*get the cursor's x and y positions:*/
+    pos = getCursorPos(e);
+    /*calculate the position of the lens:*/
+    x = pos.x - (lens.offsetWidth / 2);
+    y = pos.y - (lens.offsetHeight / 2);
+    /*prevent the lens from being positioned outside the image:*/
+    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+    if (x < 0) {x = 0;}
+    if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+    if (y < 0) {y = 0;}
+    /*set the position of the lens:*/
+    lens.style.left = x + "px";
+    lens.style.top = y + "px";
+    /*display what the lens "sees":*/
+    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+// slider giving error
+window.onload = function() {
+  // imageZoom("myimage", "myresult");
+};
 

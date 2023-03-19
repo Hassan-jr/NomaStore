@@ -75,8 +75,13 @@ th:last-child{
 .btn:hover{
     background: #563434;
 }
-
-@media only screen and (max-width: 600px){
+.cart-info{
+}
+.cart-title{
+    width: 350px;
+   font-size: small;
+}
+@media only screen and (max-width: 768px){
     .cart-info p{
         display: none;
     }
