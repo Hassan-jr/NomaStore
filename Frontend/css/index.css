@@ -8,3 +8,43 @@ body{
     /* background-color: #E8F3D6; */
     height: auto;
 }
+
+.seller_products{
+    background-color: #ffffff;
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.text{
+    text-align: center;
+}
+
+.text p {
+    color: #747E8F;
+}
+
+.index-card{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 200px;
+}
+.imgdiv{
+    width: 100%;
+    background-color: #EDF2F8;
+    border-radius: 10px;
+}
+.img{
+    width: 90%;
+    margin: 10px;
+    height: 250px;
+    object-fit: contain;
+
+}
+.img-title{
+    color: #747E8F;
+}
+.img-price{
+    font-weight: bold;
+}

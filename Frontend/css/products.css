@@ -4,82 +4,78 @@
     flex-wrap: nowrap;
 }
 .product-cards{
-    width: 80%;
+    width: 85%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    background-color: red;
+    background-color: #FFFFFF;
 }
 
 /* ff523b */
-.sidebar {
-    position: absolute;
-    top: 0;
-    left: -250px;
-    bottom: 0;
-    width: 250px;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    transition: left 0.3s ease-in-out;
-  }
-  
-  .sidebar.open {
-    left: 0;
-  }
-  
-  .sidebar-toggle {
-    display: none;
-  }
-  
-  .sidebar-menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .sidebar-menu li {
-    margin-bottom: 10px;
-  }
-  
-  .sidebar-menu a {
-    display: block;
-    padding: 10px;
-    color: #fff;
+.sidenav{
+    width: 20%;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #EDF2F8;
+}
+
+.sidebar{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 10px;
+
+    
+}
+.sidebar a{
     text-decoration: none;
-  }
-  
-  .sidebar-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .sidebar-menu ul li {
-    margin-bottom: 5px;
-  }
-  
-  .sidebar-menu ul a {
-    padding: 5px 10px;
-    color: #ccc;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .sidebar {
-      left: -100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: #ff523b;
+    
+}
+.sidebar a:hover{
+    background-color: #ff523b;
+    color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+    .sidenav{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        
     }
-  
-    .sidebar-toggle {
-        background-color: green;
-      display: block;
-      margin-bottom: 20px;
+    .products_page{
+        display: flex;
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
     }
-  
-    .sidebar.open {
-      left: 0;
+    .product-cards{
+        width: 100%;
     }
-  }
-  
+    .sidebar{
+        box-shadow:  23px 23px 44px #a4a7ab,
+             -23px -23px 44px #ffffff;
+        width: auto;
+        height: 80px;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        overflow-x: scroll;
+        padding: 10px 0;
+        white-space: nowrap;
+    }
+    .sidebar a{
+        text-decoration: none;
+        margin-left: 20px;
+    }
+}

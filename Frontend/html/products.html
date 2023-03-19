@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="../css/products.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,51 +21,33 @@
     <!-- Nav Bar -->
     <div id="nav"></div>
     <!-- products -->
-     <div class="products_page">
+    <div class="products_page">
       <!-- PRODUCTS ITEMS -->
       <div id="product-cards" class="product-cards">
+      </div>
+
+      <!-- nav -->
+      <div class="sidenav">
+        <!-- First section -->
+        <h3>Categories</h3>
+        <div class="sidebar">
+          <a class="active" href="#home">Home</a>
+          <a href="#news">News</a>
+          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a class="active" href="#home">Home2</a>
+          <a href="#news">News2</a>
+          <a href="#contact">Contact2</a>
+          <a href="#about">About2</a>
+        </div>
+
 
       </div>
-      <!-- Side nav -->
-        
-      <div class="sidebar">
-        <button class="sidebar-toggle">Toggle Menu</button>
-        <ul class="sidebar-menu">
-          <li>
-            <a href="#">Link 1</a>
-            <ul>
-              <li><a href="#">Sublink 1</a></li>
-              <li><a href="#">Sublink 2</a></li>
-              <li><a href="#">Sublink 3</a></li>
-              <li><a href="#">Sublink 4</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Link 2</a>
-            <ul>
-              <li><a href="#">Sublink 1</a></li>
-              <li><a href="#">Sublink 2</a></li>
-              <li><a href="#">Sublink 3</a></li>
-              <li><a href="#">Sublink 4</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">Link 3</a>
-            <ul>
-              <li><a href="#">Sublink 1</a></li>
-              <li><a href="#">Sublink 2</a></li>
-              <li><a href="#">Sublink 3</a></li>
-              <li><a href="#">Sublink 4</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      
-          
-          
-       
-     </div>
+     
+    </div>
+   
     
+
 
 
 
@@ -73,7 +55,13 @@
   </div>
   <div id="script"></div>
   <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
 
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
 
     function handleCardClick(event) {
       const productId = event.currentTarget.id;

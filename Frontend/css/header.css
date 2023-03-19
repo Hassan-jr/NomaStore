@@ -43,7 +43,7 @@ body{
    padding-top: 10px;
    margin-right: 40px;
     outline: none;
-    color: #313BAC;
+    color: #ffffff;
     background-color: #ff523b;
     padding: 5px;
     /* border-radius: 10px; */
@@ -51,10 +51,12 @@ body{
     font-size: 24px;
     font-weight: bold;
     border-radius: 10px;
+    box-shadow:  5px 5px 35px #bbbfc4,
+             -5px -5px 35px #ffffff;
 }
 .header_btn:hover{
-    background-color: #313BAC;
-    color: #ff523b;
+    background-color: #ff523baf;
+    color: #ffffff;
 }
 .header_images{
     display: flex;
