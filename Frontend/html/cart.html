@@ -17,8 +17,8 @@
     <div id="nav"></div>
     <!--------------Cart Items details--------------->
     <div class="small-container cart-page">
-         <!-- cart table -->
-        <table  id="table" class="tabe">
+        <!-- cart table -->
+        <table id="table" class="tabe">
         </table>
 
         <div class="total-price">
@@ -59,11 +59,30 @@
                 MenuItems.style.maxHeight = "0px"
             }
         }
+        function removeItem(event) {
+            const id = event.currentTarget.id;
+            console.log("deleting item with id", id);
+            // Get existing IDs from local storage (if any)
+            let existingIds = JSON.parse(localStorage.getItem('myIds') || '[]');
+
+            // Find the index of the item with the given ID
+            let index = existingIds.indexOf(id);
+
+            // If the item exists, remove it from the array
+            if (index !== -1) {
+                existingIds.splice(index, 1);
+                // Save the updated array to local storage
+                localStorage.setItem('myIds', JSON.stringify(existingIds));
+                console.log('Item removed successfully');
+            } else {
+                console.log('Item with ID', id, 'not found');
+            }
+        }
     </script>
 
 
-  <script src="../js/nav.js"></script>
-  <script type="module" src="../js/cart.js"></script>
+    <script src="../js/nav.js"></script>
+    <script type="module" src="../js/cart.js"></script>
 </body>
 
 </html>

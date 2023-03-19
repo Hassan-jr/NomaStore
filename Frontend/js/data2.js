@@ -28,7 +28,7 @@ const data2 = [
   },
   {
     _id: "628c9b02c5f0f6420a0f1913",
-    category: ' "phones"',
+    category: ' "Laptops"',
     title:
       'TCL A30 Unlocked Smartphone with 5.5" HD+ Display',
     price: 99.99,
@@ -61,7 +61,7 @@ const data2 = [
   },
   {
     _id: "628c9b02c5f0f6420a0f1914",
-    category: ' "phones"',
+    category: ' "Shoes"',
     title:
       "Samsung Galaxy A52 5G",
     price: 409.99,
@@ -216,7 +216,7 @@ const data2 = [
   },
   {
     _id: "628c9b02c5f0f6420a0f1916",
-    category: ' "phones"',
+    category: ' "Mens Wear"',
     title: "True Wireless in-Ear Headphones ",
     price: 179.99,
     rating: "3.3 ",
@@ -373,7 +373,7 @@ const data2 = [
   },
   {
     _id: "628c9b02c5f0f6420a0f1918",
-    category: ' "phones"',
+    category: ' "Shoes"',
     title:
       "TracFone Blu View 2 4G LTE Prepaid Smartphone",
     price: 28.98,
@@ -567,7 +567,7 @@ const data2 = [
   },
   {
     _id: "628c9b02c5f0f6420a0f191b",
-    category: ' "phones"',
+    category: ' "Mens Wear"',
     title: "Samsung Galaxy S10+, 128GB, Prism White - Unlocked (Renewed)",
     price: 299,
     rating: "4.4 ",
@@ -626,7 +626,7 @@ const data2 = [
     price: 166.7,
     rating: "4.5 ",
     reviews: 6600,
-    seller: "Panasonic",
+    seller: "Laptop",
     images: [
       "https://m.media-amazon.com/images/I/41BU9O+DyfL._SL1500_.jpg",
       "https://m.media-amazon.com/images/I/413oLU0EPlS._SL1500_.jpg",

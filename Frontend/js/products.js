@@ -20,7 +20,7 @@ function generateProductCard(product) {
         <img src="${product.images[0]}" alt="Product Image" class="product-image" >
         <div class="product-details">
           <p class="store-name">Sold by: <span class="store_name2">${product.seller}</span></p>
-          <p >${product.title}</p>
+          <p class="product-title" >${product.title}</p>
          <!-- <p class="card_dec">${product.description}</p> -->
           <div class="line-break"></div>
           <div class="price_ratings">
@@ -73,14 +73,31 @@ generateProductCards();
 
 
 
-console.log(id);
+function getCategories(data) {
+  const categoriesSet = new Set();
+  data.forEach(item => categoriesSet.add(item.category));
+  return Array.from(categoriesSet);
+}
+
+
+const categories = getCategories(data2)
+console.log("categories", categories);
 
 
 
+function generateSideNav(item){
+  return` <a  href="#home">${item.replace(/"/g, '')}</a>`
+}
 
-const toggleButton = document.querySelector('.sidebar-toggle');
-const sidebar = document.querySelector('.sidebar');
+// LOOP categories to generate side nav
+function generateCategoriesLinks() {
+  const linksContainer = document.getElementById('sidebar')
+  let links = `<a  href="#home">All Products</a>`; // collects the html card to be displayed
+ 
+  for (const link of categories) {
+    links += generateSideNav(link);
+  }
+  linksContainer.innerHTML = links;
+}
 
-toggleButton.addEventListener('click', () => {
-  sidebar.classList.toggle('open');
-});
+generateCategoriesLinks();

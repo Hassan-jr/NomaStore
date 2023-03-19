@@ -96,10 +96,8 @@ btn.addEventListener("click", function() {
     console.log('ID already exists in array');
     return;
   }
-
   // Add the new ID to the array
   existingIds.push(id);
-
   // Save the updated array to local storage
   localStorage.setItem('myIds', JSON.stringify(existingIds));
 }

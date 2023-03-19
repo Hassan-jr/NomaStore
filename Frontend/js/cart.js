@@ -25,7 +25,7 @@ function generateCart(item){
                         <div>
                             <p class="cart-title">${item.title}</p>
                             <small>Price: $ ${item.price}</small><br>
-                            <a href="">Remove</a>
+                            <a href="" id=${item._id}  onclick="removeItem(event)">Remove</a>
                         </div>
                     </div>
                 </td>

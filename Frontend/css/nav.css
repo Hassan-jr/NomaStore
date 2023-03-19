@@ -1,7 +1,17 @@
 * {
   box-sizing: border-box;
 }
-
+/* cartitems in the nav */
+.cartItems{
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: -50px;
+  background-color: #ff523b;
+  color: #F2F5FA;
+  border-radius: 100%;
+}
 body {
   height: 60px;
   margin: 0;

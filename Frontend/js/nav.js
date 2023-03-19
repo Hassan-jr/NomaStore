@@ -1,3 +1,5 @@
+let cartItems = JSON.parse(localStorage.getItem('myIds') || '[]');
+
 
 function get_nav(){
   return ` 
@@ -16,7 +18,7 @@ function get_nav(){
       <a href="mystore.html">My Store</a>
       <a href="signIn.html">Sign In</a>
       <a href="signUp.html">Sign Up</a>
-      <a href="cart.html">Cart</a>
+      <a href="cart.html">Cart<span class="cartItems">${cartItems.length}</span></a>
       <a href="about.html">About Us</a>
       <a href="privacy.html">Privacy Policy</a>
     </div>
