@@ -25,7 +25,7 @@ function generateProductCard(product) {
           <div class="line-break"></div>
           <div class="price_ratings">
             <div>
-              <h3>$ ${product.price}</h3>
+              <h4>$ ${product.price}</h4>
             </div>
             <div class="product-rating">
                ${
@@ -76,3 +76,11 @@ generateProductCards();
 console.log(id);
 
 
+
+
+const toggleButton = document.querySelector('.sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+
+toggleButton.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+});
