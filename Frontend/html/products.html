@@ -62,13 +62,18 @@
     function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
     }
-
+    // when you click the card this functins takes you to individual card 
     function handleCardClick(event) {
       const productId = event.currentTarget.id;
       const currentUrl = window.location.href;
       const newUrl = `${currentUrl.split('/').slice(0, -1).join('/')}/individualCard.html?id=${productId}`;
       window.location.href = newUrl;
     }
+  // Fitlter function
+  function filter(event){
+  const Category = event.currentTarget.id
+  console.log("Category is ", Category);
+}
   </script>
   <script type="module" src="../js/products.js"></script>
   <script src="../js/nav.js"></script>

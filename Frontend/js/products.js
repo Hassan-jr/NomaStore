@@ -73,32 +73,30 @@ function generateProductCards() {
 generateProductCards();
 
 
-
+// Get CATEGORIES FROM DATA
 function getCategories(data) {
   const categoriesSet = new Set();
   data.forEach(item => categoriesSet.add(item.category));
   return Array.from(categoriesSet);
 }
 
-
 const categories = getCategories(data2)
-console.log("categories", categories);
 
-
-
+// generate side nav links
 function generateSideNav(item){
-  return` <a  href="#home">${item.replace(/"/g, '')}</a>`
+  return` <a id=${item.replace(/"/g, '')} onClick=filter(event) href="#home">${item.replace(/"/g, '')}</a>`
 }
 
 // LOOP categories to generate side nav
 function generateCategoriesLinks() {
   const linksContainer = document.getElementById('sidebar')
-  let links = `<a  href="#home">All Products</a>`; // collects the html card to be displayed
+  let links = `<a id="All" onClick=filter(event) href="#home">All Products</a>`; // collects the html card to be displayed
  
   for (const link of categories) {
     links += generateSideNav(link);
   }
   linksContainer.innerHTML = links;
 }
-
 generateCategoriesLinks();
+
+

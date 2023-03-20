@@ -29,8 +29,7 @@ body {
   height: 60px;
   padding: 0 20px;
   background-color: #c7ccd4;
-  box-shadow:  5px 5px 6px #656565,
-             -5px -5px 6px #ffffff;
+  
   }
 
 .navbar a {

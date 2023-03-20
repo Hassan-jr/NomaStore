@@ -126,24 +126,22 @@ body{
   }
 @media screen and (max-width: 768px) {
     .best-seller-cards{
+        width: auto;
         overflow-x: scroll;
-        width: 100%;
-        background-color: #EDF2F8;
-        margin-top: 10px;
+        background-color: #d7e5f5;
+        padding-top: 10px;
+        padding-left: 100px;
     }
     .index-card{
         width: 100%;
-        
     }
     .imgdiv{
         width: 100%;
         background-color: #EDF2F8;
         border-radius: 10px;
-        /* padding-right: 20px; */
     }
     .img{
         width: 200px;
-        /* margin: 10px; */
         height: auto;
         object-fit: contain;
     
