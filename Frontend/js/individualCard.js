@@ -1,6 +1,9 @@
 import { data } from "./data.js";
 import { data2 } from "./data2.js";
 
+
+
+
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 

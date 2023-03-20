@@ -1,14 +1,14 @@
 body{
     background-color: #ffffff;
+    margin-top: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 .top{
-    /* background: rgb(138,237,246);
-    background: linear-gradient(90deg, rgba(138,237,246,1) 0%, rgba(138,237,246,1) 25%, rgba(96,162,245,1) 59%); */
     background-color: #EDF2F8;
-    /* background-color: #E8F3D6; */
     height: auto;
 }
-
+/* *****************************************Best Seller Products************************* */
 .seller_products{
     background-color: #ffffff;
     width: 100%;
@@ -23,7 +23,17 @@ body{
 .text p {
     color: #747E8F;
 }
-
+.best-seller-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
 .index-card{
     display: flex;
     flex-direction: column;
@@ -42,9 +52,106 @@ body{
     object-fit: contain;
 
 }
+.card-text{
+    line-height: 1px;
+}
 .img-title{
     color: #747E8F;
 }
 .img-price{
     font-weight: bold;
+}
+.material-icons{
+    margin-top: 0;
+    color: #ff523b;
+}
+
+/* *********************************** BANNER **********************************************************/
+.banner{
+    margin-top: 70px;
+    width: 95%;
+    height: auto;
+    background-color: #f02d35;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    border-radius: 10px;
+}
+.banner-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    padding-left: 30px;
+}
+.banner-imag-tag{
+    margin-top: -80px;
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+.banner-left{
+    color: #ffffff;
+}
+.banner-left h1{
+    font-size:xx-large;
+     line-height: 10px; 
+}
+.banner-left p{
+    font-size: small;
+    
+}
+.banner-right{
+    color: #ffffff;
+    line-height: 10px;
+}
+.banner-right p {
+    color: #EDF2F8;
+    font-size: small;
+}
+.btn-banner{
+    padding: 10px 30px;
+    color: #f02d35;
+    font-weight: bold;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .best-seller-cards{
+        overflow-x: scroll;
+    }
+    .imgdiv{
+        width: 200px;
+        background-color: #EDF2F8;
+        border-radius: 10px;
+        padding-right: 20px;
+    }
+    .img{
+        width: 100%;
+        margin: 10px;
+        height: auto;
+        object-fit: contain;
+    
+    }
+    /* banner */
+    .banner{
+        position: relative;
+    }
+    .banner-imag-tag{
+        position: absolute;
+        right:  -20px;
+        top: 0px;
+        transform: rotate(40deg);
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+    }
+    .banner-right{
+        line-height: normal;
+        margin-left: 20px;
+    }
 }

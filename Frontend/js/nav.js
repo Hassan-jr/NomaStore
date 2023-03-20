@@ -1,7 +1,8 @@
-let cartItems = JSON.parse(localStorage.getItem('myIds') || '[]');
+
 
 
 function get_nav(){
+  let cartItems = JSON.parse(localStorage.getItem('myIds') || '[]');
   return ` 
   <div class="navbody">
   <nav class="navbar">
@@ -42,7 +43,6 @@ const navLinks = document.querySelector(".nav-links");
 navToggle.addEventListener("click", () => {
   navLinks.classList.toggle("toggle_nav");
 });
-
 
 
   

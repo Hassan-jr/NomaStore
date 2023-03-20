@@ -53,19 +53,20 @@ function generateCartCards() {
   
   generateCartCards();
 
-//   update total
+//   update Subtotal
 const total = document.getElementById("total")
 let   totalprice = 0
 cartData.map(item=>{
-    totalprice += parseInt( item.price)
-    return parseInt(totalprice)
+    totalprice += parseFloat( item.price)
+    return parseFloat(totalprice)
 })
-total.innerText =` $ ${totalprice} `
+total.innerText =` $ ${totalprice.toFixed(2)} `
 
 // tax 
 const tax = document.getElementById("tax")
-tax.innerText = ` $ ${0.15 * totalprice}`
+tax.innerText = ` $ ${(0.15 * totalprice).toFixed(2)}`
 
 // total
 const finalTotal = document.getElementById("finalPrice")
-finalPrice.innerText =` $ ${totalprice - (0.15 * totalprice)}`
+finalPrice.innerText =` $ ${(totalprice - (0.15 * totalprice)).toFixed(2)}`
+

@@ -1,6 +1,7 @@
 import { data } from "./data.js";
 import {data2} from './data2.js'
 
+
 // variables for ratting functionalities
 let rattings_2
 let options
