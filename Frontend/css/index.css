@@ -1,5 +1,6 @@
 body{
-    background-color: #ffffff;
+    /* #EDF2F8 */
+    background-color: #EDF2F8;
     margin-top: 0;
     padding: 0;
     overflow-x: hidden;
@@ -10,7 +11,7 @@ body{
 }
 /* *****************************************Best Seller Products************************* */
 .seller_products{
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     width: 100%;
     height: auto;
     margin-top: 50px;
@@ -48,7 +49,7 @@ body{
 .img{
     width: 90%;
     margin: 10px;
-    height: 250px;
+    height: 100%;
     object-fit: contain;
 
 }
@@ -119,20 +120,30 @@ body{
     border-radius: 8px;
     margin-bottom: 10px;
 }
-
+/* REMOVE SCROLL BAR */
+::-webkit-scrollbar {
+    display: none;
+  }
 @media screen and (max-width: 768px) {
     .best-seller-cards{
         overflow-x: scroll;
+        width: 100%;
+        background-color: #EDF2F8;
+        margin-top: 10px;
+    }
+    .index-card{
+        width: 100%;
+        
     }
     .imgdiv{
-        width: 200px;
+        width: 100%;
         background-color: #EDF2F8;
         border-radius: 10px;
-        padding-right: 20px;
+        /* padding-right: 20px; */
     }
     .img{
-        width: 100%;
-        margin: 10px;
+        width: 200px;
+        /* margin: 10px; */
         height: auto;
         object-fit: contain;
     

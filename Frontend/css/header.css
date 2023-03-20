@@ -1,14 +1,13 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #d3d9e0;
   }
     
 .header{
-    /* margin-top: -18px; */
     padding-top: 10px;
     height: auto;
     width: 100%;
-    /* background-color: red; */
     padding-left: 10px;
     display: flex;
     flex-direction: row;
@@ -25,8 +24,7 @@ body{
 }
 .header_desc{
     line-height: 5px;
-    color: #747E8F;
-   
+    color: #747E8F; 
 }
 .blue{
     color: #313BAC;
@@ -89,6 +87,24 @@ body{
         padding-bottom: 5px;
     }
     .btn{
-        padding-top: 20px;
+        padding-top: 30px;
+    }
+    .header_img{
+        object-fit: contain;
+    }
+    .main_title{
+        line-height: normal;
+        padding-bottom: 0;
+    }
+    .main_title h1 {
+        margin-bottom: -10px;
+    }
+    .header_desc{
+        white-space: wrap;
+        line-height: normal;
+        color: #747E8F; 
+    }
+    .header_desc p {
+        margin-bottom: -10px;
     }
 }

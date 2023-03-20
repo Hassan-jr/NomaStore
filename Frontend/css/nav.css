@@ -25,12 +25,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #F7F9FF; */
+  /* background-color: #F2F5FA; */
   height: 60px;
   padding: 0 20px;
-  /* background: rgb(138,237,246);
-  background: linear-gradient(90deg, rgba(138,237,246,1) 0%, rgba(138,237,246,1) 25%, rgba(96,162,245,1) 59%); */
-  background-color: #F2F5FA;
+  background-color: #c7ccd4;
+  box-shadow:  5px 5px 6px #656565,
+             -5px -5px 6px #ffffff;
   }
 
 .navbar a {
