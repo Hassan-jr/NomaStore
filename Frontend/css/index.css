@@ -247,6 +247,8 @@ text-align: center;
         justify-content: flex-start;
         align-items: center;
         margin: 0;
+        margin-left: 10px;
+        margin-bottom: 10px;
     }
     .banner-2-title{
         margin: 0;
