@@ -249,6 +249,10 @@ text-align: center;
         margin: 0;
         margin-left: 10px;
         margin-bottom: 10px;
+        padding-left: 30px;
+    }
+    .banner-2-left{
+        margin-left: 20px;
     }
     .banner-2-title{
         margin: 0;
