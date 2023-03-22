@@ -67,7 +67,7 @@ body{
     color: #ff523b;
 }
 
-/* *********************************** BANNER **********************************************************/
+/* *********************************** BANNER 1 **********************************************************/
 .banner{
     margin-top: 70px;
     width: 95%;
@@ -124,6 +124,83 @@ body{
 ::-webkit-scrollbar {
     display: none;
   }
+
+  /* ******************************************************* BANNER 2 ************************************** */
+.banner-2{
+    width: 95%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px;
+    background-color: #dcdcdc;
+    border-radius: 8px;
+    
+}
+.banner-2-img-div{
+    position: absolute;
+    right: 200px;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    
+}
+.banner-2-img{
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    /* margin-top: -80px; */
+    margin-right: -20px;
+}
+.banner-2-left{
+    display: flex;
+    flex-direction: column;
+}
+.banner-2-left p, h3{
+    margin: 0;
+    margin-bottom: -5px;
+}
+.banner-2-left p{
+    font-size: x-small;
+}
+.banner-2-left h3{
+    font-weight: bolder;
+    margin-top: 10px;
+}
+.banner-2-title{
+    margin: 0;
+    font-size: 150px;
+    color: #ffffff;
+}
+.banner-2-left button{
+    width: 200px;
+    padding: 8px;
+    border: none;
+    background-color: #f02d35;
+    color: #ffffff;
+    border-radius: 8px;
+}
+button:hover{
+    cursor: pointer;
+}
+.banner-2-desc-title{
+text-align: center;
+}
+.banner-2-desc{
+    width: 200px;
+    text-align: right;
+    font-weight: lighter;
+    color:#747E8F;
+    margin-right: 20px;
+   
+}
+  /* ****************************************** RESPONSIVE ******************************** */
 @media screen and (max-width: 768px) {
     .best-seller-cards{
         width: auto;
@@ -146,7 +223,7 @@ body{
         object-fit: contain;
     
     }
-    /* banner */
+    /*************************** banner **************************/
     .banner{
         position: relative;
     }
@@ -162,5 +239,32 @@ body{
     .banner-right{
         line-height: normal;
         margin-left: 20px;
+    }
+    /* ****************************** Banner 2 *********************** */
+    .banner-2-title{
+        margin: 0;
+        font-size: 30px;
+        color: #ffffff;
+    }
+    .banner-2-img-div{
+        position: absolute;
+        left: -10px;
+        top: -30px;
+        margin: 0;
+        padding: 0;   
+    }
+    .banner-2-img{
+        width: 250px;
+        height: 250px;
+        object-fit: contain;
+        /* transform: rotate(90deg); */
+    }
+    .banner-2-desc{
+        width: 170px;
+        text-align: right;
+        font-weight: lighter;
+        color:#747E8F;
+        padding-right: 10px;
+       
     }
 }
