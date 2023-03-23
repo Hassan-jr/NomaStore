@@ -2,7 +2,7 @@ import {data2} from "./data2.js"
 // https://media.istockphoto.com/id/1195697777/photo/womens-sport-shoes-pair-of-sport-shoes-isolated-on-white-background.jpg?b=1&s=170667a&w=0&k=20&c=-SgTk6vs4plhivzC13bUuNsDIVtsN3B6s0-f6r3Sglo=
 
 const card = document.getElementById("best-seller-cards")
-for (let i = 0; i<4 ; i++){
+for (let i = 0; i<5 ; i++){
     card.innerHTML += `
     <div class="index-card">
       <div class="imgdiv">

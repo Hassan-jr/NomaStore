@@ -9,6 +9,48 @@ body{
     background-color: #EDF2F8;
     height: auto;
 }
+/* ***************************************** Features ******************************* */
+.features{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.features-header{
+    text-align: center;
+    color: #f02d35;
+}
+.features-desc{
+    color: #747E8F;
+    text-align: center;
+}
+.features .img {
+    position: relative;
+    width: 20%;
+    height: 250px;
+    margin: 10px;
+}
+.img img{
+    width: 100%;
+    height: 100%;
+}
+.f-hover{
+    display: none;
+}
+.features img:hover + .f-hover{
+    display: block;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f02d35;
+    color: #FFFFFF;
+    position: absolute;
+    bottom: 5px;
+}
 /* *****************************************Best Seller Products************************* */
 .seller_products{
     /* background-color: #ffffff; */
@@ -282,5 +324,18 @@ text-align: center;
         color:#747E8F;
         padding-right: 10px;
        
+    }
+    /* ******************************************** Features ********************** */
+    .features{
+        margin-bottom: 20px;
+    }
+    .features .img {
+        position: relative;
+        width: 30%;
+        height: 150px;
+        margin: 5px;
+    }
+    .f-hover{
+        font-size: small;
     }
 }
