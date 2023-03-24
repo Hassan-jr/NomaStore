@@ -87,8 +87,8 @@ body{
 }
 .imgdiv{
     width: 100%;
-    background-color: #EDF2F8;
     border-radius: 10px;
+    background-color: transparent;
 }
 .img{
     width: 90%;
@@ -224,7 +224,7 @@ body{
 }
 .banner-2-left button{
     width: 200px;
-    padding: 8px;
+    padding: 10px;
     border: none;
     background-color: #f02d35;
     color: #ffffff;
@@ -348,7 +348,7 @@ box-shadow:  5px 5px 10px #cccccc,
     }
     .imgdiv{
         width: 100%;
-        background-color: #EDF2F8;
+        background-color: transparent;
         border-radius: 10px;
     }
     .img{
@@ -384,6 +384,7 @@ box-shadow:  5px 5px 10px #cccccc,
         margin-left: 10px;
         margin-bottom: 10px;
         padding-left: 30px;
+        overflow-x: hidden;
     }
     .banner-2-left{
         margin-left: 20px;
@@ -395,8 +396,8 @@ box-shadow:  5px 5px 10px #cccccc,
     }
     .banner-2-img-div{
         position: absolute;
-        right: -35px;
-        top: -95px;
+        right: -10px;
+        top: -45px;
         margin: 0;
         padding: 0;   
     }
@@ -429,5 +430,25 @@ box-shadow:  5px 5px 10px #cccccc,
     }
     .f-hover{
         font-size: small;
+    }
+    /* ******************************************* newslatter ******************************** */
+    .newsletter{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+    .newsletter-text{
+        width: 100%;
+        text-align: center;
+    }
+    .newsletter-inputs{
+        width: 80%;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
     }
 }
