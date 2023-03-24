@@ -19,6 +19,7 @@ function get_nav(){
       <a href="mystore.html">My Store</a>
       <a href="signUp.html">Account</a>
       <a href="cart.html">Cart<span class="cartItems">${cartItems.length}</span></a>
+      <a href="dashboard.html">Dashboard</a>
       <a href="about.html">About Us</a>
       <a href="privacy.html">Privacy Policy</a>
     </div>
