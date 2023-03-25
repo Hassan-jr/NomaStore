@@ -1,8 +1,8 @@
 let menuicn = document.querySelector(".menuicn");
-let nav = document.querySelector(".navcontainer");
+let nav2 = document.querySelector(".navcontainer");
 
 menuicn.addEventListener("click",()=>
 {
-	nav.classList.toggle("navclose");
+	nav2.classList.toggle("navclose");
 })
 
