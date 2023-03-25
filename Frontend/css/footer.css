@@ -11,6 +11,7 @@
     color: #ffffff;
     position: absolute;
     bottom: 0;
+    padding-top: 20px;
 }
 .col{
     display: flex;

@@ -1,6 +1,7 @@
 
 
 
+
 function get_nav(){
   let cartItems = JSON.parse(localStorage.getItem('myIds') || '[]');
   return ` 
@@ -46,3 +47,6 @@ navToggle.addEventListener("click", () => {
 
 
   
+document.querySelector('.nav-toggle').addEventListener('click', function() {
+  document.querySelector('.nav-links').classList.toggle('active');
+});
