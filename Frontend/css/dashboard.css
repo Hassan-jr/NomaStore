@@ -1,7 +1,5 @@
 body {
-  background-color: var(--background-color4);
-  /* max-width: 100%;
-overflow-x: hidden; */
+  /* background-color: var(--background-color4); */
 }
 
 .icn {
@@ -10,7 +8,7 @@ overflow-x: hidden; */
   object-fit: contain;
   position: relative;
   left: -40px;
-  top: -40px;
+  top: -45px;
 }
 .menuicn {
   cursor: pointer;
@@ -77,7 +75,7 @@ overflow-x: hidden; */
   overflow-y: scroll;
   overflow-x: hidden;
   transition: all 0.5s ease-in-out;
-  background-color: #f02d35;
+  background-color: #D3D9E0;
 }
 .navcontainer::-webkit-scrollbar {
   display: none;
@@ -96,9 +94,18 @@ overflow-x: hidden; */
 }
 .nav-option:hover {
   border-left: 5px solid #a2a2a2;
-  background-color: #dadada;
+  background-color: #a2a2a2;
   cursor: pointer;
+  color: #fff;
 }
+.nav-option i {
+    font-size: 28px;
+    color: #313BAC;
+  }
+.nav-option h3 {
+      color: #313BAC;
+    }
+ 
 .nav-img {
   height: 30px;
 }
@@ -131,29 +138,21 @@ overflow-x: hidden; */
   justify-content: space-around;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
+  background-color: #f02d35;
+}
+.box i {
+    font-size: 28px;
+    background-color: #fff;
+    color: #f02d35;
+    padding: 20px;
+    border-radius: 100%;
 }
 .box:hover {
   transform: scale(1.08);
 }
 
-.box:nth-child(1) {
-  background-color: var(--one-use-color);
-}
-.box:nth-child(2) {
-  background-color: var(--two-use-color);
-}
-.box:nth-child(3) {
-  background-color: var(--one-use-color);
-}
-.box:nth-child(4) {
-  background-color: var(--two-use-color);
-}
-
-.box img {
-  height: 50px;
-}
 .box .text {
-  color: black;
+  color: #ffffff;
 }
 .topic {
   font-size: 13px;
@@ -166,7 +165,7 @@ overflow-x: hidden; */
   letter-spacing: 3px;
 }
 
-.report-container {
+.orders-container {
   min-height: 300px;
   max-width: 1200px;
   margin: 70px auto 0px auto;
@@ -175,7 +174,7 @@ overflow-x: hidden; */
   box-shadow: 3px 3px 10px rgb(188, 188, 188);
   padding: 0px 20px 20px 20px;
 }
-.report-header {
+.orders-header {
   height: 80px;
   width: 100%;
   display: flex;
@@ -185,34 +184,41 @@ overflow-x: hidden; */
   border-bottom: 2px solid rgba(0, 20, 151, 0.59);
 }
 
-.recent-Articles {
+.recent-orders {
   font-size: 30px;
   font-weight: 600;
-  color: #5500cb;
+  color: #f02d35;
 }
 
 .view {
   height: 35px;
   width: 90px;
   border-radius: 8px;
-  background-color: #5500cb;
+  background-color: #f02d35;
   color: white;
   font-size: 15px;
   border: none;
   cursor: pointer;
 }
 
-.report-body {
+.orders-body {
   max-width: 1160px;
   overflow-x: auto;
   padding: 20px;
 }
-.report-topic-heading,
+.orders-topic-heading,
 .item1 {
   width: 1120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.orders-topic-heading{
+    width: 1120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: red; */
 }
 .t-op {
   font-size: 18px;
@@ -227,6 +233,24 @@ overflow-x: hidden; */
 .item1 {
   margin-top: 20px;
 }
+.item-product{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items:flex-start;
+    width: 200px;
+    margin-right: -100px;
+}
+.item-product img{
+    width: 80px;
+    height: 100px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+.item-product-title{
+    font-weight: normal;
+    font-size: small;
+}
 .t-op-nextlvl {
   font-size: 14px;
   letter-spacing: 0px;
@@ -235,18 +259,14 @@ overflow-x: hidden; */
 
 .label-tag {
   width: 100px;
+  padding: 10px;
   text-align: center;
   background-color: rgb(0, 177, 0);
   color: black;
   border-radius: 4px;
-}
-.nav-option i {
-  font-size: 28px;
   color: #ffffff;
 }
-.nav-option h3 {
-    color: #ffffff;
-  }
+
 /* Responsive CSS Here */
 @media screen and (max-width: 768px) {
   .nav-option {
@@ -259,7 +279,7 @@ overflow-x: hidden; */
   .nav-option i {
     font-size: 15px;
   }
-  .report-topic-heading,
+  .orders-topic-heading,
   .item1,
   .items {
     width: 800px;
