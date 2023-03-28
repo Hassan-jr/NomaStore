@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +14,89 @@
         <!-- nav -->
         <div id="nav"></div>
     </div>
+    <!-- ****************************************MY STORE BODY************************************* -->
+    <div id="mystore" class="mystore">
+        <iframe src="./components/header.html" frameborder="0" scrolling="no" width="100%" height="500"></iframe>
+
+        <!--  -->
+        <!-- Features -->
+  <div>
+    <h1 class="features-header">Features Products</h1>
+    <p class="features-desc">Top Featured Product categories Across All Stores</p>
+    <div id="features" class="features">
+         <!-- Feed from JS FILE -->
+    </div>
+    
+  </div>
+
+   <!-- Banner 2 -->
+   <div class="banner-2">
+    <div class="banner-2-img-div">
+      <img id="banner-2-img" class="banner-2-img" src="" alt="">
+    </div>
+     <div class="banner-2-left">
+      <p id="banner-2-tag-1"></p>
+      <h3 id="banner-2-tag-2"></h3>
+      <h1 id="banner-2-name" class="banner-2-title"></h1>
+      <button id="banner-2-button"></button>
+     </div>
+     <div class="right">
+      <p class="banner-2-desc-title">
+        Description
+      </p>
+      <p id="banner-2-desc" class="banner-2-desc"></p>
+     </div>
+
+
+
+     <!-- Foooter -->
+     <div>
+      
+     </div>
+    
+  </div>
+
+  <!-- BEST SELLing PRODUCTS -->
+   <!-- SELLER PRODUCTS -->
+   <div class="seller_products">
+    <div class="text">
+      <h1>Best Selling Products</h1>
+      <p>Top ratted products across all My Products</p>
+    </div>
+    <!-- feed the card here -->
+    <div id="best-seller-cards" class="best-seller-cards">
+    </div>
+      
+  </div>
+
+  
+    <!-- Testimonials -->
+   <div>
+    <div class="text">
+      <h1 >Testimonials</h1>
+      <p>What Customers Say My Store</p>
+    </div>
+   
+    <div id="testimonials" class="testimonials-cards">
+    </div>
+   </div>
+
+ <!-- newsletter -->
+ <div class="newsletter">
+    <div class="newsletter-text">
+      <p>Subscribe to our newsletter to stay up-to-date with the latest products, special promotions and other information for our Computers</p>
+    </div>
+    <div  class="newsletter-inputs">
+      <input type="email" required placeholder="Email">
+      <button> <i class="material-icons ">email</i></button>
+    </div>
+</div>
+
+    </div>
 
     <!-- Footer -->
 <iframe src="./components/footer.html" frameborder="0" scrolling="no" width="100%" height="500"></iframe>
     <script src="../js/nav.js"></script>
+    <script type="module" src="../js/mystore.js"></script>
 </body>
 </html>
