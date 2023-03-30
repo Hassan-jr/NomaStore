@@ -9,7 +9,7 @@ menuicn.addEventListener("click",()=>
 // ORDERS
 const orders = document.getElementById("items")
 
-for(let i =0; i<10; i++){
+for(let i =0; i<5; i++){
 	orders.innerHTML +=`
 	<div  class="item1">
 	<div class="item-product">
@@ -19,9 +19,9 @@ for(let i =0; i<10; i++){
 			<small>Price: $ 768.98</small><br>
 		</div>
 	</div>
-	<h3 class="t-op-nextlvl">2.9k</h3>
-	<h3 class="t-op-nextlvl">210</h3>
-	<h3 class="t-op-nextlvl label-tag">Active</h3>
+	<h3 class="t-op-nextlvl" >6</h3>
+	<h3 class="t-op-nextlvl" >210</h3>
+	<h3 class="t-op-nextlvl label-tag" >Active</h3>
 </div>
 	`
 }

@@ -28,7 +28,7 @@ const testimonials = document.getElementById("testimonials")
 for (let i = 0; i<3; i++){
       testimonials.innerHTML += `
     <div class="testimonials">
-      <img class="quotes" src="../assets/quotes.svg" alt="quotes">
+      <img class="quotes" src="./assets/quotes.svg" alt="quotes">
       <p class="testimonials-feedback">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem i</p>
       <div class="icons">
         <!-- ratings -->
