@@ -1,7 +1,8 @@
 var currentUrl = window.location.href;
-const navExtension = currentUrl.endsWith("index.html") ? "./pages/" : ''
-const navExtensionLogo = currentUrl.endsWith("index.html") ? "" : '../'
-const searchIconExtension = currentUrl.endsWith("index.html") ? "" : '.'
+var filename = currentUrl.substring(currentUrl.lastIndexOf("/") + 1);
+const navExtension = filename == "index.html" ? "./pages/" : ''
+const navExtensionLogo = filename == "index.html" ? "" : '../'
+const searchIconExtension = filename == "index.html" ? "" : '.'
 
 
 function get_nav(){
