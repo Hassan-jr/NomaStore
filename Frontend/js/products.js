@@ -20,33 +20,34 @@ function generateProductCard(product) {
       <a href="#" class="card" >
         <img src="${product.images[0]}" alt="Product Image" class="product-image" >
         <div class="product-details">
-          <p class="store-name">Sold by: <span class="store_name2">${product.seller}</span></p>
+          <p class="store-name"><span class="store_name2">${product.seller}</span></p>
           <p class="product-title" >${product.title}</p>
          <!-- <p class="card_dec">${product.description}</p> -->
-          <div class="line-break"></div>
           <div class="price_ratings">
             <div>
-              <h4>$ ${product.price}</h4>
+              <h4 class="price">$ ${product.price}</h4>
             </div>
             <div class="product-rating">
                ${
-                rattings_2 = product.rating,
-                // (((5*product.stars_5) + (4*product.stars_4)+(3*product.stars_3) + (2*product.stars_2) + (1*product.stars_1))/(product.stars_5 + product.stars_4 + product.stars_3 + product.stars_2 + product.stars_1)).toFixed(1),
-                options=1,
-                rate.map(i=> {
-                  if(i<=rattings_2)
-                    return `<i class="material-icons ">star</i>`
-                  else if ((i > rattings_2 ) && (i - rattings_2 > 0) && options ===1 ){
-                    options = 0;
-                    return (`<i class="material-icons ">star_half</i>`)
-                  }
-                  else
-                    return `<i class="material-icons ">star_outline</i>`
+                 rattings_2 = product.rating,
+                // // (((5*product.stars_5) + (4*product.stars_4)+(3*product.stars_3) + (2*product.stars_2) + (1*product.stars_1))/(product.stars_5 + product.stars_4 + product.stars_3 + product.stars_2 + product.stars_1)).toFixed(1),
+                // options=1,
+                // rate.map(i=> {
+                //   if(i<=rattings_2)
+                //     return `<i class="material-icons ">star</i>`
+                //   else if ((i > rattings_2 ) && (i - rattings_2 > 0) && options ===1 ){
+                //     options = 0;
+                //     return (`<i class="material-icons ">star_half</i>`)
+                //   }
+                //   else
+                //     return `<i class="material-icons ">star_outline</i>`
                  
-                }).join('')
+                // }).join('')
+                `<i class="material-icons ">star</i>`
+
                }
                <span class="product-rating-count">${rattings_2}</span>
-               <span class="product-rating-count">${product.reviews}</span>
+               <span class="product-total-rating-count">(${product.reviews})</span>
             </div>
           </div>
         </div>

@@ -1,12 +1,14 @@
 .card{
     text-decoration: none;
     color: #000000;
+    font-family: 'Roboto', sans-serif;
 }
 .shopping-card {
-    box-shadow: 0px 3px 3px #999;
-    width: 250px;
-    border-radius: 20px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);;
+    width: 200px;
+    border-radius: 10px;
     margin: 20px;
+    background-color: #ffffff;
   }
   .shopping-card:hover {
     transform: translateY(-10px);
@@ -15,10 +17,10 @@
   
   .product-image {
     border-radius: 20px;
-    margin-top: 0;
-    background-color: #EDF2F8;
+    margin-top: 10px;
+    /* background-color: #EDF2F8; */
     width: 100%;
-    height: 250px;
+    height: 150px;
     object-fit: contain;
   }
   
@@ -50,18 +52,27 @@
   
   .product-rating-count {
     font-size: 14px;
-    margin-left: 5px;
+    margin-left: 1px;
   }
-  .product-title{
+  .product-total-rating-count{
+    font-size: 11px;
+    margin-left: 5px;
     color: #747E8F;
   }
-  .store-name {
+  .product-title{
+    font-size: 14px;
+   
+  }
+  /* .store-name {
     color: #999;
     font-size: 14px;
     margin: 0;
-  }
+  } */
   .store_name2{
-    color: #ff523b;
+    border: 1px solid #ff523b;
+    padding: 5px;
+    font-size: 11px;
+    color: #747E8F;
   }
   .price_ratings{
     display: flex;
@@ -70,12 +81,9 @@
     justify-content: space-between;
     align-items:center;
   }
-  .line-break {
-    height: 1px; /* sets height of line break to 1 pixel */
-    background-color: rgba(15, 19, 107, 0.603); /* sets background color of line break to black */
-    margin: 0 1px; /* adds margin to top and bottom of line break */
+  .price{
+    color: #747E8F;
   }
-  
   @media screen and (max-width: 768px) {
     .shopping-card {
         width: 80%;
