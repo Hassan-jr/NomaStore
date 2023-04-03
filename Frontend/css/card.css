@@ -1,7 +1,5 @@
 .card{
-    text-decoration: none;
-    color: #000000;
-    font-family: 'Roboto', sans-serif;
+   
 }
 .shopping-card {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);;
@@ -9,6 +7,12 @@
     border-radius: 10px;
     margin: 20px;
     background-color: #ffffff;
+    
+  }
+  a{
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
   }
   .shopping-card:hover {
     transform: translateY(-10px);
@@ -74,19 +78,35 @@
     font-size: 11px;
     color: #747E8F;
   }
-  .price_ratings{
+  .bottom_ratings{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items:center;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    margin-left: 10PX;
+    margin-right: 10PX;
   }
   .price{
+    font-size: 14px;
     color: #747E8F;
+  }
+  .btn-cart{
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    border: none;
+    background-color: #ff523b;
+    color: #ffffff;
+    z-index: 1;
+    cursor: pointer;
+
   }
   @media screen and (max-width: 768px) {
     .shopping-card {
-        width: 80%;
+        width:200px;
       }
       .product-image {
         width: 100%;
@@ -100,7 +120,7 @@
       .card_dec{
         font-size: 13px;
       }
-      .price_ratings{
+      .bottom_ratings{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

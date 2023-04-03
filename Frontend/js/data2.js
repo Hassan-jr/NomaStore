@@ -1637,4 +1637,12 @@ const data2 = [
   },
 ];
 
-export{data2}
+
+function getSavedIds() {
+  // Get existing IDs from local storage (if any)
+  let existingIds = JSON.parse(localStorage.getItem('myIds') || '[]');
+  return existingIds;
+}
+
+
+export{data2, getSavedIds}

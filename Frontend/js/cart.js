@@ -1,10 +1,10 @@
-import { data2 } from "./data2.js";
+import { data2, getSavedIds } from "./data2.js";
 
-function getSavedIds() {
-    // Get existing IDs from local storage (if any)
-    let existingIds = JSON.parse(localStorage.getItem('myIds') || '[]');
-    return existingIds;
-  }
+// function getSavedIds() {
+//     // Get existing IDs from local storage (if any)
+//     let existingIds = JSON.parse(localStorage.getItem('myIds') || '[]');
+//     return existingIds;
+//   }
   
 const ids = getSavedIds()
 function getSavedData(savedIds) {
