@@ -29,13 +29,14 @@ for(let i =0; i<5; i++){
 
 
 const dashboard = document.getElementById("dashboard")
+const DashboardContent = dashboard.innerHTML
 // ************************************ CHANGE Dashboard content **********************
 
 // dashboard page
 const dashboardPage = document.getElementById("option1")
 dashboardPage.addEventListener("click", ()=>{
 	dashboardPage.style.borderLeft = '5px solid #010058af'
-	dashboard.innerHTML 
+	dashboard.innerHTML = DashboardContent
 })
 
 // Home page
@@ -73,9 +74,29 @@ settingsPage.addEventListener("click", ()=>{
 	dashboard.innerHTML = "settingsPage PAGE"
 })
 
-// logoutPAGE
-const logoutPage = document.getElementById("logout")
-logoutPage.addEventListener("click", ()=>{
-	logoutPage.style.borderLeft = '5px solid #010058af'
-	dashboard.innerHTML = "logoutPage PAGE"
-})
+
+// *********************************** LOG OUT *********************
+
+// Get the modal
+var modal = document.getElementById("logoutpopup");
+// Get the button that opens the modal
+var btn = document.getElementById("logout");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the logout, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
