@@ -1,24 +1,25 @@
 import {data2} from "./data2.js"
+import {productCards, testimonialComponent, featuredProductsDataComponents} from './components.js'
 const MyStore = {
     features : [
         {
-            img: "https://images.unsplash.com/photo-1626379616459-b2ce1d9decbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNuZWFrZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            imgURL: "https://images.unsplash.com/photo-1626379616459-b2ce1d9decbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHNuZWFrZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
             category: "Sneakers"
         },
         {
-            img: "https://images.unsplash.com/photo-1537261131936-3cdff36a1ac9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG1lbnN3ZWFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          imgURL: "https://images.unsplash.com/photo-1537261131936-3cdff36a1ac9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG1lbnN3ZWFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
             category: "Mens Wear"
         },
         {
-            img: "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFkaWVzJTIwd2VhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          imgURL: "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFkaWVzJTIwd2VhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
             category: "Ladies Wear"
         },
         {
-            img: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGNvbXB1dGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          imgURL: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGNvbXB1dGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
             category: "Computers/Laptops"
         },
         {
-            img: "https://images.unsplash.com/photo-1664478546384-d57ffe74a78c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGlwaG9uZSUyMDE0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          imgURL: "https://images.unsplash.com/photo-1664478546384-d57ffe74a78c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGlwaG9uZSUyMDE0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
             category: "Mobile Phones"
         }
     ],
@@ -56,23 +57,14 @@ const MyStore = {
             feedback: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem i"
         }
     ]
-        
-    
-
 }
 
 
 
-// features
+// features PRODUCTS
 const featuresDiv = document.getElementById("features")
 MyStore.features.map(featuresItem=>
-    featuresDiv.innerHTML += `
-    
-      <div class="img">
-        <img src=${featuresItem.img} alt=${featuresItem.category}>
-        <div class="f-hover">${featuresItem.category}</div>
-      </div> 
-    `
+    featuresDiv.innerHTML += featuredProductsDataComponents(featuresItem)
     )
 
 // Banner 2
@@ -102,42 +94,11 @@ MyStore.best_products.map(item => best_selling_products.push(data2.find((data_2_
 console.log(best_selling_products);
 const card = document.getElementById("best-seller-cards")
 best_selling_products.map(product=>
-card.innerHTML += `
-<div class="index-card">
-  <div class="imgdiv">
-    <img class="img" src=${product.images[0]} style=" " alt="test">
-  </div>
-  <div class="card-text">
-    <p class="img-title">${product.brand}</p>
-    <div class="icons">
-    <i class="material-icons ">star</i>
-    <i class="material-icons ">star</i>
-    <i class="material-icons ">star</i>
-    <i class="material-icons ">star</i>
-    <i class="material-icons ">star</i>
-    </div>
-    <p class="img-price">$ ${product.price}</p>
-  </div>
-</div>
-`)
+card.innerHTML +=productCards(product)
+)
 
 // TESTIMONISALS
 const testimonials = document.getElementById("testimonials")
 MyStore.testimonials.map(testimonial=>
-      testimonials.innerHTML += `
-    <div class="testimonials">
-      <img class="quotes" src="../assets/quotes.svg" alt="quotes">
-      <p class="testimonials-feedback">${testimonial.feedback}</p>
-      <div class="icons">
-        <!-- ratings -->
-        <i class="material-icons ">star</i>
-        <i class="material-icons ">star</i>
-        <i class="material-icons ">star</i>
-        <i class="material-icons ">star</i>
-        <i class="material-icons ">star</i>
-      </div>
-       <img class="testimonials-img" src=${testimonial.img} alt=${testimonial.name}>
-       <p class="testimonials-name">${testimonial.name}</p>
-    </div>
-   `
+      testimonials.innerHTML += testimonialComponent(testimonial)
 )

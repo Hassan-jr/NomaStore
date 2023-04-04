@@ -1,3 +1,5 @@
+import {productCards, testimonialComponent, featuredProductsDataComponents} from './components.js'
+import {data2} from "./data2.js"
 let menuicn = document.querySelector(".menuicn");
 let nav2 = document.querySelector(".navcontainer");
 
@@ -43,14 +45,24 @@ dashboardPage.addEventListener("click", ()=>{
 const homePage = document.getElementById("option2")
 homePage.addEventListener("click", ()=>{
 	homePage.style.borderLeft = '5px solid #010058af'
-	dashboard.innerHTML = "HOME PAGE"
+	dashboard.innerHTML = `
+	  <button id="homeedit" style="position: absolute; right: 40px; top: 20px; font-size: 34px;  color: #f02d35; border: none; cursor: pointer;"> <i class="fa fa-pencil" aria-hidden="true"></i></button>
+	   <iframe src="../pages/mystore.html" frameborder="0" scrolling="yes" width="100%" height="1000" style="margin-top: -100px;"></iframe>
+	  
+	 `
 })
+// var homeedit = document.getElementById("homeedit");
+// homeedit.onclick = function() {
+// 	homeedit.style.display = "block";
+// }
 
 // Products page
 const productsPage = document.getElementById("option3")
 productsPage.addEventListener("click", ()=>{
 	productsPage.style.borderLeft = '5px solid #010058af'
-	dashboard.innerHTML = "productsPage PAGE"
+	let products = ''
+	products = data2.map(productItem=> productCards(productItem))
+	dashboard.innerHTML = products
 })
 
 // Orders

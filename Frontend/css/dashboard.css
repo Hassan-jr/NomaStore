@@ -324,7 +324,7 @@ body {
 
 
 
-/* ******************* TEST ************* */
+/* ******************* Logout MODEL ************* */
 .modal {
   display: none;
   position: fixed;
@@ -358,4 +358,9 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-
+/* dashboadProducts */
+.dashboadProducts{
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+}
