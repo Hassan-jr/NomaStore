@@ -79,43 +79,6 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
-.index-card{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    width: 200px;
-}
-.imgdiv{
-    width: 100%;
-    border-radius: 10px;
-    background-color: transparent;
-}
-.img{
-    width: 90%;
-    margin: 10px;
-    height: 100%;
-    object-fit: contain;
-    width: 100%; 
-    height: 200px; 
-   object-fit: contain;
-   margin-left: auto;
-   margin-right: auto;
-
-}
-.card-text{
-    line-height: 1px;
-}
-.img-title{
-    color: #747E8F;
-}
-.img-price{
-    font-weight: bold;
-}
-.material-icons{
-    margin-top: 0;
-    color: #ff523b;
-    font-size: 10px;
-}
 
 /* *********************************** BANNER 1 **********************************************************/
 .banner{

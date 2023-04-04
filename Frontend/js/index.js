@@ -1,25 +1,35 @@
 import {data2} from "./data2.js"
-// https://media.istockphoto.com/id/1195697777/photo/womens-sport-shoes-pair-of-sport-shoes-isolated-on-white-background.jpg?b=1&s=170667a&w=0&k=20&c=-SgTk6vs4plhivzC13bUuNsDIVtsN3B6s0-f6r3Sglo=
 
 // dynamically feed the best seller products
 const card = document.getElementById("best-seller-cards")
-for (let i = 0; i<10 ; i++){
+for (let i = 0; i<8; i++){
     card.innerHTML += `
-    <div class="index-card">
-      <div class="imgdiv">
-        <img class="img" src=${data2[i].images[0]} alt="test">
-      </div>
-      <div class="card-text">
-        <p class="img-title">${data2[i].brand}</p>
-        <div class="icons">
-        <i class="material-icons ">star</i>
-        <i class="material-icons ">star</i>
-        <i class="material-icons ">star</i>
-        <i class="material-icons ">star</i>
-        <i class="material-icons ">star</i>
+    <div class="shopping-card"  >
+    <div id=${data2[i]._id} onclick="handleCardClick(event)">
+      <a href="#" class="card" >
+        <img src="${data2[i].images[0]}" alt="Product Image" class="product-image" >
+        <div class="product-details">
+          <p class="store-name"><span class="store_name2">${data2[i].seller}</span></p>
+          <p class="product-title" >${data2[i].title}</p>
+         <!-- <p class="card_dec">${data2[i].description}</p> -->
+          <div class="">
+            <div>
+              <h4 class="price">Price $${data2[i].price}</h4>
+            </div>
+            
+          </div>
         </div>
-        <p class="img-price">$ ${data2[i].price}</p>
+       </a>
       </div>
+
+      <div class="bottom_ratings">
+            <div class="product-rating ">
+                <i class="material-icons ">star</i>
+               <span class="product-rating-count">${data2[i].rating}</span>
+               <span class="product-total-rating-count">(${data2[i].reviews})</span>
+            </div>
+            <button id=${data2[i]._id} class="btn-cart">+</button>
+            </div>
     </div>
     `
 }

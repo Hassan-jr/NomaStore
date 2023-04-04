@@ -28,7 +28,7 @@ function get_nav(){
         <a href="./pages/dashboard.html">Dashboard</a>
         <a href="./pages/about.html">About Us</a>
         <a href="./pages/privacy.html">Privacy Policy</a>
-        <p id="profile">Profile</p>
+        <a id="profile">Profile</a>
       </div>
       <div class="nav-toggle">
         <span></span>
@@ -43,11 +43,6 @@ function get_nav(){
 
   <div id="profilePopUp" class="profile">
   <span class="close">&times;</span>
-  <img src="https://via.placeholder.com/150" alt="Profile Picture">
-  <h2>John Doe</h2>
-  <p>Email: john.doe@example.com</p>
-  <p>Address: 123 Main St, Anytown USA</p>
-  <a href="#" class="edit-profile">Edit Profile</a>
 </div>
 
   
@@ -87,17 +82,18 @@ function get_nav(){
 
 <div id="profilePopUp" class="profile">
   <span class="close">&times;</span>
-  <img src="https://via.placeholder.com/150" alt="Profile Picture">
-  <h2>John Doe</h2>
-  <p>Email: john.doe@example.com</p>
-  <p>Address: 123 Main St, Anytown USA</p>
-  <a href="#" class="edit-profile">Edit Profile</a>
 </div>
 
   `
   }
  
 }
+
+{/* <img src="https://via.placeholder.com/150" alt="Profile Picture">
+  <h2>John Doe</h2>
+  <p>Email: john.doe@example.com</p>
+  <p>Address: 123 Main St, Anytown USA</p>
+  <a href="#" class="edit-profile">Edit Profile</a> */}
 
 const result = get_nav();
 const Homenav = document.getElementById('Homenav')
@@ -119,7 +115,7 @@ document.querySelector('.nav-toggle').addEventListener('click', function() {
   document.querySelector('.nav-links').classList.toggle('active');
 });
 
-// ************************* PROFILE **********************
+// ************************* PROFILE POP UP **********************
 // Get the modal
 var modal = document.getElementById("profilePopUp");
 var btn = document.getElementById("profile");
@@ -134,10 +130,4 @@ btn.onclick = function() {
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the logout, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
 }
