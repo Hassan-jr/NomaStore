@@ -1,8 +1,8 @@
 // ****************************************************
-function productCards(product){
+function productCards(product, dashboard=false){
     return `
     <div class="shopping-card"  >
-    <div id=${product._id} onclick="handleCardClick(event)">
+    <div id=${product._id} onclick= ${!dashboard && "handleCardClick(event)"}>
       <a href="#" class="card" >
         <img src="${product.images[0]}" alt="Product Image" class="product-image" >
         <div class="product-details">
@@ -17,7 +17,7 @@ function productCards(product){
           </div>
         </div>
        </a>
-      </div>
+    </div>
 
       <div class="bottom_ratings">
             <div class="product-rating ">
@@ -26,7 +26,14 @@ function productCards(product){
                <span class="product-total-rating-count">(${product.reviews})</span>
             </div>
             <button id=${product._id} class="btn-cart">+</button>
-            </div>
+      </div>
+      ${dashboard ?
+      `<div class="product-btns">
+         <p id=${product._id} onclick="EditProduct(event)" class="editProduct">Edit</p>
+         <p id=${product._id} onclick="DeleteProduct(event)" class="deleteProduct">Delete</p>
+      </div> ` : ``
+      }
+      
     </div>
     `
 }

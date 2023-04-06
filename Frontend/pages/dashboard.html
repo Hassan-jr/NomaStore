@@ -31,7 +31,7 @@
                         <h3> Dashboard</h3>
                     </div>
 
-                    <div id= "option2" class="option2 nav-option">
+                    <div id="option2" class="option2 nav-option">
                         <i class="fa fa-home" aria-hidden="true"></i>
                         <h3> Home Page</h3>
                     </div>
@@ -156,13 +156,41 @@
 
 
 
-    <!-- ************************ logout pop up -->
+    <!-- ************************ logout pop up ********************************** -->
     <div id="logoutpopup" class="modal">
         <div class="modal-content">
-          <span class="closelogout">&times;</span>
-          <h1>Hello! I am a pop-up.</h1>
+            <span class="closelogout">&times;</span>
+            <h1>Hello! I am a pop-up.</h1>
         </div>
-      </div>
+    </div>
+
+    <div id="productEditPopUp" class="popup productEditPopUp">
+        <span class="closePopUp">&times;</span>
+        <h1>EDIT Products</h1>
+    </div>
+
+
+
+
+    <!-- *************************************************** SCRIPTS &+************************************** -->
+    <script>
+        // EDIT PRODUCT 
+        function EditProduct(event) {
+            const productEditId = event.currentTarget.id;
+            console.log("Edit", productEditId);
+            const currentUrl = window.location.href;
+           const newUrl = `${currentUrl.split('/').slice(0, -1).join('/')}/EditProduct.html?id=${productEditId}`;
+           window.location.href = newUrl;
+
+        }
+
+
+        //DELETE PRODUCT 
+        function DeleteProduct(event) {
+            console.log("DELETE");
+
+        } 
+    </script>
 
     <script type="module" src="../js/dashboard.js"></script>
     <script src="../js/nav.js"></script>

@@ -1,3 +1,35 @@
+/* GLOBAL */
+.popup{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 90%;
+  height: 100%;
+  overflow: auto;
+  background-color: #ffffff;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20px;
+}
+
+.closePopUp {
+  color: #aaa;
+  float: right;
+  font-size: 38px;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.closePopUp:hover,
+.closePopUp:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* *************************************** Product CARD ****************************** */
 .shopping-card {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);;
