@@ -25,19 +25,14 @@ const product = {
 form.elements['category'].value = product.category;
 form.elements['title'].value = product.title;
 form.elements['price'].value = product.price.toFixed(2);
-// product.images.forEach((imgSrc) => {
-// const img = document.createElement('img');
-// img.setAttribute('src', imgSrc);
-// img.classList.add('product-img');
-// imagesContainer.appendChild(img);
-// });
-// Display images
+let newimages; // track the total images
 
 function displayImages() {
     // Clear the images container before displaying the updated images
     imagesContainer.innerHTML = '';
   
     // Loop through the images array and display each image
+    newimages = product.images
     product.images.forEach((imgSrc) => {
       const imgWrapper = document.createElement('div');
       imgWrapper.classList.add('image-wrapper');
@@ -64,57 +59,11 @@ function displayImages() {
     });
   }
   
+displayImages()
 
-product.images.forEach((imgSrc) => {
-    displayImages()
-    const imgWrapper = document.createElement('div');
-    imgWrapper.classList.add('image-wrapper');
-  
-    const img = document.createElement('img');
-    img.src = imgSrc;
-    img.alt = product.title;
-    imgWrapper.appendChild(img);
-  
-    const removeBtn = document.createElement('button');
-    removeBtn.innerText = 'Remove';
-    removeBtn.classList.add('btn', 'btn-danger', 'remove-image-btn');
-    removeBtn.addEventListener('click', () => {
-      imgWrapper.remove();
-    });
-    imgWrapper.appendChild(removeBtn);
-  
-    imagesContainer.appendChild(imgWrapper);
-  });
   
 
 // Handle adding new images
-// addImageBtn.addEventListener('click', () => {
-//     const fileInput = document.getElementById('image-input');
-//     const files = fileInput.files;
-    
-//     // Loop through the selected files and add them to the images array
-//     for (let i = 0; i < files.length; i++) {
-//       const file = files[i];
-//       const reader = new FileReader();
-  
-//       reader.onload = (e) => {
-//         // Create a new image element and set its source to the uploaded file
-//         const img = document.createElement('img');
-//         img.src = e.target.result;
-//             console.log("IMAGE SRC", img.src);
-//         // Add the image to the images array and display it on the page
-//         product.images.push(img.src);
-//         displayImages();
-//       };
-  
-//       // Read the uploaded file as a data URL
-//       reader.readAsDataURL(file);
-//       console.log("IMAGE",  reader.readAsDataURL(file));
-//     }
-
-//     displayImages()
-//   });
-
 addImageBtn.addEventListener('click', () => {
     const fileInput = document.getElementById('image-input');
     const files = fileInput.files;
@@ -148,19 +97,13 @@ const updatedProduct = {
 category: form.elements['category'].value,
 title: form.elements['title'].value,
 price: parseFloat(form.elements['price'].value),
-images: [],
+images: newimages,
 description: product.description,
 };
 
-const inputs = imagesContainer.querySelectorAll('input');
-inputs.forEach((input) => {
-const value = input.value.trim();
-if (value !== '') {
-updatedProduct.images.push(value);
-}
-});
 
 console.log(updatedProduct);
+// console.log("ALL IMAGES ", newimages);
 // Send updated product data to the backend
-// ...
 });
+
