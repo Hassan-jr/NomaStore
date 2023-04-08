@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/editproduct.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -163,10 +164,17 @@
             <h1>Hello! I am a pop-up.</h1>
         </div>
     </div>
-
+       <!-- ******************* EDIT PRODUCT POPUP -->
     <div id="productEditPopUp" class="popup productEditPopUp">
-        <span class="closePopUp">&times;</span>
-        <h1>EDIT Products</h1>
+        <span class="closePopUpEdit closePopUp">&times;</span>
+         <div id="EditContent">
+
+         </div>
+    </div>
+       <!-- ******************* Delete PRODUCT POPUP -->
+       <div id="productDeletePopUp" class="popup productDeletePopUp">
+         <span class="closePopUpDelete closePopUp">&times;</span>
+        <h1>Delete Products</h1>
     </div>
 
 
@@ -184,12 +192,6 @@
 
         }
 
-
-        //DELETE PRODUCT 
-        function DeleteProduct(event) {
-            console.log("DELETE");
-
-        } 
     </script>
 
     <script type="module" src="../js/dashboard.js"></script>

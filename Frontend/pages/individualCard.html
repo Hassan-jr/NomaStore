@@ -2,21 +2,32 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="../css/individualCard.css" />
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Item</title>
-    <link rel="stylesheet" href="../css/nav.css" />
-    <link rel="stylesheet" href="../css/individualCard.css" />
+   
+  <meta charset="UTF-8">
 </head>
 
 <body>
     <!-- Nav Bar -->
     <div id="nav"></div>
-    <!--  -->
+    <!--  PRODUCT TO BE VIEWED -->
     <div id="individualCard" class="individualCard"></div>
-       <!-- Footer -->
-<iframe src="./components/footer.html" frameborder="0" scrolling="no" width="100%" height="500"></iframe>
+    <!-- ************* RELATED PRODUCT  -->
+    <h1 class="relatedProductTitle">Related Products</h1>
+    <div id="relatedProduct" >
+
+    </div>
+    <!-- Footer -->
+    <iframe src="./components/footer.html" frameborder="0" scrolling="yes" width="100%" height="500"></iframe>
     <script>
         // slider functionality
         let slideIndex = 1;
@@ -77,7 +88,13 @@
             }
         }
 
-
+// when you click the card this functins takes you to individual card 
+function handleCardClick(event) {
+      const productId = event.currentTarget.id;
+      const currentUrl = window.location.href;
+      const newUrl = `${currentUrl.split('/').slice(0, -1).join('/')}/individualCard.html?id=${productId}`;
+      window.location.href = newUrl;
+    }
 
     </script>
     <script src="../js/nav.js"></script>

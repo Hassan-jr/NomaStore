@@ -1,24 +1,21 @@
 import { data } from "./data.js";
 import { data2 } from "./data2.js";
-
-
-
+import { productCards } from "./components.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 
-
-// get the individualcard div
+// ******************* get the individualcard div**********************
 const individualcard = document.getElementById("individualCard");
 
 function getData() {
-  let cardData =  data2.find((item) => item._id == id);
+  let cardData = data2.find((item) => item._id == id);
 
   if (cardData) {
     individualcard.innerHTML = `
-   <div class="card">
+ <div class="cardinIndividualPage">
    <!-- THE IMAGE SLIDE SIDE -->
-   <div class="container">
+     <div class="container">
    
    <!-- all images -->
     <div class="images ">
@@ -58,13 +55,17 @@ function getData() {
    
    <!-- ********************* THE TEXT SIDE ******************** -->
    <div class="right">
-     <p class="lightColor" >Shop> ${cardData.seller} > <span class="bold">${cardData.brand}</span> </p>
+     <p class="lightColor" >Shop> ${cardData.seller} > <span class="bold">${
+      cardData.brand
+    }</span> </p>
      <p class="inStock">IN STOCK</p>
      <h1>${cardData.title}</h1>
      <h3 id="price" class="price">$ 80.26</h3>
      <p class="lightColor">${cardData.description}</p>
      <div>
-     <span class="bold">Category: <span class="lightColor">${cardData.category}</span></span>
+     <span class="bold">Category: <span class="lightColor">${
+       cardData.category
+     }</span></span>
      </div>
      <hr/>
      <!-- ************ COUNTER ********** -->
@@ -85,12 +86,42 @@ function getData() {
    `;
   }
 }
+getData();
 
-getData()
-// SAVE ID FOOR CART
-const btn = document.getElementById("cart-id")
-btn.addEventListener("click", function() {
+// ***************** relatedProduct ************
+const relatedProduct = document.getElementById("relatedProduct");
+let relatedProductHTML = "";
+for (let i = 0; i < 10; i++) {
+  relatedProductHTML += productCards(data2[i], false);
+}
+relatedProduct.innerHTML = `
+${relatedProductHTML}
+`;
+
+// ADD TO CART FUNCITONALITY FOR THE TAP CARDS
+const btn = document.getElementById("cart-id");
+btn.addEventListener("click", function () {
   console.log("got clicked");
+  // Get existing IDs from local storage (if any)
+  let existingIds = JSON.parse(localStorage.getItem("myIds") || "[]");
+
+  // Check if ID is already in the array
+  if (existingIds.includes(id)) {
+    console.log("ID already exists in array");
+    return;
+  }
+  // Add the new ID to the array
+  existingIds.push(id);
+  // Save the updated array to local storage
+  localStorage.setItem("myIds", JSON.stringify(existingIds));
+});
+
+
+// ADD TO CART FUNCTIONLAITU FOR REALTED PRODUCTS
+const btn_cart = document.querySelectorAll(".btn-cart")
+for(let i=0; i<btn_cart.length; i++){
+btn_cart[i].addEventListener("click", (event)=>{
+  const id  = event.currentTarget.id;
   // Get existing IDs from local storage (if any)
   let existingIds = JSON.parse(localStorage.getItem('myIds') || '[]');
 
@@ -103,9 +134,5 @@ btn.addEventListener("click", function() {
   existingIds.push(id);
   // Save the updated array to local storage
   localStorage.setItem('myIds', JSON.stringify(existingIds));
+})
 }
-)
-
-
-
-

@@ -327,6 +327,13 @@
   border-radius: 4px;
   cursor: pointer;
 }
+/* ************************************** DEALS WITH THE POP UPS **************** */
+.productEditPopUp{
+  width: 400px;
+  height: auto;
+  margin: 20px;
+
+}
 /* Responsive CSS Here */
 @media screen and (max-width: 768px) {
   .nav-option {
@@ -370,7 +377,7 @@
 }
 
 .closelogout {
-  color: #aaa;
+  color: #f02d35;
   float: right;
   font-size: 28px;
   font-weight: bold;

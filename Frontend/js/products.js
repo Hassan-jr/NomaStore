@@ -3,19 +3,13 @@ import {data2, getSavedIds} from './data2.js'
 import {productCards} from './components.js'
 
 
-// fuction to generate the html product card
-function generateProductCard(product) {
-   return productCards(product)
-}
-
-
 // Loops throug the product array to create a product for each item
 function generateProductCards() {
   const productCardsContainer = document.getElementById('product-cards');
   let productCardsHTML = ''; // collects the html card to be displayed
  
   for (const product of data2) {
-    productCardsHTML += generateProductCard(product);
+    productCardsHTML += productCards(product);
   }
   productCardsContainer.innerHTML = productCardsHTML;
 }
@@ -55,7 +49,6 @@ const btn_cart = document.querySelectorAll(".btn-cart")
 for(let i=0; i<btn_cart.length; i++){
 btn_cart[i].addEventListener("click", (event)=>{
   const id  = event.currentTarget.id;
-  console.log("got clicked", id);
   // Get existing IDs from local storage (if any)
   let existingIds = JSON.parse(localStorage.getItem('myIds') || '[]');
 
@@ -68,8 +61,6 @@ btn_cart[i].addEventListener("click", (event)=>{
   existingIds.push(id);
   // Save the updated array to local storage
   localStorage.setItem('myIds', JSON.stringify(existingIds));
-  // const productNav = document.getElementById('nav')
-  // productNav.innerHTML = productNav.innerHTML
 })
 
 }

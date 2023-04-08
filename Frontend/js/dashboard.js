@@ -2,8 +2,10 @@ import {
   productCards,
   testimonialComponent,
   featuredProductsDataComponents,
+  editCreateProductHTML
 } from "./components.js";
 import { data2 } from "./data2.js";
+import {editCreateProductFunction} from './editproduct.js'
 let menuicn = document.querySelector(".menuicn");
 let nav2 = document.querySelector(".navcontainer");
 
@@ -82,6 +84,42 @@ productsPage.addEventListener("click", () => {
 	 ${productsHTML}
 	</div>
 	`;
+
+  // DELETE POP UP
+  const deletbtn = document.querySelectorAll('.deleteProduct') // delete button that opens pop up
+  var DeleteComponentPopUp = document.getElementById("productDeletePopUp"); // The Component gets open before delting
+  var CloseDeletePopUp = document.getElementsByClassName("closePopUpDelete")[0];  // closes the delete pop
+   for(let i=0; i<deletbtn.length; i++){
+    deletbtn[i].addEventListener("click", (event)=>{
+       const id = event.currentTarget.id;
+       DeleteComponentPopUp.style.display = "block";
+
+       console.log("CLICKED PRODUCT IS", id);
+    })
+   }
+    CloseDeletePopUp.onclick = function () {
+    DeleteComponentPopUp.style.display = "none";
+  };
+
+  // EDIT POP UP
+  const EditContent = document.getElementById("EditContent") 
+  const editbtn = document.querySelectorAll('.editProduct') // delete button that opens pop up
+  var EditComponentPopUp = document.getElementById("productEditPopUp"); // The Component gets open before delting
+  var CloseEditPopUp = document.getElementsByClassName("closePopUpEdit")[0];  // closes the delete pop
+   for(let i=0; i<editbtn.length; i++){
+    editbtn[i].addEventListener("click", (event)=>{
+       const id = event.currentTarget.id;
+       EditComponentPopUp.style.display = "block";
+       EditContent.innerHTML = editCreateProductHTML() // create the edit components
+       editCreateProductFunction(id)
+
+       console.log("CLICKED PRODUCT IS", id);
+    })
+   }
+   CloseEditPopUp.onclick = function () {
+      EditComponentPopUp.style.display = "none";
+  };
+
 });
 
 // Orders

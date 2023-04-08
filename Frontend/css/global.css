@@ -5,19 +5,19 @@
   z-index: 1;
   left: 0;
   top: 0;
-  width: 90%;
+  width: 50%;
   height: 100%;
   overflow: auto;
-  background-color: #ffffff;
-  margin-left: 5%;
-  margin-right: 5%;
+  /* background-color: #312a2a79; */
+  margin-left: 25%;
+  margin-right: 25%;
   margin-top: 20px;
 }
 
 .closePopUp {
-  color: #aaa;
+  color: #f02d35;
   float: right;
-  font-size: 38px;
+  font-size: 48px;
   font-weight: bold;
   margin-right: 10px;
   margin-top: 10px;
@@ -25,14 +25,87 @@
 
 .closePopUp:hover,
 .closePopUp:focus {
-  color: black;
+  color: #f02d33bd;
   text-decoration: none;
   cursor: pointer;
 }
+::-webkit-scrollbar{
+  display: none;
+}
+/* ***************************************************** HEADER CSS *************************** */
+.header{
+  background-color: #D3D9E0;
+  padding-top: 10px;
+  height: 70vh;
+  width: 100%;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+.header_left{
+  flex: 3/4;
+}
+.main_title{
+  line-height: 10px;
+  padding-bottom: 10px;
+ 
+}
+.header_desc{
+  line-height: 5px;
+  color: #747E8F; 
+}
+.blue{
+  color: #313BAC;
+}
+.btn{
+  padding-top: 40px;
+  display: flex;
+  flex-direction: row; 
+  justify-content: flex-start;
+  align-items: center;
 
+}
+.header_btn{
+ padding-top: 10px;
+ margin-right: 40px;
+  outline: none;
+  color: #ffffff;
+  background-color: #ff523b;
+  padding: 5px;
+  /* border-radius: 10px; */
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 10px;
+  /* box-shadow:  5px 5px 35px #bbbfc4,
+           -5px -5px 35px #ffffff; */
+}
+.header_btn:hover{
+  background-color: #ff523baf;
+  color: #ffffff;
+}
+.header_images{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.header_img{
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+.line-break {
+  height: 1px; /* sets height of line break to 1 pixel */
+  background-color: rgba(15, 19, 107, 0.603); /* sets background color of line break to black */
+  margin: 0 15px; /* adds margin to top and bottom of line break */
+}
 /* *************************************** Product CARD ****************************** */
 .shopping-card {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
     width: 200px;
     border-radius: 10px;
     margin: 20px;
@@ -48,11 +121,14 @@
     transform: translateY(-10px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
-  
+  /* img and card details */
+  .cardGlobal{
+    display: flex;
+    flex-direction: column;
+  }
   .product-image {
     border-radius: 20px;
     margin-top: 10px;
-    /* background-color: #EDF2F8; */
     width: 100%;
     height: 150px;
     object-fit: contain;
@@ -218,10 +294,43 @@ box-shadow:  5px 5px 10px #cccccc,
     bottom: 5px;
 }
 
+/* ************************************************ Responsives **************************** */
   @media screen and (max-width: 768px) {
+    .header{
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      
+      
+  }
+  .main_title{
+      font-size: 14px;
+      padding-bottom: 5px;
+  }
+  .btn{
+      padding-top: 30px;
+  }
+  .header_img{
+      object-fit: contain;
+  }
+  .main_title{
+      line-height: normal;
+      padding-bottom: 0;
+  }
+  .main_title h1 {
+      margin-bottom: -10px;
+  }
+  .header_desc{
+      white-space: wrap;
+      line-height: normal;
+      color: #747E8F; 
+  }
+  .header_desc p {
+      margin-bottom: -10px;
+  }
     /* ************************************* PRODUCTS  CARDS  *************************/
     .shopping-card {
-        width:200px;
+        width: 200px;
       }
       .product-image {
         width: 100%;

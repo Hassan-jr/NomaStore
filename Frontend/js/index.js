@@ -1,5 +1,29 @@
 import {data2} from "./data2.js"
-import {productCards, testimonialComponent, featuredProductsDataComponents} from './components.js'
+import {productCards, testimonialComponent, featuredProductsDataComponents, getHeader} from './components.js'
+
+
+// ************************** Header ****************
+const headerData = {
+  imgURL : './assets/cart6.png',
+  title1 : 'Find Everything You Need:',
+  title2 : 'Shop Our Extensive Online Catalog',
+  description : 'Discover the Ultimate Online Shopping Experience with NomaStore Shop Now and Enjoy Fast Shipping and Secure Payment Options.',
+  backgroundIMG: true
+}
+const headerHTML = getHeader(headerData)
+const header = document.getElementById("header")
+header.innerHTML = headerHTML
+
+
+
+
+
+
+
+
+
+
+
 
 const featuredProductsData = [
   {

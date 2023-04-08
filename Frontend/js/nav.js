@@ -38,16 +38,10 @@ function get_nav(){
     </nav>
   </div>
 
-
-
-
-  <div id="profilePopUp" class="profile">
+<div id="profilePopUp" class="profile">
   <span class="close">&times;</span>
 </div>
 
-  
-  
-  
   `
   }else{
     return ` 

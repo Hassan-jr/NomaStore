@@ -1,53 +1,108 @@
+body{
+  background-color: #EDF2F8;
+}
+h1{
+  color: #313BAC;
+  text-align: center;
+}
 .container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #D3D9E0;
+    padding-right: 10px;
+    box-shadow: 0px 2px 4px #4e4848;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   
   label {
     display: block;
     margin-bottom: 5px;
+    font-weight: bold;
   }
   
   input,
   textarea {
-    width: 100%;
-    padding: 5px;
+    width: 95%;
+    padding: 10px;
     margin-bottom: 10px;
+    border: none;
+    border-radius: 7px;
+    outline: none;
+  }
+
+  textarea{
+    height: 150px;
   }
   
   #images-container {
     display: flex;
     flex-wrap: wrap;
   }
-  
+  .image-wrapper{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
   #images-container img {
     width: 150px;
     height: 150px;
     object-fit: cover;
     margin: 5px;
   }
-  
-  #images-container .remove-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: red;
-    color: white;
+  .btn{
+    width: auto;
+    height: auto;
+    font-size: 34px;
+    color: #f02d35;
+    background-color: transparent;
     border: none;
-    padding: 5px;
+    margin: 0;
     cursor: pointer;
+
   }
-  
-  #add-image-btn {
-    margin-top: 10px;
-    padding: 5px 10px;
+  .addImageDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
     background-color: #ccc;
+    margin-bottom: 20px;
+  }
+  .addImageDiv button{
+    width: 100px;
+    padding: 10px 10px;
+    background-color: #23be5f;
+    color: #FFFFFF;
     border: none;
     cursor: pointer;
+    margin-right: 10px;
   }
+ .addImageDiv input{
+     width: 200px;
+     border: none;
+     padding: 10px;
+     outline: none;
+ }
   
   #add-image-btn:hover {
-    background-color: #aaa;
+    background-color: #23be5ed0;
   }
-  
+  .submit{
+    text-align: center;
+    outline: none;
+    border: none;
+    padding: 10px 5px;
+    background-color: #313bac;
+    color: #ffffff;
+    margin-left: 40%;
+  }
+  .submit:hover{
+    background-color: #313bacc9;
+  }
