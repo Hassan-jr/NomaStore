@@ -53,7 +53,9 @@ homePage.addEventListener("click", () => {
 	  <iframe src="../pages/mystore.html" frameborder="0" scrolling="yes" width="100%" height="1000" style="margin-top: -100px;"></iframe>
 	  <div id="homeedit" class="popup">
 	  <span  class="closePopUp">&times;</span>
-	    <h1>EDIT HOME PAGE POP UP</h1>
+    <div class="homepageEdit">
+        <h1>EDIT HOME PAGE POP UP</h1>
+    </div>
 	  </div>
 	 `;
   // pop up

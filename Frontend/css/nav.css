@@ -120,7 +120,8 @@ body {
     top: 60px;
     display: none;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     width: 80%;
     height: auto;
     padding: 20px 0;
@@ -135,11 +136,12 @@ body {
   .nav-links a {
     margin: 10px 0;
     font-size: large;
-    color: #ffffff;
+    
+    /* color: #ffffff; */
   }
   .navbar a:hover{
-    color: rgb(58, 86, 179);;
-    background-color: #ffffff;
+    /* color: rgb(58, 86, 179);; */
+    /* background-color: #ffffff; */
     padding: 5px;
     border-radius: 10px;
   }
@@ -150,14 +152,15 @@ body {
   .toggle_nav{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     width: 70%;
     height: auto;
     padding: 20px 0;
-    background-color: rgb(58, 86, 179);
+    background-color: #EDF2F8;
     height: 100%;
     overflow: visible;
     z-index: 10;
+    padding-left: 10px;
   }
 
 

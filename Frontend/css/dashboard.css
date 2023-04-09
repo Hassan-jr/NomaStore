@@ -259,7 +259,7 @@
   background-color: #a2a2a2;
 }
 
-/* Products-title-orders given width for alignment of orders */
+/* *****************Products-title-orders given width for alignment of orders */
 .Products-title-orders{
   width: 300px;
 }
@@ -334,26 +334,6 @@
   margin: 20px;
 
 }
-/* Responsive CSS Here */
-@media screen and (max-width: 768px) {
-  .nav-option {
-    gap: 25px;
-    padding-right: 10px;
-  }
-  .nav-option h3 {
-    font-size: 15px;
-  }
-  .nav-option i {
-    font-size: 15px;
-  }
-  .orders-topic-heading,
-  .item1,
-  .items {
-    width: 800px;
-  }
-}
-
-
 
 /* ******************* Logout MODEL ************* */
 .modal {
@@ -394,4 +374,30 @@
  display: flex;
  flex-direction: row;
  flex-wrap: wrap;
+}
+
+/* *************************************** Home page EDIT ************************** */
+
+.homepageEdit{
+  
+}
+
+
+/*********************************************** Responsive CSS Here ****************************/
+@media screen and (max-width: 768px) {
+  .nav-option {
+    gap: 25px;
+    padding-right: 10px;
+  }
+  .nav-option h3 {
+    font-size: 15px;
+  }
+  .nav-option i {
+    font-size: 15px;
+  }
+  .orders-topic-heading,
+  .item1,
+  .items {
+    width: 800px;
+  }
 }
