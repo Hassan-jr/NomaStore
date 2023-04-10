@@ -3,6 +3,15 @@
 // const navExtension = filename == "index.html" ? "./pages/" : ''
 // const navExtensionLogo = filename == "index.html" ? "" : '../'
 // const searchIconExtension = filename == "index.html" ? "" : '.'
+import { ProfileJS, profileHMTL } from "./profile.js";
+
+
+
+const profilePopUp = `
+<div id="profilePopUp" class="profile">
+<span class="close">&times;</span>
+${profileHMTL()} 
+</div>`
 
 
 function get_nav(){
@@ -38,9 +47,7 @@ function get_nav(){
     </nav>
   </div>
 
-<div id="profilePopUp" class="profile">
-  <span class="close">&times;</span>
-</div>
+  ${profilePopUp}
 
   `
   }else{
@@ -74,26 +81,25 @@ function get_nav(){
   </div>
 
 
-<div id="profilePopUp" class="profile">
-  <span class="close">&times;</span>
-</div>
+  ${profilePopUp}
 
   `
   }
  
 }
 
-{/* <img src="https://via.placeholder.com/150" alt="Profile Picture">
-  <h2>John Doe</h2>
-  <p>Email: john.doe@example.com</p>
-  <p>Address: 123 Main St, Anytown USA</p>
-  <a href="#" class="edit-profile">Edit Profile</a> */}
+
 
 const result = get_nav();
 const Homenav = document.getElementById('Homenav')
 const nav = document.getElementById("nav");
 document.getElementById("nav") ? nav.innerHTML = result : 'null'
 document.getElementById('Homenav') ? Homenav.innerHTML = result : 'null'
+
+// RUN THE PROFILE JS AFTER CREATIN THE NAV
+ProfileJS()
+
+
 
 //Responsive nav
 const navToggle = document.querySelector(".nav-toggle");
