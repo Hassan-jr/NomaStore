@@ -8,7 +8,7 @@ const headerData = {
   title1 : 'Find Everything You Need:',
   title2 : 'Shop Our Extensive Online Catalog',
   description : 'Discover the Ultimate Online Shopping Experience with NomaStore Shop Now and Enjoy Fast Shipping and Secure Payment Options.',
-  backgroundIMG: true
+  backgroundIMG: false
 }
 const headerHTML = getHeader(headerData)
 const header = document.getElementById("header")

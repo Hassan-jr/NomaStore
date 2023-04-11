@@ -256,10 +256,16 @@ subscribersPage.addEventListener("click", () => {
 const settingsPage = document.getElementById("option6");
 settingsPage.addEventListener("click", () => {
   settingsPage.style.borderLeft = "5px solid #010058af";
-  dashboard.innerHTML = `${profileHMTL()}`;
+  dashboard.innerHTML = `
+  <div>
+  ${profileHMTL()}
+  </div>
+  `;
   // RUN THE PROFILE JS AFTER CREATIN THE NAV
   ProfileJS();
+  
 });
+
 
 // *********************************** LOG OUT *********************
 
