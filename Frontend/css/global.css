@@ -6,8 +6,8 @@
   left: 0;
   top: 0;
   width: 50%;
-  height: 100%;
-  overflow: auto;
+  /* height: 100%; */
+  overflow: scroll;
   /* background-color: #312a2a79; */
   margin-left: 25%;
   margin-right: 25%;

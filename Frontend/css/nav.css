@@ -157,9 +157,10 @@ body {
   margin-left: 10px;
   padding: 10px;
   border: none;
-  /* border-bottom: 1px solid black; */
+  border: 1px solid #aaa;
   width: 200px;
   background-color: #EDF2F8;
+  color: #313BAC;
 }
 .form-field input[type="file"]{
   margin-left: 0px;
@@ -171,11 +172,13 @@ body {
 }
 
 .edit-btn {
-  margin-left: 10px;
-  font-size: 34px;
-  color: #ff523b;
+  margin-left: 5px;
+  font-size: 24px;
+  color: #313BAC;
   border: none;
   background-color: transparent;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .submit-btn {

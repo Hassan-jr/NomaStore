@@ -1,8 +1,3 @@
-// var currentUrl = window.location.href;
-// var filename = currentUrl.substring(currentUrl.lastIndexOf("/") + 1);
-// const navExtension = filename == "index.html" ? "./pages/" : ''
-// const navExtensionLogo = filename == "index.html" ? "" : '../'
-// const searchIconExtension = filename == "index.html" ? "" : '.'
 import { ProfileJS, profileHMTL } from "./profile.js";
 
 

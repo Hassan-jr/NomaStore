@@ -167,9 +167,51 @@ function editCreateProductHTML(){
   `
 }
 
+// ************************************* ORDERS COMPONENTS **********************************
+function getOrdersHTML(data2,isInOrdersPage=false){
+  return`
+  <div class="orders-container">
+                    <div class="orders-header">
+                        <h1 class="recent-orders">Recent Orders</h1>
+                        ${!isInOrdersPage ? '<button class="view">View All</button>' : ''}
+                    </div>
+
+                    <div class="orders-body">
+                        <div class="orders-topic-heading">
+                            <h3 class="t-op Products-title-orders">Products</h3>
+                            <h3 class="t-op">Quantity</h3>
+                            <h3 class="t-op">Total Price</h3>
+                            <h3 class="t-op">Status</h3>
+                           ${isInOrdersPage ? ` <h3 class="t-op">Delivered</h3>` : ''}
+                        </div>
+
+                        <div id="items" class="items">
+                            <!-- FEED THE ITEMS FROM JS FILE -->
+                            ${data2.map((order) => `
+	                            <div  class="item1">
+	                              <div class="item-product">
+	                              	<img src=${order.images[0]} alt=${order.title}>
+		                              <div>
+		                             	<p class="item-product-title">${order.title}</p>
+		                              <small>Price: $ ${order.price}</small><br>
+	                            	</div>
+	                              </div>
+	                               <h3 class="t-op-nextlvl" >6</h3>
+	                               <h3 class="t-op-nextlvl" >$ ${(order.price * 6).toFixed(2)}</h3>
+	                               <h3 class="t-op-nextlvl label-tag" >Active</h3>
+                                 ${isInOrdersPage ? `  <h3 class="t-op-nextlvl label-tag" >Delivered</h3>` : ""}
+                              </div>`
+                            ).join('')}   
+                        </div>
+                    </div>
+                </div>
+  `
+}
+
 export {productCards,
     testimonialComponent,
     featuredProductsDataComponents,
     getHeader,
-    editCreateProductHTML
+    editCreateProductHTML,
+    getOrdersHTML
 }

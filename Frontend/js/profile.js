@@ -103,5 +103,5 @@ submitBtn.addEventListener('click', () => {
 
 export {
     profileHMTL,
-    ProfileJS
+    ProfileJS,
 }
