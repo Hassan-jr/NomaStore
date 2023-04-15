@@ -249,7 +249,9 @@ box-shadow:  5px 5px 10px #cccccc,
        color: #747E8F;
        font-weight: bold;
 }
-
+.material-icons {
+  color: #f02d35;
+}
 
 /* ***************************************** Features ******************************* */
 .features{
