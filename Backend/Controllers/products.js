@@ -1,5 +1,5 @@
 const {connectToDb} = require("../Config/db.js");
-
+const {ObjectId} = require('mongodb');
 
 // Get the collection for the db
 async function getCollection(){
@@ -8,6 +8,12 @@ async function getCollection(){
         return collection
 }
 
+const productsforUser = async()=>{
+  const collection = await getCollection()
+  const productsCursor =  collection.find({})
+  const products = await productsCursor.toArray()
+  return products
+}
 
 // ************* Get Products *********
 const getProducts = async (req, res) => {
@@ -39,7 +45,8 @@ const createProduct = async(req,res)=>{
         seller: await req.body.seller,
         images: await req.body.images,
         description: await req.body.description,
-        brand: await req.body.brand
+        brand: await req.body.brand,
+        timestamp: new Date().toISOString()
     };
 
     try {
@@ -57,20 +64,43 @@ const createProduct = async(req,res)=>{
 const deleteProduct = async(req,res)=>{
     const collection = await getCollection()
     const productId =  (req.params.id);
-    console.log("To Be DELETED", productId);
+    // console.log("To Be DELETED", productId);
 
     // Delete the product with the given ID
-   collection.deleteOne({ _id: productId })
+   collection.deleteOne({ _id: new ObjectId(productId) })
   .then(result => {
     if (result.deletedCount === 0) {
       return res.status(404).send('Product not found');
     }
-    res.status(204).send();
+    res.send('Product Deleted');
   })
   .catch(err => {
     console.error(`Error deleting product: ${err}`);
     res.status(500).send('Error deleting product');
   });
+}
+
+
+// ************************** Update Product / Put Request ***********************
+const updateProduct = async(req,res)=>{
+  const collection = await getCollection()
+  const productId = await (req.params.id);
+  const updates = req.body;
+  console.log("To Be Updated", productId);
+
+  // Update the product with the given ID
+collection.updateOne({ _id: new ObjectId(productId) }, { $set: updates })
+.then(result => {
+  if (result.modifiedCount === 0) {
+    return res.status(404).send('Product not found');
+  }
+  console.log("The result is ", result);
+  res.send('Product Updated Successfully');
+})
+.catch(err => {
+  console.error(`Error Updatin product: ${err}`);
+  res.status(500).send('Error Updating product');
+});
 }
   
 
@@ -85,5 +115,7 @@ const deleteProduct = async(req,res)=>{
 module.exports = {
     getProducts,
     createProduct,
-    deleteProduct
+    deleteProduct,
+    updateProduct,
+    productsforUser,
 }
