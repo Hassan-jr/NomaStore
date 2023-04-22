@@ -1,15 +1,23 @@
-import { data } from "./data.js";
 import { data2 } from "./data2.js";
 import { productCards } from "./components.js";
+import {getProducts,shuffle} from './api/products.js'
+
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
-
+// Fetch the individual card data form the backend and then concatinate with generating the html for it
 // ******************* get the individualcard div**********************
+let loading = true
 const individualcard = document.getElementById("individualCard");
+const ProductsData = async()=>{
+  console.log(loading);
+  const AllProductsdata= shuffle(await getProducts())
+  loading =  false
+  console.log(loading);
+  console.log(AllProductsdata); 
 
 function getData() {
-  let cardData = data2.find((item) => item._id == id);
+  let cardData = AllProductsdata.find((item) => item._id == id);
 
   if (cardData) {
     individualcard.innerHTML = `
@@ -87,6 +95,10 @@ function getData() {
   }
 }
 getData();
+}
+ProductsData()
+
+
 
 // ***************** relatedProduct ************
 const relatedProduct = document.getElementById("relatedProduct");

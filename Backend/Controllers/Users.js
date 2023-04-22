@@ -1,5 +1,4 @@
 const {connectToDb} = require("../Config/db.js");
-const {productsforUser} = require("./products.js")
 const {ObjectId} = require('mongodb');
   
   // Get the collection for the db
@@ -50,7 +49,7 @@ async function getCollection(){
       };
       try {
         const collection = await getCollection()
-        await collection.createIndex( { StoreName: 1 }, { unique: true } )
+        // await collection.createIndex( { StoreName: 1 }, { unique: true } )
         const result = await collection.insertOne(newUser)
         res.send({ id: result.insertedId }); 
         

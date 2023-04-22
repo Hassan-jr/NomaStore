@@ -1,20 +1,14 @@
-import { data } from "./data.js";
-import {data2, getSavedIds} from './data2.js'
 import {productCards} from './components.js'
-import {getProducts} from './api/products.js'
-
-
+import {getProducts,shuffle} from './api/products.js'
 
 let loading = true
 // Get the data from the backend
 const ProductsData = async()=>{
   console.log(loading);
-  const AllProductsdata= await getProducts()
+  const AllProductsdata= shuffle(await getProducts())
   loading =  false
   console.log(loading);
   console.log(AllProductsdata);  
-
-
 
 
 // Loops throug the product array to create a product for each item
