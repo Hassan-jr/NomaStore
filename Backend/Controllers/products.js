@@ -15,26 +15,6 @@ const getProducts = async (req, res) => {
         const collection = await getCollection()
         const productsCursor =  collection.find({})
         const products = await productsCursor.toArray()
-        // Change Seller
-        // collection.updateOne({ _id: new ObjectId(productId) }, { $set: updates })
-        // products.map(async(product)=>{
-        //    if(product.category == " "){
-        //    await collection.updateOne({ _id: new ObjectId(product._id) }, { $set: {seller : "Noma"} })
-        //    await collection.updateOne({ _id: new ObjectId(product._id) }, { $set: {category : "Random"} })
-        //    }else if(product.category == " \"accessories\""){
-        //     await collection.updateOne({ _id: new ObjectId(product._id) }, { $set: {seller : "SamSung"} })
-        //     await collection.updateOne({ _id: new ObjectId(product._id) }, { $set: {category : "accessories"} })
-        //    }else if(product.category == " \"phones\""){
-        //     await collection.updateOne({ _id: new ObjectId(product._id) }, { $set: {seller : "HP"} })
-        //     await collection.updateOne({ _id: new ObjectId(product._id) }, { $set: {category : "phones"} })
-        //    }else if(product.category == " \"shoes\""){
-        //     await collection.updateOne({ _id: new ObjectId(product._id) }, { $set: {seller : "Adidas"} })
-        //     await collection.updateOne({ _id: new ObjectId(product._id) }, { $set: {category : "Shoes"} })
-        //    }else if(product.brand == "Samsung Electronics"){
-        //     await collection.updateOne({ _id: new ObjectId(product._id) }, { $set: {seller : "Sam Electronics"} })
-        //     await collection.updateOne({ _id: new ObjectId(product._id) }, { $set: {category : "Electronics"} })
-        //    }
-        // })
       if (!products) {
         res.status(400);
         throw new Error("Products not found");

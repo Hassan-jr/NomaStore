@@ -1,7 +1,5 @@
 const express = require("express");
 
-
-
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +17,7 @@ app.use(addCorsHeaders);
 
 app.use("/products", require("./Routes/products.js"));
 app.use("/users", require("./Routes/users.js"));
+app.use("/stores", require("./Routes/stores.js"));
 
 app.listen( 4000, () => {
     console.log("listening on port 4000");

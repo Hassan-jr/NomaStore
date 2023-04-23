@@ -160,29 +160,29 @@ homePage.addEventListener("click", () => {
       const homePageImage = document.getElementById("backgroundImg").files[0];
       const title1 = homepageForm.elements["title1"].value;
       const title2 = homepageForm.elements["title2"].value;
-      const desc = homepageForm.elements["desc"].value;
-      const setAsBackground = document.getElementById("set").checked;
+      const description = homepageForm.elements["desc"].value;
+      const backgroundIMG = document.getElementById("set").checked;
       const banner = homepageForm.elements["banner"].value;
-      let homePageImgUrl;
-      reader.onload = (e) => {
-        homePageImgUrl = e.target.result;
-        console.log("Items are :", {
-          homePageImgUrl,
-          setAsBackground,
+      let imgURL;
+      reader.onload = async(e) => {
+        imgURL = e.target.result;
+        console.log("Items are in the load are:", {
+          imgURL,
+          backgroundIMG,
           banner,
           title1,
           title2,
-          desc,
+          description,
         });
       };
-      homePageImage && reader.readAsDataURL(homePageImage);
-      console.log("Items are :", {
-        homePageImgUrl,
-        setAsBackground,
+      homePageImage ? reader.readAsDataURL(homePageImage):
+      console.log("Items are ouside :", {
+        // imgURL,
+        backgroundIMG,
         banner,
         title1,
         title2,
-        desc,
+        description,
       });
     });
 });

@@ -10,6 +10,5 @@ const headerData = {
 }
 
 const headerHTML = getHeader(headerData)
-console.log(headerHTML);
 const header = document.getElementById("header")
 header.innerHTML = headerHTML
