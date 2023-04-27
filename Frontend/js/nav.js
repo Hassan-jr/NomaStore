@@ -1,26 +1,11 @@
 import { ProfileJS, profileHMTL } from "./profile.js";
+import { getOneUserData } from "./api/user.js";
+
+
 const userID = JSON.parse(localStorage.getItem('userID'));
 console.log("USER ID IS ", userID);
-
-
-const uri = "http://localhost:4000/users"
-
-// Get all products array
-const getUserData = async()=>{
-   const result =  fetch(`${uri}/${userID}`)
-    .then(res => res.json())
-    .then(data => data)
-    .catch(rejected => {
-      console.log(rejected);
-    }); 
-    return result
-}
-const userData = userID? await getUserData() : ''
+const userData = userID? await getOneUserData(userID) : ''
 console.log("Fetched UserData", userData);
-
-
-
-
 
 const profilePopUp = `
 <div id="profilePopUp" class="profile">

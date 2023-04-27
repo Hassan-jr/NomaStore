@@ -208,10 +208,50 @@ function getOrdersHTML(data2,isInOrdersPage=false){
   `
 }
 
+// *************************************** User Profile Card *******************************
+function getUserProfileCard(userData){
+  return `<div class="userProfileCard">
+  <div class="headerProfile">
+      <img class="profilebackgroundIMG" src="https://media.istockphoto.com/id/1403278751/photo/abstract-particle-background.jpg?b=1&s=170667a&w=0&k=20&c=BdJSofDWBiySpZe_-SgecLnt9MB5ZBp1FtCIGaNASB8=" alt="background">
+      <img class="userImageProfile" src=${userData.profileIMG} alt="user">
+  </div>
+  <div class="userDetails">
+      <div class="details">
+          <label>First Name</label>
+          <p>${userData.Firstname}</p>
+      </div>
+      <div class="details">
+          <label>Last Name</label>
+          <p>${userData.Lastname}</p>
+      </div>
+      <div class="details">
+          <label>Email</label>
+          <p>${userData.Email}</p>
+      </div>
+  </div>
+  <div class="userDetails">
+      <div class="details">
+          <label>Phone Number</label>
+          <p>${userData.Phone}</p>
+      </div>
+      <div class="details">
+          <label>Address</label>
+          <p>${userData.Address}</p>
+      </div>
+      <div class="details">
+          <label>City</label>
+          <p>${userData.City}</p>
+      </div>
+  </div>
+
+ </div>`
+}
+
 export {productCards,
     testimonialComponent,
     featuredProductsDataComponents,
     getHeader,
     editCreateProductHTML,
-    getOrdersHTML
+    getOrdersHTML,
+    getUserProfileCard
 }

@@ -1,15 +1,14 @@
 import {
   productCards,
-  testimonialComponent,
-  featuredProductsDataComponents,
   editCreateProductHTML,
   getOrdersHTML
 } from "./components.js";
-import { ProfileJS, profileHMTL } from "./profile.js";
 import { data2 } from "./data2.js";
 import { editCreateProductFunction } from "./editproduct.js";
-
-
+import { getOneUserData } from "./api/user.js";
+import { getUserProfileCard } from "./components.js";
+const userID = JSON.parse(localStorage.getItem('userID'));
+const userData = await getOneUserData(userID)
 // Side Nav Functionanality
 let menuicn = document.querySelector(".menuicn");
 let nav2 = document.querySelector(".navcontainer");
@@ -258,12 +257,9 @@ settingsPage.addEventListener("click", () => {
   settingsPage.style.borderLeft = "5px solid #010058af";
   dashboard.innerHTML = `
   <div>
-  ${profileHMTL()}
+  ${getUserProfileCard(userData)}
   </div>
-  `;
-  // RUN THE PROFILE JS AFTER CREATIN THE NAV
-  ProfileJS();
-  
+  `;  
 });
 
 

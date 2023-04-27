@@ -15,6 +15,14 @@ async function getProductsCollection() {
   return collection;
 }
 
+// Get user Collections
+  // Get the collection for the db
+  async function getUserCollection(){
+    const db = await connectToDb()
+    const collection =  db.collection("Users")
+    return collection
+}
+
 // ************* Get Stores *********
 const getStores = async (req, res) => {
   try {
@@ -47,6 +55,8 @@ const getStores = async (req, res) => {
 
 // ****************** Post Request/ Creating *************
 const createStore = async (req, res) => {
+  const userID = req.params.id
+  const userCollection = await getUserCollection()
   const newStore = {
     ShopName: req.body.ShopName,
     HomeData: {
@@ -66,6 +76,7 @@ const createStore = async (req, res) => {
     const collection = await getCollection();
     await collection.createIndex({ ShopName: 1 }, { unique: true });
     const result = await collection.insertOne(newStore);
+    await userCollection.updateOne({ _id: new ObjectId(userID) }, { $set: {HasStore: true, StoreName: req.body.ShopName} })
     res.send({ id: result.insertedId });
   } catch (error) {
     console.error(error);

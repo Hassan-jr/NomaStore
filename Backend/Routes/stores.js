@@ -9,7 +9,8 @@ const {
   delSubs
 } = require("../Controllers/Stores");
 
-router.route("/").get(getStores).post(createStore);
+router.route("/").get(getStores)
+router.route("/:id").post(createStore);
 
 router.route("/:id").delete(deleteStore).put(updateStore);
 

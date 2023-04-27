@@ -1,4 +1,5 @@
-
+import {deleteStore, getStores} from "./api/store.js"
+import { updateUser, deletUser } from "./api/user.js";
 // Get the pathname of the current URL
 var path = window.location.pathname;
 // Extract the file name from the path
@@ -8,42 +9,22 @@ const dashboardUrl = pageName === "index.html" ? "./pages/dashboard.html" : "./d
 const createStoreUrl = pageName === "index.html" ? "./pages/createStore.html" : "./createStore.html"
 const cartUrl =  pageName === "index.html" ? "./pages/cart.html" : "./cart.html"
 
-const uri = "http://localhost:4000/users"
-// Update a user
-const updateUser = async(id, data)=> {
-  return fetch(`${uri}/${id}`, {
-    method: 'PUT',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-    .then(async(response) => await response.json())
-    .catch(error => console.log(error));
-}
+
 
 // Delete Account
-async function deleteUser(userId) {
-  await fetch(`${uri}/${userId}`, {
-    method: 'DELETE'
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    alert('Account Deleted Successfuly');
-    localStorage.removeItem('userID') 
-    console.log(`User with ID ${userId} deleted successfully!`);
-  })
-  .catch(error => {
-    console.error(`Error deleting user with ID ${userId}: ${error}`);
-  });
+async function deletaccount(userData) {
+  if(userData.HasStore){
+    const stores = await getStores()
+    const store = await stores.find(item => item.ShopName == userData.StoreName)
+     deleteStore(store._id) 
+  }
+deletUser(userData._id)
 }
 
 
 function profileHMTL(userData){
     return `
-    <div class="form-container">
+    <div id="UserProfile" class="form-container">
         <div class="form-field profileIMGSection">
           <img id="profile-img" class="profile-img" src=${userData?.profileIMG} alt="Profile Image">
           <div>
@@ -87,13 +68,13 @@ function profileHMTL(userData){
           <button id="password-btn" class="edit-btn" ><i class="fa fa-pencil" aria-hidden="true"></i></button>
         </div>
         <button id="submit-btn" class="submit-btn" style="display:none">Save</button>
-      </div>
-      <hr>
+        <hr>
       <div >
       <p  class="profilebottom"><a href=${cartUrl}> Go to Cart</a></p>
       ${userData.HasStore? `<p class="profilebottom"><a href=${dashboardUrl}>Go to Store</a></p>` : `<p class="profilebottom"><a href=${createStoreUrl}>Create Store</a></p>`}
       <p id="logout" class="profilebottom">Logout</p>
       <p id="deleteUser" class="profilebottom">Delete Account</p>
+      </div>
       </div>
     `
 }
@@ -123,7 +104,7 @@ logout.addEventListener("click", ()=>{
 
 // Delete Account
 deleteAccount.addEventListener("click", ()=>{
-  deleteUser(userData._id)
+  deletaccount(userData)
 })
  
  
@@ -136,17 +117,6 @@ deleteAccount.addEventListener("click", ()=>{
  inputs[5].value = User.Address;
  inputs[6].value = User.City;
  inputs[7].value = User.Password;
- if(inputs.length > 8){
- inputs[8].value = '';
- inputs[9].value = User.Firstname;
- inputs[10].value = User.Lastname;
- inputs[11].value = User.Email;
- inputs[12].value = User.Phone;
- inputs[13].value = User.Address;
- inputs[14].value = User.City;
- inputs[15].value = User.Password;
- }
-
  
  // Add event listener to edit buttons
  editBtns.forEach((btn) => {
@@ -215,54 +185,8 @@ submitBtn[0].addEventListener('click', async() => {
     City: inputs[6].value,
     Password: inputs[7].value,
   };
-  profileImageUpload ? reader.readAsDataURL(profileImageUpload): updateUser(userData._id, data);  
+  profileImageUpload ? reader.readAsDataURL(profileImageUpload): await updateUser(userData._id, data);  
   });
-
-  // For the dashborad since we are calling it twice ( nav and dashboard)
-  if(inputs.length > 8){
-   submitBtn[1] && submitBtn[1].addEventListener('click', () => {
-    // Get the profileImage and read it
-    let profileImageUpload = document.querySelectorAll("#profile-img-input")[1].files[0];
-    let profilePic
-    const reader = new FileReader();
-    
-    let data;
-    // send the data to the backend after sending it
-    reader.onload = (e) => {
-      profilePic = e.target.result;
-      
-      data = {
-        profileIMG: profilePic,
-        Firstname: inputs[9].value,
-        Lastname: inputs[10].value,
-        Email : inputs[11].value,
-        Phone: inputs[12].value,
-        Address: inputs[13].value,
-        City: inputs[14].value,
-        Password: inputs[15].value,
-      };
-
-      console.log(data); 
-      // Send to the backend
-  }
-
-  // If no image
-  data = {
-    profileIMG: profilePic,
-    Firstname: inputs[9].value,
-    Lastname: inputs[10].value,
-    Email : inputs[11].value,
-    Phone: inputs[12].value,
-    Address: inputs[13].value,
-    City: inputs[14].value,
-    Password: inputs[15].value,
-  };
-  
-  profileImageUpload ? reader.readAsDataURL(profileImageUpload) :  updateUser(userData._id, data); // send to the backend here
-   
-  });
-  }
-
 }
 
 

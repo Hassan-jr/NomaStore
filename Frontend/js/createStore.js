@@ -1,7 +1,20 @@
-import { ProfileJS, profileHMTL } from "./profile.js";
-import { getUsers } from "./api/user.js";
+import { getOneUserData } from "./api/user.js";
+import { getUserProfileCard } from "./components.js";
+import {createStore} from "./api/store.js"
+const userID = JSON.parse(localStorage.getItem('userID'));
 
-const userData = getUsers()
-const createStoreProfile = document.getElementById("createStoreProfile")
-createStoreProfile.innerHTML = profileHMTL(userData)
-ProfileJS()
+const userData = await getOneUserData(userID)
+console.log(userData);
+const createStoreProfile = document.getElementById("UserProfileCard")
+createStoreProfile.innerHTML = getUserProfileCard(userData)
+
+
+// Forme
+const createStoreFrom = document.getElementById("createStore")
+const storeName = document.getElementById("storeName")
+createStoreFrom.addEventListener("submit", (e)=>{
+    e.preventDefault()
+    console.log(storeName.value);
+    createStore( storeName.value, userID)
+    
+})

@@ -2,7 +2,7 @@ const uri = "http://localhost:4000/users"
 
 // Get all products array
 const getUsers = async()=>{
-   const result =  fetch(uri)
+   const result =  await fetch(uri)
     .then(res => res.json())
     .then(data => data)
     .catch(rejected => {
@@ -11,11 +11,22 @@ const getUsers = async()=>{
     return result
 }
 
+// get a single user
+const getOneUserData = async(userID)=>{
+  const result =  await fetch(`${uri}/${userID}`)
+   .then(res => res.json())
+   .then(data => data)
+   .catch(rejected => {
+     console.log(rejected);
+   }); 
+   return result
+}
+
 
 
 // Update a product
 const updateUser = async(id, data)=> {
-  return fetch(`${uri}/${id}`, {
+   return await fetch(`${uri}/${id}`, {
     method: 'PUT',
     body: JSON.stringify(data),
     headers: {
@@ -28,15 +39,24 @@ const updateUser = async(id, data)=> {
 
 // Delete Product
 const deletUser = async(id) =>{
-  return fetch(`${uri}/${id}`, {
+ return await fetch(`${uri}/${id}`, {
     method: 'DELETE'
   })
-    .then(response => response.json())
-    .catch(error => console.error(error));
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    alert('Account Deleted Successfuly');
+    localStorage.removeItem('userID') 
+    console.log(`User with ID ${userId} deleted successfully!`);
+  })
+  .catch(error => {
+    console.error(`Error deleting user with ID ${userId}: ${error}`);
+  });
 }
 
 
 
 
 
-export {getUsers,updateUser,deletUser}
+export {getUsers,updateUser,deletUser, getOneUserData}
