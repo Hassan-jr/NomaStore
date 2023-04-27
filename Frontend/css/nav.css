@@ -125,19 +125,22 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   background-color: #fff;
   padding-bottom: 50px;
+  border: 1px solid #313BAC;
 }
 
 .close {
-  color: #aaa;
+  color: #ff523b;
   float: right;
   font-size: 38px;
   font-weight: bold;
   position: relative;
+  background-color: #EDF2F8;
+  height: 270px;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #ff523bc4;
   text-decoration: none;
   cursor: pointer;
 }
@@ -205,7 +208,7 @@ body {
   height: 150px;
   border-radius: 100%;
   background-color: #ddd;
-  object-fit: contain;
+  object-fit: cover;
 }  
 ::-webkit-file-upload-button {
   visibility: hidden;
@@ -223,6 +226,37 @@ body {
   font-weight: 700;
   font-size: 10pt;
   margin: 10px;
+}
+.profileinputtitle{
+  text-align:left;
+  margin-left: -140px;
+  color: #ca5743;
+  font-size: small;
+}
+.profilebottom{
+  margin: 20px;
+  margin-left: 50px;
+  background-color: #ddd;
+  padding: 10px 20px 10px 3px;
+  border: 1px solid #313BAC;
+  color: #313BAC;
+  width: 200px;
+  font-size: small;
+}
+.profilebottom a{
+  color: #313BAC;
+}
+#logout{
+  text-align: center;
+  background-color: #5962BC;
+  color: #fff;
+  cursor: pointer;
+}
+#deleteUser{
+  text-align: center;
+  background-color: #ff523b;
+  color: #fff;
+  cursor: pointer;
 }
 
 /* ******************************* RESPONSIVENESS ************************************ */

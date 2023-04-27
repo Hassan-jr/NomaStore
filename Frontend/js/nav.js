@@ -1,11 +1,31 @@
 import { ProfileJS, profileHMTL } from "./profile.js";
+const userID = JSON.parse(localStorage.getItem('userID'));
+console.log("USER ID IS ", userID);
+
+
+const uri = "http://localhost:4000/users"
+
+// Get all products array
+const getUserData = async()=>{
+   const result =  fetch(`${uri}/${userID}`)
+    .then(res => res.json())
+    .then(data => data)
+    .catch(rejected => {
+      console.log(rejected);
+    }); 
+    return result
+}
+const userData = userID? await getUserData() : ''
+console.log("Fetched UserData", userData);
+
+
 
 
 
 const profilePopUp = `
 <div id="profilePopUp" class="profile">
 <span class="close">&times;</span>
-${profileHMTL()} 
+${profileHMTL(userData)} 
 </div>`
 
 
@@ -27,12 +47,12 @@ function get_nav(){
         <a href='./pages/products.html'>Products</a>
         <a href="./pages/shop.html">Shops</a>
         <a href="./pages/mystore.html">My Store</a>
-        <a href="./pages/signUp.html">Account</a>
         <a href="./pages/cart.html">Cart<span class="cartItems">${cartItems.length}</span></a>
-        <a href="./pages/dashboard.html">Dashboard</a>
+        ${userData.HasStore ? `<a href="./pages/dashboard.html">Dashboard</a>`: ""}
+        ${!userID ? '<a href="./pages/signUp.html">Account</a>' :
+        '<a id="profile">Profile</a>'}
         <a href="./pages/about.html">About Us</a>
         <a href="./pages/privacy.html">Privacy Policy</a>
-        <a id="profile">Profile</a>
       </div>
       <div class="nav-toggle">
         <span></span>
@@ -60,12 +80,12 @@ function get_nav(){
         <a href='products.html'>Products</a>
         <a href="shop.html">Shops</a>
         <a href="mystore.html">My Store</a>
-        <a href="signUp.html">Account</a>
         <a href="cart.html">Cart<span class="cartItems">${cartItems.length}</span></a>
-        <a href="dashboard.html">Dashboard</a>
+        ${userData.HasStore ? `<a href="dashboard.html">Dashboard</a>`: ""}
+        ${!userID ? '<a href="./signUp.html">Account</a>' :
+        '<a id="profile">Profile</a>'}
         <a href="about.html">About Us</a>
         <a href="privacy.html">Privacy Policy</a>
-        <a id="profile">Profile</a>
       </div>
       <div class="nav-toggle">
         <span></span>
@@ -91,8 +111,8 @@ const nav = document.getElementById("nav");
 document.getElementById("nav") ? nav.innerHTML = result : 'null'
 document.getElementById('Homenav') ? Homenav.innerHTML = result : 'null'
 
-// RUN THE PROFILE JS AFTER CREATIN THE NAV
-ProfileJS()
+// RUN THE PROFILE JS AFTER CREATING THE NAV
+ProfileJS(userData)
 
 
 

@@ -28,7 +28,16 @@ async function getCollection(){
       }
     };
   
-  
+  // *****************************88 GET ONE USER *************
+  const oneuser = async(req,res)=>{
+    const collection = await getCollection()
+    const UserId =  await(req.params.id);
+    const user =  await collection.findOne({_id: new ObjectId(UserId)})
+    if(!user){
+      res.status(404).send("User Not found")
+    }
+    res.send(user)
+  }
   // ****************** Post Request/ Creating *************
   const createUser = async(req,res)=>{
 
@@ -51,7 +60,7 @@ async function getCollection(){
         const collection = await getCollection()
         // await collection.createIndex( { StoreName: 1 }, { unique: true } )
         const result = await collection.insertOne(newUser)
-        res.send({ id: result.insertedId }); 
+        res.send(result.insertedId ); 
         
       } catch (error) {
           console.error(error);
@@ -102,9 +111,24 @@ async function getCollection(){
     res.status(500).send('Error Updating User');
   });
   }
+
+const loginUser = async(req,res)=>{
+  const collection = await getCollection()
+   email = await req.body.Email
+   password = await req.body.Password
+   const result = await collection.findOne({Email : email, Password: password})
+   if(!result){
+    return res.status(404).send('Wrong Email or Password');
+   }
+   res.send(result._id)
+}
+
+
   module.exports = {
       getUsers,
       createUser,
       deleteUser,
-      updateUser
+      updateUser,
+      loginUser,
+      oneuser
   }
