@@ -46,7 +46,12 @@ td img{
     margin-right: 10px; 
 }
 
-
+.removeFromCart{
+    color: #ff523b;
+    font-size: small;
+    cursor: pointer;
+    text-decoration: underline;
+}
 .total-price{
     display: flex;
     justify-content: flex-end;

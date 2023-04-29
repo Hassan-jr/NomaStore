@@ -5,6 +5,7 @@ import { getOneUserData } from "./api/user.js";
 const userID = JSON.parse(localStorage.getItem('userID'));
 // console.log("USER ID IS ", userID);
 const userData = userID? await getOneUserData(userID) : ''
+const NumbercartItems = await (userData ? await userData.Carts.length : 0)
 // console.log("Fetched UserData", userData);
 
 const profilePopUp = `
@@ -32,7 +33,7 @@ function get_nav(){
         <a href='./pages/products.html'>Products</a>
         <a href="./pages/shop.html">Shops</a>
         <a href="./pages/mystore.html">My Store</a>
-        <a href="./pages/cart.html">Cart<span class="cartItems">${cartItems.length}</span></a>
+        <a href="./pages/cart.html">Cart<span class="cartItems">${NumbercartItems}</span></a>
         ${userData.HasStore ? `<a href="./pages/dashboard.html">Dashboard</a>`: ""}
         ${!userID ? '<a href="./pages/signUp.html">Account</a>' :
         '<a id="profile">Profile</a>'}
@@ -65,7 +66,7 @@ function get_nav(){
         <a href='products.html'>Products</a>
         <a href="shop.html">Shops</a>
         <a href="mystore.html">My Store</a>
-        <a href="cart.html">Cart<span class="cartItems">${cartItems.length}</span></a>
+        <a href="cart.html">Cart<span class="cartItems">${NumbercartItems}</span></a>
         ${userData.HasStore ? `<a href="dashboard.html">Dashboard</a>`: ""}
         ${!userID ? '<a href="./signUp.html">Account</a>' :
         '<a id="profile">Profile</a>'}

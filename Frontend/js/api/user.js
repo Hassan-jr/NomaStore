@@ -34,7 +34,7 @@ const updateUser = async(id, data)=> {
     }
   })
     .then(response => response.json())
-    .catch(error => console.error(error));
+    .catch(error => console.log(error));
 }
 
 // Delete Product
