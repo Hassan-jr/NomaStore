@@ -2,25 +2,25 @@
 function getHeader(headerData){
 
   // Split the two titles into 2 each for good styling
-  const words = headerData.title1.split(' ');
+  const words = headerData?.title1.split(' ');
   const half1 = Math.ceil(words.length / 2);
   const Title1firstHalf = words.slice(0, half1).join(' ');
   const title1secondHalf = words.slice(half1).join(' ');
 
   // split title2
-  const words2 = headerData.title2.split(' ');
+  const words2 = headerData?.title2.split(' ');
   const half2 = Math.ceil(words2.length / 2);
   const Title2firstHalf = words2.slice(0, half2).join(' ');
   const title2secondHalf = words2.slice(half2).join(' ');
 
   // split description
-  const words3 = headerData.description.split(' ');
+  const words3 = headerData?.description.split(' ');
   const half3 = Math.ceil(words3.length / 2);
   const description1 = words3.slice(0, half3).join(' ');
   const description2 = words3.slice(half3).join(' ');
 
   return`
-  <div class="header" style="background-image: url(${headerData.backgroundIMG ? headerData.imgURL : ''}); background-repeat: no-repeat; background-size: cover; background-position: center;">
+  <div class="header" style="background-image: url(${headerData?.backgroundIMG ? headerData?.imgURL : ''}); background-repeat: no-repeat; background-size: cover; background-position: center;">
        <!-- Titel -->
        <div class="header_left">
         <span class="main_title">
@@ -42,8 +42,8 @@ function getHeader(headerData){
        </div>
        <!-- Image -->
        <div class="header_images">
-        ${ !headerData.backgroundIMG ? 
-        `<img class="header_img" src=${headerData.imgURL} alt=${headerData.title1}>` : ''
+        ${ !headerData?.backgroundIMG ? 
+        `<img class="header_img" src=${headerData?.imgURL} alt=${headerData?.title1}>` : ''
           }
        </div>
     </div>
@@ -130,7 +130,7 @@ function featuredProductsDataComponents(product){
 function editCreateProductHTML(){
   return `
   <div class="container">
-      <h1>Edit | Create Product</h1>
+      <h1 id="editnewproducttitle">Edit | Create Product</h1>
       <form id="product-form">
         <div>
           <label for="category">Category:</label>

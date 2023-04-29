@@ -4,7 +4,6 @@ import { updateUser, deletUser } from "./api/user.js";
 var path = window.location.pathname;
 // Extract the file name from the path
 var pageName = path.split('/').pop();
-console.log("Page is ", pageName);
 const dashboardUrl = pageName === "index.html" ? "./pages/dashboard.html" : "./dashboard.html"
 const createStoreUrl = pageName === "index.html" ? "./pages/createStore.html" : "./createStore.html"
 const cartUrl =  pageName === "index.html" ? "./pages/cart.html" : "./cart.html"
@@ -13,7 +12,7 @@ const cartUrl =  pageName === "index.html" ? "./pages/cart.html" : "./cart.html"
 
 // Delete Account
 async function deletaccount(userData) {
-  if(userData.HasStore){
+  if(userData?.HasStore){
     const stores = await getStores()
     const store = await stores.find(item => item.ShopName == userData.StoreName)
      deleteStore(store._id) 

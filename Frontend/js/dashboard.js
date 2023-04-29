@@ -7,8 +7,23 @@ import { data2 } from "./data2.js";
 import { editCreateProductFunction } from "./editproduct.js";
 import { getOneUserData } from "./api/user.js";
 import { getUserProfileCard } from "./components.js";
+import { getStores } from "./api/store.js";
+import { deleteProduct } from "./api/products.js";
+import { homePageHtml, homePageEditForm } from "./editHomePage.js";
+// Get the user
 const userID = JSON.parse(localStorage.getItem('userID'));
 const userData = await getOneUserData(userID)
+// get the store
+const stores = await getStores()
+const mystore = await stores.find(storeItem=>storeItem.ShopName == userData.StoreName)
+// Get dashboard Component form the store
+const homePageData = await mystore.HomeData
+const storeProducts = await mystore.StoreProducts
+const storeOders = await mystore.Orders
+const storeSubscribers = await mystore.Subscribers
+
+
+
 // Side Nav Functionanality
 let menuicn = document.querySelector(".menuicn");
 let nav2 = document.querySelector(".navcontainer");
@@ -23,7 +38,7 @@ const dashboard = document.getElementById("dashboard");
 dashboard.innerHTML = `
          <div>
                 <!-- Dashboader header / Title -->
-                <H1 class="dashboard-Header">My Dashboard</H1>
+                <H1 class="dashboard-Header">${ userData.StoreName} Dashboard</H1>
                 <!-- Oders Top section -->
                 <div class="box-container">
                     <div class="box box1">
@@ -95,48 +110,7 @@ dashboardPage.addEventListener("click", () => {
 const homePage = document.getElementById("option2");
 homePage.addEventListener("click", () => {
   homePage.style.borderLeft = "5px solid #010058af";
-  dashboard.innerHTML = `
-	  <button id="homeeditbtn" style="position: absolute; right: 40px; top: 20px; font-size: 34px;  color: #f02d35; border: none; cursor: pointer;"> <i class="fa fa-pencil" aria-hidden="true"></i></button>
-	  <iframe src="../pages/mystore.html" frameborder="0" scrolling="yes" width="100%" height="1000" style="margin-top: -100px;"></iframe>
-	 
-    <-- ********************************** POP UP ************************** --!>
-   
-    <div id="homeedit" class="popup">
-	  <span  class="closePopUp">&times;</span>
-            <h1>Edit Your Home Page</h1>
-        <form id="homepageEditForm" class="homepageEdit">
-        <h2 style="color: #313BAC;">Current Header Image</h2>
-        <img src="../assets/cart4.png" alt="homeEditImage"/>
-           <div class="hamePageForm">
-             <label for="backgroundImg">Header Image</label>
-             <input id="backgroundImg" type="file" name="backgroundImg" accept="image/*" />
-           </div>
-           <div class="hamePageForm">
-            <label for="set">Set Image as Background</label>
-            <input id="set" type="checkbox"    name="set"/>
-           </div>
-           <div class="hamePageForm">
-           <label for="title1">Header Title 1</label>
-           <input id="title1" type="text" placeholder="Enter Header Title 1" name="title1"/>
-          </div>
-          <div class="hamePageForm">
-           <label for="title2">Header Title 2</label>
-           <input id="title2" type="text" placeholder="Enter Header Title 2" name="title2"/>
-          </div>
-          <div class="hamePageForm">
-           <label for="desc">Header desc</label>
-           <input id="desc" type="text" placeholder="Enter Header  desc" name="desc"/>
-          </div>
-           <div class="hamePageForm">
-           <label for="banner">Banner Producnt</label>
-           <input id="banner" type="text" placeholder="Enter Product Id" name="set"/>
-          </div>
-
-          <button type="submit">Update</button>
-        </form>
-   
-	  </div>
-	 `;
+  dashboard.innerHTML = homePageHtml();
   // pop up
   const homeeditbtn = document.getElementById("homeeditbtn");
   const homeedit = document.getElementById("homeedit");
@@ -150,40 +124,7 @@ homePage.addEventListener("click", () => {
     homeedit.style.display = "none";
   };
 
-  // Handle Form
-  const reader = new FileReader();
-  const homepageForm = document.getElementById("homepageEditForm");
-  homepageForm &&
-    homepageForm.addEventListener("submit", (event) => {
-      event.preventDefault(); // Prevent form submission
-      const homePageImage = document.getElementById("backgroundImg").files[0];
-      const title1 = homepageForm.elements["title1"].value;
-      const title2 = homepageForm.elements["title2"].value;
-      const description = homepageForm.elements["desc"].value;
-      const backgroundIMG = document.getElementById("set").checked;
-      const banner = homepageForm.elements["banner"].value;
-      let imgURL;
-      reader.onload = async(e) => {
-        imgURL = e.target.result;
-        console.log("Items are in the load are:", {
-          imgURL,
-          backgroundIMG,
-          banner,
-          title1,
-          title2,
-          description,
-        });
-      };
-      homePageImage ? reader.readAsDataURL(homePageImage):
-      console.log("Items are ouside :", {
-        // imgURL,
-        backgroundIMG,
-        banner,
-        title1,
-        title2,
-        description,
-      });
-    });
+  homePageEditForm(mystore._id, homePageData)
 });
 
 // Products page
@@ -191,7 +132,7 @@ const productsPage = document.getElementById("option3");
 productsPage.addEventListener("click", () => {
   productsPage.style.borderLeft = "5px solid #010058af";
   let productsHTML = "";
-  data2.map((productItem, i) => {
+  storeProducts.map((productItem, i) => {
     productsHTML += productCards(productItem, true);
   });
   dashboard.innerHTML = `
@@ -201,6 +142,18 @@ productsPage.addEventListener("click", () => {
 	</div>
 	`;
 
+  // ***************************** Product delte section  **************************
+  const Productdeletbtns = document.querySelectorAll(".deleteProduct")
+  for (let i = 0; i < Productdeletbtns.length; i++) {
+    Productdeletbtns[i].addEventListener("click", (event) => {
+      const id = event.currentTarget.id;
+      deleteProduct(id)
+      alert("Product to be delete is successfully");
+      window.location.reload()
+    });
+  }
+
+  // ******************************* Product Edit section as a pop up **************************
   // DELETE POP UP
   const deletbtn = document.querySelectorAll(".deleteProduct"); // delete button that opens pop up
   var DeleteComponentPopUp = document.getElementById("productDeletePopUp"); // The Component gets open before delting
@@ -227,7 +180,7 @@ productsPage.addEventListener("click", () => {
       const id = event.currentTarget.id;
       EditComponentPopUp.style.display = "block";
       EditContent.innerHTML = editCreateProductHTML(); // create the edit components
-      editCreateProductFunction(id);
+      editCreateProductFunction(id, userData.StoreName);
 
       console.log("CLICKED PRODUCT IS", id);
     });
@@ -237,11 +190,31 @@ productsPage.addEventListener("click", () => {
   };
 });
 
+// Add new Product From side NAV
+const addnewproductbtn = document.getElementById("newProduct")
+ // EDIT POP UP
+ const EditContent = document.getElementById("EditContent");
+ var EditComponentPopUp = document.getElementById("productEditPopUp"); // The Component gets open before delting
+ var CloseEditPopUp = document.getElementsByClassName("closePopUpEdit")[0]; // closes the delete pop
+     addnewproductbtn.addEventListener("click", (event) => {
+     const id = event.currentTarget.id;
+     EditComponentPopUp.style.display = "block";
+     EditContent.innerHTML = editCreateProductHTML(); // create the edit components
+     editCreateProductFunction("new",  userData.StoreName);
+
+     console.log("CLICKED PRODUCT IS", id);
+   });
+   CloseEditPopUp.onclick = function () {
+    EditComponentPopUp.style.display = "none";
+  };
+ 
+
+
 // Orders
 const ordersPage = document.getElementById("option4");
 ordersPage.addEventListener("click", () => {
   ordersPage.style.borderLeft = "5px solid #010058af";
-  dashboard.innerHTML = ` ${getOrdersHTML(data2, true)}`;
+  dashboard.innerHTML = ` ${getOrdersHTML(storeProducts, true)}`;
 });
 
 // SubscribersPage

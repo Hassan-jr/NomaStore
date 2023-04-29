@@ -205,7 +205,8 @@
 }
 .dashboard-Header{
   color: #313BAC;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  text-align: left;
 }
 .recent-orders {
   font-size: 30px;

@@ -1,20 +1,30 @@
 import { data2 } from "./data2.js";
 import { productCards } from "./components.js";
 import {getProducts,shuffle} from './api/products.js'
+import { getOneUserData, updateUser } from "./api/user.js";
 
 
+// Get the user
+const userID = JSON.parse(localStorage.getItem('userID'));
+const userData = await getOneUserData(userID)
+
+// Get the productid from url
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
+
+
 // Fetch the individual card data form the backend and then concatinate with generating the html for it
 // ******************* get the individualcard div**********************
 let loading = true
 const individualcard = document.getElementById("individualCard");
+
+// The card
 const ProductsData = async()=>{
   console.log(loading);
-  const AllProductsdata= shuffle(await getProducts())
+  const AllProductsdata= await shuffle(await getProducts())
   loading =  false
   console.log(loading);
-  console.log(AllProductsdata); 
+
 
 function getData() {
   let cardData = AllProductsdata.find((item) => item._id == id);
@@ -79,14 +89,13 @@ function getData() {
      <!-- ************ COUNTER ********** -->
     <div class="quantity-counter">
      <button class="counter-button decrease" onclick="decrease()">-</button>
-     <span class="quantity">1</span>
+     <span id="qtyinput" class="quantity" >1</span>
      <button class="counter-button increase" onclick="increase()">+</button>
     </div>
    
   <!-- ************************ buttons ****************** -->
   <div class="buttons">
-     <button class="btn">Buy</button>
-     <button id="cart-id" class="btn" >Add to Cart</button>
+     <button id="Addtocart" class="btn" >Add to Cart</button>
   </div>
    </div>
    </div>
@@ -94,9 +103,9 @@ function getData() {
    `;
   }
 }
-getData();
+ getData();
 }
-ProductsData()
+await ProductsData()
 
 
 
@@ -111,21 +120,32 @@ ${relatedProductHTML}
 `;
 
 // ADD TO CART FUNCITONALITY FOR THE TAP CARDS
-const btn = document.getElementById("cart-id");
-btn.addEventListener("click", function () {
-  console.log("got clicked");
+const btn = document.getElementById("Addtocart");
+btn.addEventListener("click", async function () {
+  var quantityElement = document.querySelector(".quantity");
+  var quantity = parseInt(quantityElement.innerText);
+  console.log("got clicked", quantity);
+
+  const cartitems = await userData.Carts
+
   // Get existing IDs from local storage (if any)
-  let existingIds = JSON.parse(localStorage.getItem("myIds") || "[]");
+  let existingIds = await cartitems.map(item=>item._id);
 
   // Check if ID is already in the array
   if (existingIds.includes(id)) {
-    console.log("ID already exists in array");
+    alert("Item already in cart");
     return;
   }
-  // Add the new ID to the array
-  existingIds.push(id);
-  // Save the updated array to local storage
-  localStorage.setItem("myIds", JSON.stringify(existingIds));
+  const newCartItem = {
+    id : id,
+    qty : quantity
+  }
+  // Add the nw item into the carts
+  await cartitems.push(newCartItem);
+
+  // Send the updated carts  to the backend
+  await updateUser(userID,cartitems)
+ 
 });
 
 

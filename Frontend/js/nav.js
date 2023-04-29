@@ -3,9 +3,9 @@ import { getOneUserData } from "./api/user.js";
 
 
 const userID = JSON.parse(localStorage.getItem('userID'));
-console.log("USER ID IS ", userID);
+// console.log("USER ID IS ", userID);
 const userData = userID? await getOneUserData(userID) : ''
-console.log("Fetched UserData", userData);
+// console.log("Fetched UserData", userData);
 
 const profilePopUp = `
 <div id="profilePopUp" class="profile">

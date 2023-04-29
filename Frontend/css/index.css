@@ -108,7 +108,7 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: flex-end;
     padding: 20px;
     background-color: #dcdcdc;
@@ -116,11 +116,11 @@ body{
     
 }
 .banner-2-img-div{
-    position: absolute;
-    right: 200px;
-    top: 0;
+    /* position: absolute;
+    right: 200px; */
+    /* top: 0;
     margin: 0;
-    padding: 0;
+    padding: 0; */
     
 }
 .banner-2-img{
@@ -128,7 +128,7 @@ body{
     height: 300px;
     object-fit: contain;
     /* margin-top: -80px; */
-    margin-right: -20px;
+    /* margin-right: -20px; */
 }
 .banner-2-left{
     display: flex;
@@ -170,6 +170,7 @@ text-align: center;
     font-weight: lighter;
     color:#747E8F;
     margin-right: 20px;
+    text-overflow: clip;
    
 }
 

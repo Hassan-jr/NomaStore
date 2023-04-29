@@ -11,6 +11,7 @@ const getStores = async()=>{
      return result
  }
  
+//  Post ( Crete anew store)
 const createStore = async (storeName, userID)=>{
     const data = {ShopName : storeName}
 
@@ -34,6 +35,20 @@ const createStore = async (storeName, userID)=>{
     alert('Sign up failed. Please try again.');
   });
 }
+// Put (Update Store)
+// Update a product
+const updateStore = async(id, data)=> {
+  return fetch(`${uri}/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => response.json())
+    .catch(error => console.error(error));
+}
+
 // Delete Store
 async function deleteStore(storeID) {
     await fetch(`${uri}/${storeID}`, {
@@ -51,4 +66,4 @@ async function deleteStore(storeID) {
     });
   }
 
-export {createStore, deleteStore, getStores}
+export {createStore, deleteStore, getStores, updateStore}

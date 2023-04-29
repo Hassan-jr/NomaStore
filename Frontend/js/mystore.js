@@ -1,38 +1,33 @@
 import { data2 } from "./data2.js";
-
-// const urlnw = window.location.href;
-
-// const newUrl = `${window.location.href.split('/').slice(0, -1).join('/')}/nomastore.html`;
-
-// history.pushState({ page: 'nomastore' }, '', newUrl);
-
-
-// window.addEventListener("load", function (event) {
-//     console.log(urlnw);
-//   const url = window.location.href;
-//   const parts = url.split("/");
-//   const filename = parts[parts.length - 1];
- 
-//   if(!filename == "mystore.html"){
-//     window.location.href = urlnw
-//   }
-
-
-//   if (filename === "mystore.html") {
-//     let newUrl = window.location.href.replace("mystore", "nomastore");
-//     history.pushState(null, null, newUrl);
-//   } else {
-//     let newUrl = window.location.href.replace("nomastore", "mystore");
-//     history.pushState(null, null, newUrl);
-//   }
-//   console.log("The page is redirecting");
-// });
+import { getOneUserData } from "./api/user.js";
+import { getStores } from "./api/store.js";
 
 import {
   productCards,
   testimonialComponent,
   featuredProductsDataComponents,
+  getHeader,
 } from "./components.js";
+
+
+// Get the user
+const userID = JSON.parse(localStorage.getItem('userID'));
+const userData = await getOneUserData(userID)
+// get the store
+const stores = await getStores()
+const mystore = await stores.find(storeItem=>storeItem.ShopName == userData.StoreName)
+// Get dashboard Component form the store
+const homePageData = await mystore.HomeData
+const storeProducts = await mystore.StoreProducts
+const banner = await homePageData.banner
+let bannerProduct;
+if(!banner){
+  bannerProduct = storeProducts[1]
+}else{
+  bannerProduct = storeProducts.find(item=>item._id == banner)
+}
+ 
+
 const MyStore = {
   features: [
     {
@@ -62,12 +57,12 @@ const MyStore = {
     },
   ],
   Banner_2: {
-    tag_1: "Best Solo",
-    tag_2: "Wireless",
-    name: "HEADPHONS",
-    button: "wireless headphones",
-    desc: "Panasonic Link2Cell Bluetooth Cordless Phone System with Voice Assistant, Call Block and Answering Machine, Expandable Home Phone with 5 Handsets – KX-TGF575S (Black with Silver Trim)",
-    img: "../assets/headphones2.png",
+    tag_1: "Best From",
+    tag_2: mystore.ShopName,
+    name: bannerProduct.category,
+    button: ` ${ bannerProduct.category} From ${ mystore.ShopName}`,
+    desc: bannerProduct.description.slice(0,300),
+    img: bannerProduct.images[1],
   },
   best_products: [
     "628c9b02c5f0f6420a0f191c",
@@ -99,6 +94,10 @@ const MyStore = {
   ],
 };
 
+const myStoreHeader = document.getElementById("myStoreHeader")
+myStoreHeader.innerHTML = getHeader(await homePageData)
+
+
 // features PRODUCTS
 const featuresDiv = document.getElementById("features");
 MyStore.features.map(
@@ -126,16 +125,9 @@ const banner_2_img = document.getElementById("banner-2-img");
 banner_2_img.src = MyStore.Banner_2.img;
 banner_2_img.alt = MyStore.Banner_2.name;
 
-// BEST SELLER PORDUCTS
-var best_selling_products = [];
-MyStore.best_products.map((item) =>
-  best_selling_products.push(
-    data2.find((data_2_item) => data_2_item._id == item)
-  )
-);
-console.log(best_selling_products);
+
 const card = document.getElementById("best-seller-cards");
-best_selling_products.map(
+storeProducts.map(
   (product) => (card.innerHTML += productCards(product))
 );
 
