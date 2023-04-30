@@ -36,19 +36,46 @@ const categories = getCategories(AllProductsdata)
 
 // generate side nav links
 function generateSideNav(item){
-  return` <a id=${item.replace(/"/g, '')} onClick=filter(event) href="#home">${item.replace(/"/g, '')}</a>`
+  return` <a id=${item.replace(/"/g, '')} class="categorySideNav">${item.replace(/"/g, '')}</a>`
 }
 
 // LOOP categories to generate side nav
 function generateCategoriesLinks() {
   const linksContainer = document.getElementById('sidebar')
-  let links = `<a id="All" onClick=filter(event) href="#home">All Products</a>`; // collects the html card to be displayed
+  let links = `<a id="All Products" class="categorySideNav" >All Products</a>`; // collects the html card to be displayed
   for (const link of categories) {
     links += generateSideNav(link);
   }
   linksContainer.innerHTML = links;
+// Seacrh Funtionality
+const allcategories = document.querySelectorAll(".categorySideNav")
+for(let i=0; i<allcategories.length; i++){
+    allcategories[i].addEventListener("click", (event)=>{
+    const ctg = event.currentTarget.id
+    const ProductPageTitile = document.getElementById("ProductPageTitile")
+    ProductPageTitile.innerHTML = ctg
+    if(ctg == 'All Products'){
+     generateProductCards();
+     return
+    }
+    
+    const productCardsContainer = document.getElementById('product-cards');
+    let productCardsHTML = ''; // collects the html card to be displayed
+ 
+  for (const product of AllProductsdata) {
+    productCardsHTML += product.category == ctg? productCards(product): "";
+  }
+  productCardsContainer.innerHTML = productCardsHTML;
+  })
+}
+
+
 }
 generateCategoriesLinks();
+
+
+
+
 
 
 // ADD TO CART

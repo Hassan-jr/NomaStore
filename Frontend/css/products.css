@@ -10,6 +10,12 @@ body{
 .title{
     margin-left: 40px;
 }
+.ProductPageTitile{
+    text-align: center;
+    width: 200px;
+    margin-left: 20%;
+   color: #ff523b;
+}
 .product-cards{
     width: 80%;
     display: flex;
@@ -28,6 +34,7 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     background-color: #d3d9e0;
+    margin-top: -80px;
 }
 
 .sidebar{
