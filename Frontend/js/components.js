@@ -247,6 +247,8 @@ function getUserProfileCard(userData){
  </div>`
 }
 
+
+
 export {productCards,
     testimonialComponent,
     featuredProductsDataComponents,

@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="../css/cart.css">
     <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/loader.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Cart - NomaStore </title>
@@ -14,11 +15,15 @@
 </head>
 
 <body>
+
+    <!-- Loader  -->
+    <div id="loader" class="loader"></div>
     <div id="nav"></div>
     <!--------------Cart Items details--------------->
     <div class="small-container cart-page">
         <!-- cart table -->
-        <table id="table" class="tabe">
+        <h1 class="orderedTitle">Cart Items</h1>
+        <table id="table">
         </table>
 
         <div class="total-price">
@@ -40,9 +45,16 @@
         </div>
 
         <div class="total-price">
-            <a href="#" class="btn">Proceed to checkout &#8594;</a>
+            <p id="checkoutbtn" class="btn">Proceed to checkout &#8594;</p>
         </div>
 
+    </div>
+
+    <!-- Ordered Items -->
+    <div class="small-container OrderedSection">
+        <h1 class="orderedTitle">Ordered Products</h1>
+    <table id="OrderedItems">
+    </table>
     </div>
 
     <!-------------js for toggle menu-------------->

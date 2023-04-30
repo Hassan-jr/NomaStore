@@ -46,6 +46,12 @@ td img{
     margin-right: 10px; 
 }
 
+.cartIMG{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px; 
+}
+
 .removeFromCart{
     color: #ff523b;
     font-size: small;
@@ -82,10 +88,19 @@ th:last-child{
 }
 .cart-info{
 }
+.qty{
+    color: rgb(44, 42, 42);
+    font-size: small;
+    font-weight: bold;
+}
 .cart-title{
     width: 350px;
    font-size: small;
 }
+.orderedTitle{
+    color: #ff523b;
+}
+
 @media only screen and (max-width: 768px){
     .cart-info p{
         display: none;
