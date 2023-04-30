@@ -13,9 +13,22 @@ import {
 // Get the user
 const userID = JSON.parse(localStorage.getItem('userID'));
 const userData = await getOneUserData(userID)
+
+// Get the store id from url incase user is from shops page
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get("id");
+let mystore
+if(id){
+  // get the store
+const stores = await getStores()
+ mystore = await stores.find(storeItem=>storeItem._id == id)
+}else{
 // get the store
 const stores = await getStores()
-const mystore = await stores.find(storeItem=>storeItem.ShopName == userData.StoreName)
+mystore = await stores.find(storeItem=>storeItem.ShopName == userData.StoreName)
+}
+
+
 // Get dashboard Component form the store
 const homePageData = await mystore.HomeData
 const storeProducts = await mystore.StoreProducts

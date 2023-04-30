@@ -100,7 +100,18 @@
 
     <!-- Footer -->
 <iframe src="./components/footer.html" frameborder="0" scrolling="no" width="100%" height="500"></iframe>
-    <script type="module"  src="../js/nav.js"></script>
-    <script type="module" src="../js/mystore.js"></script>
+
+
+<script>
+  // go to individual card products page
+    function handleCardClick(event) {
+      const productId = event.currentTarget.id;
+      const currentUrl = window.location.href;
+      const newUrl = `${currentUrl.split('/').slice(0, -1).join('/')}/individualCard.html?id=${productId}`;
+      window.location.href = newUrl;
+    }
+</script>
+ <script type="module" src="../js/mystore.js"></script>
+<script type="module"  src="../js/nav.js"></script>
 </body>
 </html>

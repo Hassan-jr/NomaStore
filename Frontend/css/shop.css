@@ -1,0 +1,52 @@
+body{
+    background-color: #eee;
+}
+.storesTtile{
+color: #ff523b;
+}
+.allStores{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+margin-left: 50px;
+margin-right: 50px;
+gap: 20px;
+}
+.storeItemsDiv{
+  width: 250px;
+  height: 380px;
+  border-radius: 10px;
+  line-height: 0.5;
+  box-shadow:  5px 5px 10px #d6d6d6,
+             -5px -5px 10px #dddddd;
+             border: 1px solid #bbb;
+}
+.storeImg{
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    background-color: #ddd;
+    border-radius: 10px;
+    border-bottom: 1px solid #bbb;
+    padding: 10px;
+}
+.storeDetails{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    margin-top: -10px;
+    line-height: 0.5;
+}
+.storeDetails h3{
+    color: #ff523b;
+    font-size: small;
+    font-weight: bold;
+}
+.storeDetails h4{
+    color: #313BAC;
+}
