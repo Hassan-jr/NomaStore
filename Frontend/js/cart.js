@@ -88,11 +88,11 @@ total.innerText =` $ ${totalprice.toFixed(2)} `
 
 // tax 
 const tax = document.getElementById("tax")
-tax.innerText = ` $ ${(0.15 * totalprice).toFixed(2)}`
+tax.innerText = `$ 0.00 `
 
 // total
 const finalTotal = document.getElementById("finalPrice")
-finalTotal.innerText =` $ ${(totalprice - (0.15 * totalprice)).toFixed(2)}`
+finalTotal.innerText =` $ ${totalprice.toFixed(2)}`
   } 
 generateCartCards();
 

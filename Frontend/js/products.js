@@ -1,5 +1,11 @@
 import {productCards} from './components.js'
 import {getProducts,shuffle} from './api/products.js'
+import { getOneUserData, updateUser } from "./api/user.js";
+
+
+// Get the user
+const userID = await JSON.parse(localStorage.getItem('userID'));
+const userData = await getOneUserData(userID)
 
 let loading = true
 // Get the data from the backend
@@ -78,26 +84,32 @@ generateCategoriesLinks();
 
 
 
-// ADD TO CART
+// ADD TO CART FUNCTIONLAITU FOR REALTED PRODUCTS
 const btn_cart = document.querySelectorAll(".btn-cart")
-
 for(let i=0; i<btn_cart.length; i++){
-btn_cart[i].addEventListener("click", (event)=>{
-  const id  = event.currentTarget.id;
-  // Get existing IDs from local storage (if any)
-  let existingIds = JSON.parse(localStorage.getItem('myIds') || '[]');
+btn_cart[i].addEventListener("click", async(event)=>{
+  const itemId  = event.currentTarget.id;
+  let cartitems = await userData.Carts
+
+  // Get existing cart items ids from carts arrays
+  let existingIds = await cartitems.map(item=>item.itemId);
 
   // Check if ID is already in the array
-  if (existingIds.includes(id)) {
-    console.log('ID already exists in array');
+  if (existingIds.includes(itemId)) {
+    alert("Item already in cart");
     return;
   }
-  // Add the new ID to the array
-  existingIds.push(id);
-  // Save the updated array to local storage
-  localStorage.setItem('myIds', JSON.stringify(existingIds));
-})
+  const newCartItem = {
+    itemId : itemId,
+    qty : 1
+  }
+  // Add the nw item into the carts
+  await cartitems.push(newCartItem);
 
+  // Send the updated carts  to the backend
+  await updateUser(userData._id,{Carts : cartitems})
+  cartitems = await userData.Carts
+})
 }
 
 }

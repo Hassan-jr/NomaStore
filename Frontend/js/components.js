@@ -196,10 +196,10 @@ function getOrdersHTML(data2,isInOrdersPage=false){
 		                              <small>Price: $ ${order.price}</small><br>
 	                            	</div>
 	                              </div>
-	                               <h3 class="t-op-nextlvl" >6</h3>
-	                               <h3 class="t-op-nextlvl" >$ ${(order.price * 6).toFixed(2)}</h3>
+	                               <h3 class="t-op-nextlvl" >${order.qty}</h3>
+	                               <h3 class="t-op-nextlvl" >$ ${(order.price * order.qty).toFixed(2)}</h3>
 	                               <h3 class="t-op-nextlvl label-tag" >Active</h3>
-                                 ${isInOrdersPage ? `  <h3 class="t-op-nextlvl label-tag" >Delivered</h3>` : ""}
+                                
                               </div>`
                             ).join('')}   
                         </div>

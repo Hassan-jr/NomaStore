@@ -13,7 +13,7 @@ const getUsers = async()=>{
 
 // get a single user
 const getOneUserData = async(userID)=>{
-  const result =  await fetch(`${uri}/${userID}`)
+  const result = userID && await fetch(`${uri}/${userID}`)
    .then(res => res.json())
    .then(data => data)
    .catch(rejected => {
@@ -26,7 +26,7 @@ const getOneUserData = async(userID)=>{
 
 // Update a product
 const updateUser = async(id, data)=> {
-   return await fetch(`${uri}/${id}`, {
+   return id && await fetch(`${uri}/${id}`, {
     method: 'PUT',
     body: JSON.stringify(data),
     headers: {

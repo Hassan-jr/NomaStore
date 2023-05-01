@@ -20,6 +20,7 @@ const mystore = await stores.find(storeItem=>storeItem.ShopName == userData.Stor
 const homePageData = await mystore.HomeData
 const storeProducts = await mystore.StoreProducts
 const storeOders = await mystore.Orders
+const OrederProducts = storeOders.map(item=>({...storeProducts.find(item2=>item.itemId == item2._id), qty: item.qty, }))
 const storeSubscribers = await mystore.Subscribers
 
 
@@ -93,7 +94,7 @@ dashboard.innerHTML = `
                 </div>
 
                 <!-- Bottom Products Orders section-->
-                ${getOrdersHTML(data2.slice(0,5), false)}
+                ${getOrdersHTML(OrederProducts, false)}
           </div>
 `;
 const DashboardContent = dashboard.innerHTML;
@@ -214,7 +215,7 @@ const addnewproductbtn = document.getElementById("newProduct")
 const ordersPage = document.getElementById("option4");
 ordersPage.addEventListener("click", () => {
   ordersPage.style.borderLeft = "5px solid #010058af";
-  dashboard.innerHTML = ` ${getOrdersHTML(storeProducts, true)}`;
+  dashboard.innerHTML = ` ${getOrdersHTML(OrederProducts, true)}`;
 });
 
 // SubscribersPage
@@ -236,17 +237,4 @@ settingsPage.addEventListener("click", () => {
 });
 
 
-// *********************************** LOG OUT *********************
 
-var logoutmodal = document.getElementById("logoutpopup");
-var logoutbtn = document.getElementById("logout");
-var span = document.getElementsByClassName("closelogout")[0];
-
-// When the user clicks on the button, open the modal
-logoutbtn.onclick = function () {
-  logoutmodal.style.display = "block";
-};
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-  logoutmodal.style.display = "none";
-};

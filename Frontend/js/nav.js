@@ -28,7 +28,10 @@ function get_nav() {
       <div class="nav-links ">
         <a href='./pages/products.html'>Products</a>
         <a href="./pages/shop.html">Shops</a>
-        <a href="./pages/mystore.html">My Store</a>
+        ${
+          userData.HasStore
+            ? `<a href="./pages/mystore.html">My Store</a>`
+            : ""}
         <a href="./pages/cart.html">Cart<span class="cartItems">${NumbercartItems}</span></a>
         ${
           userData.HasStore
@@ -66,7 +69,10 @@ function get_nav() {
       <div class="nav-links ">
         <a href='products.html'>Products</a>
         <a href="shop.html">Shops</a>
-        <a href="mystore.html">My Store</a>
+        ${
+          userData.HasStore
+            ? `<a href="mystore.html">My Store</a> `
+            : ""}
         <a href="cart.html">Cart<span class="cartItems">${NumbercartItems}</span></a>
         ${userData.HasStore ? `<a href="dashboard.html">Dashboard</a>` : ""}
         ${
