@@ -18,6 +18,7 @@ function addCorsHeaders(req, res, next) {
 }
 app.use(addCorsHeaders);
 
+
 const stripe = require("stripe")(key)
 
 

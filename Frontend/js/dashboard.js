@@ -49,7 +49,7 @@ dashboard.innerHTML = `
                         </div>
                         <div class="text2">
                             <h2 class="topic-heading"> <i class="fa fa-usd" style="font-size: 15px;"
-                                    aria-hidden="true"></i> 605, 857.68</h2>
+                                    aria-hidden="true"></i> ${(storeProducts.reduce((partialSum, a) => partialSum + a.price, 0)).toFixed(2)}</h2>
                             <p class="order-card-sales-per">+5.68% <i class="fa fa-arrow-up arrow"
                                     aria-hidden="true"></i> </p>
                         </div>
@@ -61,7 +61,7 @@ dashboard.innerHTML = `
                             <h2 class="topic">Orders</h2>
                         </div>
                         <div class="text2">
-                            <h2 class="topic-heading">984</h2>
+                            <h2 class="topic-heading">${OrederProducts.length}</h2>
                             <p class="order-card-sales-per">+34.68% <i class="fa fa-arrow-up arrow"
                                     aria-hidden="true"></i> </p>
                         </div>
@@ -74,7 +74,7 @@ dashboard.innerHTML = `
                             <h2 class="topic">Overall Rattings</h2>
                         </div>
                         <div class="text2">
-                            <h2 class="topic-heading">12,456 </h2>
+                            <h2 class="topic-heading">${storeProducts.reduce((partialSum, a) => partialSum + a.reviews, 0)} </h2>
                             <p class="order-card-sales-per">4.5<i class="fa fa-star " aria-hidden="true"></i> </p>
                         </div>
 
@@ -83,10 +83,10 @@ dashboard.innerHTML = `
                     <div class="box box4">
                         <div class="text">
                             <i class="fa fa-check icons" aria-hidden="true"></i>
-                            <h2 class="topic">Published</h2>
+                            <h2 class="topic">Published Products</h2>
                         </div>
                         <div class="text2">
-                            <h2 class="topic-heading">84 </h2>
+                            <h2 class="topic-heading">${storeProducts.length} </h2>
                             <p class="order-card-sales-per">+ 14.5% <i class="fa fa-check-circle "
                                     aria-hidden="true"></i> </p>
                         </div>
