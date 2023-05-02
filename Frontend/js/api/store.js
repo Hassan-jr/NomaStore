@@ -49,6 +49,37 @@ const updateStore = async(id, data)=> {
     .catch(error => console.error(error));
 }
 
+// Add sub
+const addSubs = async(id, data)=> {
+  return fetch(`${uri}/subs/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(response => response.json())
+    .catch(error => console.error(error));
+}
+
+// Delete sub
+async function deleteSub(storeID, data) {
+  await fetch(`${uri}/subs/${storeID}`, {
+    method: 'DELETE',
+    body: JSON.stringify(data),
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    alert('Subscriber Deleted Successfuly');
+    console.log(`Subscriber deleted successfully!`);
+  })
+  .catch(error => {
+    console.error(`Error deleting Subscriber: ${error}`);
+  });
+}
+
 // Delete Store
 async function deleteStore(storeID) {
     await fetch(`${uri}/${storeID}`, {
@@ -66,4 +97,4 @@ async function deleteStore(storeID) {
     });
   }
 
-export {createStore, deleteStore, getStores, updateStore}
+export {createStore, deleteStore, getStores, updateStore, addSubs,deleteSub}

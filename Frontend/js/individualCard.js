@@ -81,7 +81,7 @@ function getData() {
     }</span> </p>
      <p class="inStock">IN STOCK</p>
      <h1>${cardData.title}</h1>
-     <h3 id="price" class="price">$ 80.26</h3>
+     <h3 id="price" class="price">$ ${cardData.price}</h3>
      <p class="lightColor">${cardData.description}</p>
      <div>
      <span class="bold">Category: <span class="lightColor">${

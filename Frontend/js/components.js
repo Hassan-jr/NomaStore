@@ -1,3 +1,6 @@
+import { getOneUserData } from "./api/user.js";
+
+
 // **************************************** HEADER FOR HOME PAGE **********************
 function getHeader(headerData){
 
@@ -181,13 +184,15 @@ function getOrdersHTML(data2,isInOrdersPage=false){
                             <h3 class="t-op Products-title-orders">Products</h3>
                             <h3 class="t-op">Quantity</h3>
                             <h3 class="t-op">Total Price</h3>
-                            <h3 class="t-op">Status</h3>
-                           ${isInOrdersPage ? ` <h3 class="t-op">Delivered</h3>` : ''}
+                            <h3 class="t-op">Address</h3>
+                            ${ isInOrdersPage ? `<h3 class="t-op">Delivered</h3>` : ""}
+                            
                         </div>
 
                         <div id="items" class="items">
                             <!-- FEED THE ITEMS FROM JS FILE -->
-                            ${data2.map((order) => `
+                            ${data2.map((order, index) => {
+                              return  `
 	                            <div  class="item1">
 	                              <div class="item-product">
 	                              	<img src=${order.images[0]} alt=${order.title}>
@@ -198,16 +203,37 @@ function getOrdersHTML(data2,isInOrdersPage=false){
 	                              </div>
 	                               <h3 class="t-op-nextlvl" >${order.qty}</h3>
 	                               <h3 class="t-op-nextlvl" >$ ${(order.price * order.qty).toFixed(2)}</h3>
-	                               <h3 class="t-op-nextlvl label-tag" >Active</h3>
+                                 <div class="userAddress">
+                                 <p>${order.user?.Firstname} ${order.user?.Lastname}</p>
+                                 <p>${order.user?.Email} </p>
+                                 <p>${order.user?.Address} ${order.user?.City}</p>
+                                 </div>
+	                               ${ isInOrdersPage ? ` <label id="${index}"  class="switch OrderStatus">
+                                  <input  type="checkbox" ${order.delivered? "checked" : ""}>
+                                  <span class="slider round"></span>
+                                 </label>` : ""}
                                 
                               </div>`
-                            ).join('')}   
+                                }).join('')}   
                         </div>
                     </div>
                 </div>
   `
 }
 
+// ********************************************* Subscribers Page *************************
+function subsHTML(subs){
+  return `<div>
+  <h1 class="recent-orders">Subscribers Page</h1>
+  <div>
+  ${
+    subs.map(sub=>`<div>
+      <h3>${sub}</h3>
+    </div>`)
+  }
+  </div>
+  </div>`
+}
 // *************************************** User Profile Card *******************************
 function getUserProfileCard(userData){
   return `<div class="userProfileCard">
@@ -255,5 +281,6 @@ export {productCards,
     getHeader,
     editCreateProductHTML,
     getOrdersHTML,
-    getUserProfileCard
+    getUserProfileCard,
+    subsHTML
 }

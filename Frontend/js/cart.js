@@ -159,7 +159,9 @@ checkoutbtn.addEventListener("click", async()=>{
             const Store = await stores.find(storeItem => storeItem.ShopName == cartItem.seller)
             const OderedItem = {
                 itemId: cartItem._id,
-                qty: cartItem.qty
+                qty: cartItem.qty,
+                userId: userID,
+                delivered: false
             }
             const NewOrders = [...Store.Orders, OderedItem]
             updateStore(Store._id, {Orders : NewOrders})

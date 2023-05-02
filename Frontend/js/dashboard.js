@@ -1,11 +1,12 @@
 import {
   productCards,
   editCreateProductHTML,
-  getOrdersHTML
+  getOrdersHTML,
+  subsHTML
 } from "./components.js";
 import { data2 } from "./data2.js";
 import { editCreateProductFunction } from "./editproduct.js";
-import { getOneUserData } from "./api/user.js";
+import { getOneUserData,getUsers } from "./api/user.js";
 import { getUserProfileCard } from "./components.js";
 import { getStores } from "./api/store.js";
 import { deleteProduct } from "./api/products.js";
@@ -13,6 +14,8 @@ import { homePageHtml, homePageEditForm } from "./editHomePage.js";
 // Get the user
 const userID = JSON.parse(localStorage.getItem('userID'));
 const userData = await getOneUserData(userID)
+// get all user data
+const alluser = await getUsers()
 // get the store
 const stores = await getStores()
 const mystore = await stores.find(storeItem=>storeItem.ShopName == userData.StoreName)
@@ -20,7 +23,7 @@ const mystore = await stores.find(storeItem=>storeItem.ShopName == userData.Stor
 const homePageData = await mystore.HomeData
 const storeProducts = await mystore.StoreProducts
 const storeOders = await mystore.Orders
-const OrederProducts = storeOders.map(item=>({...storeProducts.find(item2=>item.itemId == item2._id), qty: item.qty, }))
+const OrederProducts = await storeOders.map((item)=>({...storeProducts.find(item2=>item.itemId == item2._id), qty: item.qty, user:  alluser.find(user=>user._id == item.userId)}))
 const storeSubscribers = await mystore.Subscribers
 
 
@@ -215,14 +218,29 @@ const addnewproductbtn = document.getElementById("newProduct")
 const ordersPage = document.getElementById("option4");
 ordersPage.addEventListener("click", () => {
   ordersPage.style.borderLeft = "5px solid #010058af";
-  dashboard.innerHTML = ` ${getOrdersHTML(OrederProducts, true)}`;
+  dashboard.innerHTML =  ` ${getOrdersHTML( OrederProducts, true)}`;
+   // Update orders
+ const deliveredbtns = document.querySelectorAll(".OrderStatus")
+ const storeOders2 =  storeOders
+ for(let i=0; i<deliveredbtns.length; i++){
+    console.log("StoreOrder First", storeOders2);
+     deliveredbtns[i].addEventListener("click", (e)=>{
+      console.log("Button clicked is ", e.currentTarget.id);
+     const newUpdatedOrder = {...storeOders2[i], delivered: true}
+     storeOders2[i] = newUpdatedOrder  
+     console.log("StoreOrder Second",  storeOders2);
+   })
+ }
 });
+
 
 // SubscribersPage
 const subscribersPage = document.getElementById("option5");
+subscribersPage.innerHTML = mystore.ShopName == "Noma" ? `<i class="fa fa-envelope" aria-hidden="true"></i>
+<h3>Subscribers</h3>` : ""
 subscribersPage.addEventListener("click", () => {
   subscribersPage.style.borderLeft = "5px solid #010058af";
-  dashboard.innerHTML = "subscribersPage PAGE";
+  dashboard.innerHTML = `${subsHTML(storeSubscribers)}`;
 });
 
 // Settings page

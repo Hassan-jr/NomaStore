@@ -15,7 +15,7 @@ return `
       <h1>Edit Your Home Page</h1>
   <form id="homepageEditForm" class="homepageEdit">
   <h2 style="color: #313BAC;">Current Header Image</h2>
-  <img src="../assets/cart4.png" alt="homeEditImage"/>
+  <img id="homepgimgedit" src="../assets/cart4.png" alt="homeEditImage"/>
      <div class="hamePageForm">
        <label for="homebackgroundImg">Header Image</label>
        <input id="homebackgroundImg" type="file" name="backgroundImg" accept="image/*" />
@@ -49,6 +49,8 @@ return `
 }
 
 const homePageEditForm = (id, homePageData)=>{
+ const homepgimgedit = document.getElementById("homepgimgedit")
+ homepgimgedit.src = homePageData.imgURL && homePageData.imgURL
   const homepageForm = document.getElementById("homepageEditForm");
   const currentImgUrl = homePageData?.imgURL;
   homepageForm.elements["title1"].value = homePageData?.title1

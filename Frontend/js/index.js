@@ -1,5 +1,6 @@
 import {data2} from "./data2.js"
 import {productCards, testimonialComponent, featuredProductsDataComponents, getHeader} from './components.js'
+import { addSubs } from "./api/store.js"
 
 
 // ************************** Header ****************
@@ -14,14 +15,15 @@ const headerHTML = getHeader(headerData)
 const header = document.getElementById("header")
 header.innerHTML = headerHTML
 
-
-
-
-
-
-
-
-
+// Newletter Form
+const newletterForm = document.getElementById("newletterForm")
+newletterForm.addEventListener("submit", async(event)=>{
+  event.preventDefault()
+  const Email = newletterForm.elements['Email'].value;
+  const NomaID= "64450f72b3d8f9a409a26d49"
+  await addSubs(NomaID,{subscriber: Email})
+  console.log('The email is', Email);
+})
 
 
 
