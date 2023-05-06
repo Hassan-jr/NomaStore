@@ -18,7 +18,7 @@ function addCorsHeaders(req, res, next) {
 }
 app.use(addCorsHeaders);
 
-//const key= "sk_test_51N2Uj9D6kg0cu6TzHxTqOliz15WHduQBqxnCVLaDLqz7BKem9nykeLnuo8f1JJ70EKHbhwbRft7UEErTr1F867iQ00lkukeTIa"
+// const key= "sk_test_51N2Uj9D6kg0cu6TzHxTqOliz15WHduQBqxnCVLaDLqz7BKem9nykeLnuo8f1JJ70EKHbhwbRft7UEErTr1F867iQ00lkukeTIa"
 
 const stripe = require("stripe")(key)
 

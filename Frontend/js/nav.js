@@ -186,4 +186,5 @@ document.addEventListener("click", function(event) {
 
 searchInput.addEventListener("input", handleSearchInput);
 
+
 export { profilePopUp };

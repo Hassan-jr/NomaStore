@@ -15,9 +15,17 @@ async function deletaccount(userData) {
   if(userData?.HasStore){
     const stores = await getStores()
     const store = await stores.find(item => item.ShopName == userData.StoreName)
-     deleteStore(store._id) 
+    // store._id ? deleteStore(store._id) : deletUser(userData._id)
+    if(store?._id){
+      deleteStore(store._id)
+    }else{
+      deletUser(userData._id)
+      window.location.reload()
+      return
+    }
   }
 deletUser(userData._id)
+window.location.reload()
 }
 
 
@@ -98,12 +106,14 @@ const User = {
 //  Logout
 logout.addEventListener("click", ()=>{
   localStorage.removeItem('userID') 
-  location.reload()
+  window.location.reload()
 })
 
 // Delete Account
 deleteAccount.addEventListener("click", ()=>{
   deletaccount(userData)
+  localStorage.removeItem('userID') 
+  window.location.reload()
 })
  
  

@@ -3,13 +3,16 @@ import {
   editCreateProductHTML,
   getOrdersHTML,
   subsHTML,
-  delsub
+  delsub,
+  getStoreHtml,
+  delStore,
+  updateOrdersState
 } from "./components.js";
 import { editCreateProductFunction } from "./editproduct.js";
 import { getOneUserData,getUsers } from "./api/user.js";
 import { getUserProfileCard } from "./components.js";
 import { getStores } from "./api/store.js";
-import { deleteProduct } from "./api/products.js";
+import { deleteProduct, getProducts } from "./api/products.js";
 import { homePageHtml, homePageEditForm } from "./editHomePage.js";
 // Get the user
 const userID = JSON.parse(localStorage.getItem('userID'));
@@ -19,11 +22,12 @@ const alluser = await getUsers()
 // get the store
 const stores = await getStores()
 const mystore = await stores.find(storeItem=>storeItem.ShopName == userData.StoreName)
+const allProducts = await getProducts()
 // Get dashboard Component form the store
 const homePageData = await mystore.HomeData
-const storeProducts = await mystore.StoreProducts
+const storeProducts = mystore.ShopName == "Noma" ? allProducts  : await mystore.StoreProducts
 const storeOders = await mystore.Orders
-const OrederProducts = await storeOders.map((item)=>({...storeProducts.find(item2=>item.itemId == item2._id), qty: item.qty, user:  alluser.find(user=>user._id == item.userId)}))
+const OrederProducts = await storeOders.map((item)=>({...storeProducts.find(item2=>item.itemId == item2._id), qty: item.qty, delivered: item.delivered, user:  alluser.find(user=>user._id == item.userId)}))
 const storeSubscribers = await mystore.Subscribers
 
 
@@ -218,20 +222,14 @@ const addnewproductbtn = document.getElementById("newProduct")
 const ordersPage = document.getElementById("option4");
 ordersPage.addEventListener("click", () => {
   ordersPage.style.borderLeft = "5px solid #010058af";
-  dashboard.innerHTML =  ` ${getOrdersHTML( OrederProducts, true)}`;
-   // Update orders
- const deliveredbtns = document.querySelectorAll(".OrderStatus")
- const storeOders2 =  storeOders
- for(let i=0; i<deliveredbtns.length; i++){
-    console.log("StoreOrder First", storeOders2);
-     deliveredbtns[i].addEventListener("click", (e)=>{
-      console.log("Button clicked is ", e.currentTarget.id);
-     const newUpdatedOrder = {...storeOders2[i], delivered: true}
-     storeOders2[i] = newUpdatedOrder  
-     console.log("StoreOrder Second",  storeOders2);
-   })
- }
+  // const deleveredProducts = OrederProducts.find(item=>item.delivered == true)
+  // const pendingProducts = OrederProducts.find(item=>!item.delivered || item.delivered == false)
+  // const deleveredProductsHTML = getOrdersHTML( deleveredProducts, true) // second true is for checkbox button
+  // const pendingProductsHTML = getOrdersHTML( pendingProducts, true)
+  dashboard.innerHTML =  `${getOrdersHTML( OrederProducts, true)}`; 
+  updateOrdersState(storeOders, mystore._id)
 });
+
 
 
 // SubscribersPage
@@ -256,4 +254,19 @@ settingsPage.addEventListener("click", () => {
 });
 
 
+// All store
+const allStores = document.getElementById("allstores");
+allStores.innerHTML = mystore.ShopName == "Noma" ? `<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+<h3>All Stores</h3>` : ""
+mystore.ShopName == "Noma" && allStores.addEventListener("click", () => {
+  allStores.style.borderLeft = "5px solid #010058af";
+  let storeHtml = ''
+  stores.map(store=>{
+    storeHtml +=  getStoreHtml(store)
+  })
+  dashboard.innerHTML = `<div> 
+   ${storeHtml} 
+   </div>`
+  delStore()
+});
 

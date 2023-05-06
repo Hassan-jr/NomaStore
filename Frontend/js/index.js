@@ -1,6 +1,6 @@
 import {data2} from "./data2.js"
 import {productCards, testimonialComponent, featuredProductsDataComponents, getHeader} from './components.js'
-import { addSubs, delsub } from "./api/store.js"
+import { addSubs } from "./api/store.js"
 
 
 // ************************** Header ****************

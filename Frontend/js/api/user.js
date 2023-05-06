@@ -39,6 +39,7 @@ const updateUser = async(id, data)=> {
 
 // Delete Product
 const deletUser = async(id) =>{
+  console.log("Deleting", id);
  return await fetch(`${uri}/${id}`, {
     method: 'DELETE'
   })

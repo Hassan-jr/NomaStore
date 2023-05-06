@@ -1,4 +1,4 @@
-import { deleteSub } from "./api/store.js";
+import { deleteSub, deleteStore, updateStore } from "./api/store.js";
 import { getOneUserData } from "./api/user.js";
 
 const nomaStoreId = "64450f72b3d8f9a409a26d49"
@@ -193,6 +193,7 @@ function getOrdersHTML(data2,isInOrdersPage=false){
                         <div id="items" class="items">
                             <!-- FEED THE ITEMS FROM JS FILE -->
                             ${data2.map((order, index) => {
+                              const checked = order.delivered == true ? 'checked' : 'unchecked'
                               return  `
 	                            <div  class="item1">
 	                              <div class="item-product">
@@ -209,8 +210,8 @@ function getOrdersHTML(data2,isInOrdersPage=false){
                                  <p>${order.user?.Email} </p>
                                  <p>${order.user?.Address} ${order.user?.City}</p>
                                  </div>
-	                               ${ isInOrdersPage ? ` <label id="${index}"  class="switch OrderStatus">
-                                  <input  type="checkbox" ${order.delivered? "checked" : ""}>
+	                               ${ isInOrdersPage ? ` <label   class="switch">
+                                  <input id="${index}" class="OrderStatus"  type="checkbox"  ${checked}>
                                   <span class="slider round"></span>
                                  </label>` : ""}
                                 
@@ -220,6 +221,21 @@ function getOrdersHTML(data2,isInOrdersPage=false){
                     </div>
                 </div>
   `
+}
+
+function updateOrdersState(data, id){
+  console.log("Old order", data);
+  const statusBtns = document.querySelectorAll(".OrderStatus")
+  for(let j=0; j<statusBtns.length; j++){
+    statusBtns[j].addEventListener("click", (e)=>{
+      const orderInex = e.currentTarget.id
+      const order = data[orderInex].delivered ? {...data[orderInex], delivered: !data[orderInex].delivered } : {...data[orderInex], delivered: true }
+      data[orderInex] = order
+      console.log("New Order", data);
+      updateStore(id, {Orders: data})
+      window.location.reload()
+    })
+  }
 }
 
 // ********************************************* Subscribers Page *************************
@@ -236,6 +252,7 @@ function subsHTML(subs){
   </div>
   </div>`
 }
+// ******************************************** Delete Subscriber ***********************
 function delsub(){
   const delbtns = document.querySelectorAll(".subIcon")
   for(let i=0; i<delbtns.length; i++){
@@ -245,8 +262,7 @@ function delsub(){
         subscriber : id
     }
     await deleteSub(nomaStoreId, data)
-      // console.log("ID id", storeId);
-      // console.log("Clicked", data);
+    window.location.reload()
     })
   }
 }
@@ -289,7 +305,25 @@ function getUserProfileCard(userData){
  </div>`
 }
 
+// *********************************************** Store HTML ***********************
+function getStoreHtml(store){
+ return  store.ShopName == "Noma" ? "" : `<div class="subs">
+  <h3 class="sub">${store.ShopName}</h3>
+  <i id=${store._id} class="fa fa-times delStore" aria-hidden="true"  title="Remove Subscriber"></i>
+</div>`
+}
 
+// *************************************** Delte Store **************************
+function delStore(){
+  const delbtns = document.querySelectorAll(".delStore")
+  for(let i=0; i<delbtns.length; i++){
+    delbtns[i].addEventListener("click", async(e)=>{
+      const id= e.currentTarget.id
+      deleteStore(id)
+      window.location.reload()
+    })
+  }
+}
 
 export {productCards,
     testimonialComponent,
@@ -299,5 +333,8 @@ export {productCards,
     getOrdersHTML,
     getUserProfileCard,
     subsHTML,
-    delsub
+    delsub,
+    getStoreHtml,
+    delStore,
+    updateOrdersState
 }

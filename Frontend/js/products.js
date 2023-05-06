@@ -12,9 +12,7 @@ let loading = true
 const ProductsData = async()=>{
   console.log(loading);
   const AllProductsdata= shuffle(await getProducts())
-  loading =  false
-  console.log(loading);
-  console.log(AllProductsdata);  
+  loading =  false 
 
 
 // Loops throug the product array to create a product for each item
