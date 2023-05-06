@@ -2,9 +2,9 @@ import {
   productCards,
   editCreateProductHTML,
   getOrdersHTML,
-  subsHTML
+  subsHTML,
+  delsub
 } from "./components.js";
-import { data2 } from "./data2.js";
 import { editCreateProductFunction } from "./editproduct.js";
 import { getOneUserData,getUsers } from "./api/user.js";
 import { getUserProfileCard } from "./components.js";
@@ -42,7 +42,7 @@ const dashboard = document.getElementById("dashboard");
 dashboard.innerHTML = `
          <div>
                 <!-- Dashboader header / Title -->
-                <H1 class="dashboard-Header">${ userData.StoreName} Dashboard</H1>
+                <H1 class="dashboard-Header">${ userData.StoreName == "Noma"? "Admin" : userData.StoreName} Dashboard</H1>
                 <!-- Oders Top section -->
                 <div class="box-container">
                     <div class="box box1">
@@ -238,9 +238,10 @@ ordersPage.addEventListener("click", () => {
 const subscribersPage = document.getElementById("option5");
 subscribersPage.innerHTML = mystore.ShopName == "Noma" ? `<i class="fa fa-envelope" aria-hidden="true"></i>
 <h3>Subscribers</h3>` : ""
-subscribersPage.addEventListener("click", () => {
+mystore.ShopName == "Noma" && subscribersPage.addEventListener("click", () => {
   subscribersPage.style.borderLeft = "5px solid #010058af";
   dashboard.innerHTML = `${subsHTML(storeSubscribers)}`;
+  delsub()
 });
 
 // Settings page

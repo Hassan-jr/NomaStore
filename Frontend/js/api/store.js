@@ -67,6 +67,9 @@ async function deleteSub(storeID, data) {
   await fetch(`${uri}/subs/${storeID}`, {
     method: 'DELETE',
     body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
   })
   .then(response => {
     if (!response.ok) {

@@ -1,6 +1,7 @@
+import { deleteSub } from "./api/store.js";
 import { getOneUserData } from "./api/user.js";
 
-
+const nomaStoreId = "64450f72b3d8f9a409a26d49"
 // **************************************** HEADER FOR HOME PAGE **********************
 function getHeader(headerData){
 
@@ -224,15 +225,30 @@ function getOrdersHTML(data2,isInOrdersPage=false){
 // ********************************************* Subscribers Page *************************
 function subsHTML(subs){
   return `<div>
-  <h1 class="recent-orders">Subscribers Page</h1>
-  <div>
+          <h1 class="recent-orders">Subscribers Page</h1>
+        <div>
   ${
-    subs.map(sub=>`<div>
-      <h3>${sub}</h3>
-    </div>`)
+    subs.map(sub=>(`<div class="subs">
+      <h3 class="sub">${sub}</h3>
+      <i id=${sub} class="fa fa-times subIcon" aria-hidden="true"  title="Remove Subscriber"></i>
+    </div>`)).join()
   }
   </div>
   </div>`
+}
+function delsub(){
+  const delbtns = document.querySelectorAll(".subIcon")
+  for(let i=0; i<delbtns.length; i++){
+    delbtns[i].addEventListener("click", async(e)=>{
+      const id= e.currentTarget.id
+      const data = {
+        subscriber : id
+    }
+    await deleteSub(nomaStoreId, data)
+      // console.log("ID id", storeId);
+      // console.log("Clicked", data);
+    })
+  }
 }
 // *************************************** User Profile Card *******************************
 function getUserProfileCard(userData){
@@ -282,5 +298,6 @@ export {productCards,
     editCreateProductHTML,
     getOrdersHTML,
     getUserProfileCard,
-    subsHTML
+    subsHTML,
+    delsub
 }

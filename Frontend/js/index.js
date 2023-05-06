@@ -1,6 +1,6 @@
 import {data2} from "./data2.js"
 import {productCards, testimonialComponent, featuredProductsDataComponents, getHeader} from './components.js'
-import { addSubs } from "./api/store.js"
+import { addSubs, delsub } from "./api/store.js"
 
 
 // ************************** Header ****************
@@ -22,6 +22,8 @@ newletterForm.addEventListener("submit", async(event)=>{
   const Email = newletterForm.elements['Email'].value;
   const NomaID= "64450f72b3d8f9a409a26d49"
   await addSubs(NomaID,{subscriber: Email})
+  alert("Subscribed Successfully")
+  window.location.reload()
   console.log('The email is', Email);
 })
 
