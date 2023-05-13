@@ -1,5 +1,10 @@
-// import {getUsers,createUser,updateUser,deletUser,loginUser} from "./api/user"
-const uri = "http://localhost:4000/users"
+// local host uri 
+// const uri = "http://localhost:4000/users"
+
+// deployes
+const uri = "https://nomastore.onrender.com/users"
+
+
 //   Sign up page
 const form = document.querySelector('#signup-form');
 
