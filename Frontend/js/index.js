@@ -3,7 +3,13 @@ import { addSubs } from "./api/store.js"
 import { getProducts } from './api/products.js'
 
 
+
+// Set the loader to false
+const loader = document.getElementById("loader");
+loader.style.display = "block";
+
 const data2 = await getProducts()
+loader.style.display = "none";
 // ************************** Header ****************
 const headerData = {
   imgURL : './assets/cart6.png',

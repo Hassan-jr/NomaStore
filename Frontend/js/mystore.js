@@ -1,6 +1,5 @@
 import { getOneUserData } from "./api/user.js";
 import { getStores } from "./api/store.js";
-
 import {
   productCards,
   testimonialComponent,
@@ -9,6 +8,8 @@ import {
 } from "./components.js";
 
 
+const loader = document.getElementById("loader");
+loader.style.display = "block";
 // Get the user
 const userID = JSON.parse(localStorage.getItem('userID'));
 const userData = await getOneUserData(userID)
@@ -21,10 +22,12 @@ if(id){
   // get the store
 const stores = await getStores()
  mystore = await stores.find(storeItem=>storeItem._id == id)
+ loader.style.display = "none";
 }else{
 // get the store
 const stores = await getStores()
 mystore = await stores.find(storeItem=>storeItem.ShopName == userData.StoreName)
+loader.style.display = "none";
 }
 
 

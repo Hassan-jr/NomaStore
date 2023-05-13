@@ -7,12 +7,15 @@ import { getOneUserData, updateUser } from "./api/user.js";
 const userID = await JSON.parse(localStorage.getItem('userID'));
 const userData = await getOneUserData(userID)
 
-let loading = true
+// let loading = true
+// Set the loader to false
+const loader = document.getElementById("loader");
+loader.style.display = "block";
 // Get the data from the backend
 const ProductsData = async()=>{
-  console.log(loading);
+  // console.log(loading);
   const AllProductsdata= shuffle(await getProducts())
-  loading =  false 
+  loader.style.display = "none";
 
 
 // Loops throug the product array to create a product for each item

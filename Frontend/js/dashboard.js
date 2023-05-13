@@ -14,6 +14,14 @@ import { getUserProfileCard } from "./components.js";
 import { getStores } from "./api/store.js";
 import { deleteProduct, getProducts } from "./api/products.js";
 import { homePageHtml, homePageEditForm } from "./editHomePage.js";
+
+
+
+
+// Set the loader to false
+const loader = document.getElementById("loader");
+loader.style.display = "block";
+
 // Get the user
 const userID = JSON.parse(localStorage.getItem('userID'));
 const userData = await getOneUserData(userID)
@@ -23,6 +31,10 @@ const alluser = await getUsers()
 const stores = await getStores()
 const mystore = await stores.find(storeItem=>storeItem.ShopName == userData.StoreName)
 const allProducts = await getProducts()
+
+// remove loader
+loader.style.display = "none";
+
 // Get dashboard Component form the store
 const homePageData = await mystore.HomeData
 const storeProducts = mystore.ShopName == "Noma" ? allProducts  : await mystore.StoreProducts

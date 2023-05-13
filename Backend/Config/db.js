@@ -2,16 +2,15 @@ const {MongoClient} = require('mongodb');
 
 
 //const uri = "mongodb+srv://Abdi:Abdi12316@nomastorecluster.yvbvono.mongodb.net/"
-const uri = "mongodb://localhost:27017"
+const uri = "mongodb+srv://Abdi:Abdi12316@nomastorecluster.yvbvono.mongodb.net/"
+// const uri = "mongodb://localhost:27017"
 async function connectToDb() {
-//  const uri = "mongodb+srv://Abdi:Abdi12316@nomastorecluster.yvbvono.mongodb.net/?retryWrites=true&w=majority";
-    
-
+ 
  try {
     // Connect to the MongoDB cluster
     const client = await MongoClient.connect(uri);
     // await client.connect();
-    const db =  client.db("NomaStore")
+    const db =  client.db("NomaStore2")
     console.log("DB CONNECTED");
     return  db
       

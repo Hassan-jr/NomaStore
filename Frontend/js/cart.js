@@ -23,14 +23,6 @@ let ProductsInCart = cartItems.map(item=>({...AllProductsdata.find(item2=>item.i
 const OderedItems = await userData.Orders
 const OrederProducts = OderedItems.map(item=>({...AllProductsdata.find(item2=>item.itemId == item2._id), qty: item.qty, }))
 
-// const ids = getSavedIds()
-// function getSavedData(savedIds) {
-//     return data2.filter((item) => savedIds.includes(item._id));
-//   }
-  
-// const cartData = getSavedData(ids)
-
-
 const table = document.getElementsByClassName("table")
 
 // For random delivary date

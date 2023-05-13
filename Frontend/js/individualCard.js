@@ -3,12 +3,19 @@ import {getProducts,shuffle, updateProduct} from './api/products.js'
 import { getOneUserData, updateUser } from "./api/user.js";
 
 
+
+// Set the loader to false
+const loader = document.getElementById("loader");
+loader.style.display = "block";
+
+
 // Get the user
 const userID = await JSON.parse(localStorage.getItem('userID'));
 const userData = await getOneUserData(userID)
 
 // All products
 const AllProductsdata= await shuffle(await getProducts())
+
 
 // Get the productid from url
 const urlParams = new URLSearchParams(window.location.search);
@@ -24,6 +31,7 @@ const individualcard = document.getElementById("individualCard");
 const ProductsData = async()=>{
   console.log(loading);
   const AllProductsdata= await shuffle(await getProducts())
+  loader.style.display = "none";
   loading =  false
   console.log(loading);
 

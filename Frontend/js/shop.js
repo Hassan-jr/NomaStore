@@ -1,6 +1,12 @@
 import { getStores } from "./api/store.js";
 import { getHeader } from "./components.js";
 
+
+// Set the loader to false
+const loader = document.getElementById("loader");
+loader.style.display = "block";
+
+
 const headerData = {
     imgURL : '../assets/robot.png',
     title1 : 'The Number 1 B2B  Platform in The World',
@@ -34,6 +40,7 @@ const storeCardsHtml=(item)=>{
 }
 
 const stores = await getStores()
+loader.style.display = "none";
 const allStoresContainer = document.getElementById("allStores")
 const renderStore = ()=>{
     let html = ''
