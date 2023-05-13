@@ -1,4 +1,3 @@
-import { data2 } from "./data2.js";
 import { getOneUserData } from "./api/user.js";
 import { getStores } from "./api/store.js";
 
@@ -85,25 +84,22 @@ const MyStore = {
     "628c9b02c5f0f6420a0f1917",
     "628c9b02c5f0f6420a0f1915",
   ],
-  testimonials: [
+  testimonials:   [
     {
-      name: "Abdiladif Hassan",
-      img: "https://www.hassanjr.com/static/media/profile.b5b3138ff8c65c7bdf84.png",
-      feedback:
-        "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem i",
+        name: "Zakaria Issack",
+        img: "https://media.istockphoto.com/id/1309328823/photo/headshot-portrait-of-smiling-male-employee-in-office.jpg?b=1&s=170667a&w=0&k=20&c=MRMqc79PuLmQfxJ99fTfGqHL07EDHqHLWg0Tb4rPXQc=",
+        feedback: "NomaStore provided an excellent shopping experience. Easy-to-use website, accurate product descriptions, smooth checkout, and prompt delivery. Highly recommended!"
     },
     {
-      name: "Abdiladif Hassan",
-      img: "https://www.hassanjr.com/static/media/profile.b5b3138ff8c65c7bdf84.png",
-      feedback:
-        "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem i",
+        name: "Jhon Kamau",
+        img: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZSUyMHBpY3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+        feedback: "Impressed with NomaStore's exceptional customer service. Prompt and friendly support team. Will definitely shop here again."
     },
     {
-      name: "Abdiladif Hassan",
-      img: "https://www.hassanjr.com/static/media/profile.b5b3138ff8c65c7bdf84.png",
-      feedback:
-        "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem i",
-    },
+        name: "Hassan Adan",
+        img: "https://images.unsplash.com/photo-1577880216142-8549e9488dad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2ZpbGUlMjBwaWN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+        feedback: "NomaStore's product quality exceeded my expectations. Top-notch materials, impeccable craftsmanship. A trusted online store for outstanding products."
+    }
   ],
 };
 

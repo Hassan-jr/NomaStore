@@ -1,7 +1,10 @@
 import { deleteSub, deleteStore, updateStore } from "./api/store.js";
-import { getOneUserData } from "./api/user.js";
 
 const nomaStoreId = "64450f72b3d8f9a409a26d49"
+const Homenav = document.getElementById("Homenav");
+ const productsPageUri = Homenav ? "./pages/products.html" : "./products.html"
+ const testimonialImgsrc = Homenav ? "./assets/quotes.svg" : "../assets/quotes.svg"
+
 // **************************************** HEADER FOR HOME PAGE **********************
 function getHeader(headerData){
 
@@ -39,8 +42,12 @@ function getHeader(headerData){
         </span>
         <!-- Button -->
         <span class="btn">
+           <a href=${productsPageUri}>
             <button class="header_btn">Get Started</button>
+           </a>
+         <a href=${productsPageUri}>
             <button class="header_btn">Shop Now</button>
+          </a>
         </span>
         
        </div>
@@ -102,7 +109,7 @@ function productCards(product, dashboard=false){
 function testimonialComponent(testimonial){
     return`
     <div class="testimonials">
-    <img class="quotes" src=${`../assets/quotes.svg` || `../assets/quotes.svg`} alt="quotes">
+    <img class="quotes" src=${testimonialImgsrc} alt="quotes">
     <p class="testimonials-feedback">${testimonial.feedback}</p>
     <div class="icons">
       <!-- ratings -->
@@ -123,9 +130,12 @@ function testimonialComponent(testimonial){
 function featuredProductsDataComponents(product){
     return`
     <div  class="img">
+    <a href=${productsPageUri}>
         <img src=${product.imgURL} alt="Features img 4">
         <div class="f-hover">${product.category}</div>
+        </a>
       </div>
+      
     `
 }
 

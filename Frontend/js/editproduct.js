@@ -1,5 +1,5 @@
 import { getProducts, updateProduct, addproduct } from "./api/products.js";
-import { data2 } from "./data2.js";
+
 
 
 async function editCreateProductFunction(id, seller) {

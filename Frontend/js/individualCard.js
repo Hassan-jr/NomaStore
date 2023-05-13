@@ -1,6 +1,5 @@
-import { data2 } from "./data2.js";
 import { productCards } from "./components.js";
-import {getProducts,shuffle} from './api/products.js'
+import {getProducts,shuffle, updateProduct} from './api/products.js'
 import { getOneUserData, updateUser } from "./api/user.js";
 
 
@@ -180,3 +179,95 @@ btn_cart[i].addEventListener("click", async(event)=>{
   cartitems = await userData.Carts
 })
 }
+
+
+
+// Product Ratting Section
+const allStar = document.querySelectorAll('.rating .star')
+const ratingValue = document.querySelector('.rating input')
+const allproducts = await getProducts()
+let cardData = await allproducts.find((item) => item._id == id);
+
+allStar.forEach((item, idx)=> {
+	item.addEventListener('click', function () {
+		let click = 0
+		ratingValue.value = idx + 1
+
+		allStar.forEach(i=> {
+			i.classList.replace('bxs-star', 'bx-star')
+			i.classList.remove('active')
+		})
+		for(let i=0; i<allStar.length; i++) {
+			if(i <= idx) {
+				allStar[i].classList.replace('bx-star', 'bxs-star')
+				allStar[i].classList.add('active')
+			} else {
+				allStar[i].style.setProperty('--i', click)
+				click++
+			}
+		}
+	})
+})
+
+// Comment Cards
+const commentSection = document.getElementById("commentSection")
+// funtion for generating rating stars
+function getRatingsHtml(num){
+  const remaining = 5 - num
+  let ratingHTML = ''
+  for(let i=0; i<num; i++){
+      ratingHTML+=`<i class='bx bxs-star star '></i>`
+  }
+
+  for(let i=0; i<remaining; i++){
+    ratingHTML+=`<i class='bx bx-star star '></i>`
+  }
+
+  return ratingHTML
+}
+const commentHtml =  cardData.feedback?.length >0 ? await  Promise.all(cardData.feedback?.map(async(comment)=>{
+  const userData = await getOneUserData(comment.userId)
+  return`
+  <div class="commentCard">
+  <div class="commentTop">
+    <div class="commentProfile">
+     <img src=${userData.profileIMG} alt=${userData.Firstname} />
+     <p>${userData.Firstname} ${userData.Lastname}</p>
+    </div>
+    
+      <p class="commentRatings"> ${getRatingsHtml(comment.rating)} </p>
+
+  </div>
+
+  <div class="commentBottom">
+  <p>${comment.comment}</p>
+  </div>
+  </div>
+  `
+})) : ''
+
+commentSection.innerHTML = commentHtml
+
+// Send Feedbac
+const userFeedbackForm = document.getElementById("userFeedback")
+userFeedbackForm.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const comment = userFeedbackForm.elements["feedback"].value
+  const rating = ratingValue.value || 0
+  const productId = id
+  if(!userID){
+    window.location.href = "./signUp.html"
+  }
+  if(!productId){
+    window.location.href = "./products.html"
+  }
+
+  const feedbackItem = {
+    userId : userID,
+    rating: rating,
+    comment: comment
+  }
+   const feedback = cardData.feedback ? [...cardData.feedback, feedbackItem ] : [feedbackItem]
+  updateProduct(productId, {feedback : feedback})
+   userFeedbackForm.reset()
+})

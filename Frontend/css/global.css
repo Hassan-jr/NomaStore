@@ -242,8 +242,9 @@ box-shadow:  5px 5px 10px #cccccc,
 .testimonials-img{
   width: 80px;
   height: 80px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 100%;
+
 }
 .testimonials-name{
        color: #747E8F;

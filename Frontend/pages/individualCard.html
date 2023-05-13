@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../css/individualCard.css" />
     <link rel="stylesheet" href="../css/nav.css" />
     <link rel="stylesheet" href="../css/global.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -26,6 +27,38 @@
     <div id="relatedProduct" >
 
     </div>
+
+    <!-- USER FEEBACK -->
+    <h1 class="relatedProductTitle"> USER FEEBACK</h1>
+    <div id="feedbackSection", class="feebackSection">
+         <!-- Prev comments -->
+         <div id="commentSection" class="commentSection">
+
+         </div>
+         <!-- Comment section -->
+         <div class="wrapper">
+            <h3>Giver Your Feedback</h3>
+            <form id="userFeedback">
+                <div class="rating">
+                    <input type="number" name="rating" hidden >
+                    <i class='bx bx-star star' style="--i: 0;"></i>
+                    <i class='bx bx-star star' style="--i: 1;"></i>
+                    <i class='bx bx-star star' style="--i: 2;"></i>
+                    <i class='bx bx-star star' style="--i: 3;"></i>
+                    <i class='bx bx-star star' style="--i: 4;"></i>
+                </div>
+                <textarea name="feedback" cols="30" rows="5" placeholder="Your feedback..." required></textarea>
+                <div class="btn-group">
+                    <button type="submit" class="btn submit">Submit</button>
+                    <!-- <button class="btn cancel">Cancel</button> -->
+                </div>
+            </form>
+        </div>
+      
+    </div>
+
+
+
     <!-- Footer -->
     <iframe src="./components/footer.html" frameborder="0" scrolling="yes" width="100%" height="500"></iframe>
     <script>

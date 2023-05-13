@@ -7,7 +7,6 @@ async function connectToDb() {
 //  const uri = "mongodb+srv://Abdi:Abdi12316@nomastorecluster.yvbvono.mongodb.net/?retryWrites=true&w=majority";
     
 
-
  try {
     // Connect to the MongoDB cluster
     const client = await MongoClient.connect(uri);

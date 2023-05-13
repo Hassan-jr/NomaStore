@@ -1,4 +1,4 @@
-import { data2, getSavedIds } from "./data2.js";
+
 import {getProducts} from './api/products.js'
 import { getOneUserData, updateUser } from "./api/user.js";
 import { getStores,updateStore } from "./api/store.js";
@@ -23,13 +23,13 @@ let ProductsInCart = cartItems.map(item=>({...AllProductsdata.find(item2=>item.i
 const OderedItems = await userData.Orders
 const OrederProducts = OderedItems.map(item=>({...AllProductsdata.find(item2=>item.itemId == item2._id), qty: item.qty, }))
 
-const ids = getSavedIds()
-function getSavedData(savedIds) {
-    return data2.filter((item) => savedIds.includes(item._id));
-  }
+// const ids = getSavedIds()
+// function getSavedData(savedIds) {
+//     return data2.filter((item) => savedIds.includes(item._id));
+//   }
   
-const cartData = getSavedData(ids)
-console.log(cartData);
+// const cartData = getSavedData(ids)
+
 
 const table = document.getElementsByClassName("table")
 
@@ -58,7 +58,7 @@ function generateCart(item, orders=false){
                 </td>
                 <td class="qty">${item.qty}</td>
                 <td>$ ${(item.price * item.qty).toFixed(2)}</td>
-                ${orders && `<td class="qty">${getRandomDate()}</td>`}
+                ${orders ? `<td class="qty">${getRandomDate()}</td>`: ""}
             </tr>
     `
 }
