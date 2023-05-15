@@ -1,5 +1,5 @@
-//const uri = "http://localhost:4000/products"
-const uri = "https://nomastore.onrender.com/products"
+const uri = "http://localhost:4000/products"
+//const uri = "https://nomastore.onrender.com/products"
 
 // Get all products array
 const getProducts = async()=>{
