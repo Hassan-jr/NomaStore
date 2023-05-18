@@ -66,7 +66,12 @@ function get_nav() {
     return ` 
     <div class="navbody">
     <nav class="navbar">
-      <div class="nav-logo"><a href="../index.html">NomaStore</a></div>
+    <div class="nav-logo">
+    <a href="../index.html">
+     <p>NomaStore</p>
+     <p class="subLogo">Ecommerce Platform</p>
+    </a>
+   </div>
       <div class="search-container">
         <input type="text" placeholder="Search Products" id="search-input">
           <div class="search-results" id="search-results"></div>
