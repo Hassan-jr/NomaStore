@@ -20,7 +20,12 @@ function get_nav() {
     return ` 
     <div class="navbody">
     <nav class="navbar">
-      <div class="nav-logo"><a href="index.html">NomaStore</a></div>
+      <div class="nav-logo">
+       <a href="index.html">
+        <p>NomaStore</p>
+        <p class="subLogo">Ecommerce Platform</p>
+       </a>
+      </div>
       <div class="search-container">
          <input type="text" placeholder="Search Products" id="search-input">
           <div class="search-results" id="search-results"></div>
@@ -40,7 +45,7 @@ function get_nav() {
         }
         ${
           !userID
-            ? '<a href="./pages/signUp.html">Account</a>'
+            ? '<a href="./pages/account.html">Account</a>'
             : '<a id="profile">Profile</a>'
         }
         <a href="./pages/about.html">About Us</a>
@@ -77,7 +82,7 @@ function get_nav() {
         ${userData.HasStore ? `<a href="dashboard.html">Dashboard</a>` : ""}
         ${
           !userID
-            ? '<a href="./signUp.html">Account</a>'
+            ? '<a href="./account.html">Account</a>'
             : '<a id="profile">Profile</a>'
         }
         <a href="about.html">About Us</a>

@@ -43,13 +43,13 @@ function generateCart(item, orders=false){
                         <img class="cartIMG" src=${(item.images) ? item.images[0] : ""} alt="item.title">
                         <div>
                             <p class="cart-title">${item.title}</p>
-                            <small>Price: $ ${item.price}</small><br>
+                            <small>Price: KES ${item.price}</small><br>
                             ${ !orders ? `<p  id=${item._id} class="removeFromCart" >Remove</p>` : ''}
                         </div>
                     </div>
                 </td>
                 <td class="qty">${item.qty}</td>
-                <td>$ ${(item.price * item.qty).toFixed(2)}</td>
+                <td>KES ${(item.price * item.qty).toFixed(2)}</td>
                 ${orders ? `<td class="qty">${getRandomDate()}</td>`: ""}
             </tr>
     `
@@ -76,15 +76,15 @@ ProductsInCart.map(item=>{
     totalprice += parseFloat( item.price * item.qty)
     return parseFloat(totalprice)
 })
-total.innerText =` $ ${totalprice.toFixed(2)} `
+total.innerText =` KES ${totalprice.toFixed(2)} `
 
 // tax 
 const tax = document.getElementById("tax")
-tax.innerText = `$ 0.00 `
+tax.innerText = `KES 0.00 `
 
 // total
 const finalTotal = document.getElementById("finalPrice")
-finalTotal.innerText =` $ ${totalprice.toFixed(2)}`
+finalTotal.innerText =` KES ${totalprice.toFixed(2)}`
   } 
 generateCartCards();
 

@@ -26,12 +26,15 @@ function getHeader(headerData){
   const description1 = words3.slice(0, half3).join(' ');
   const description2 = words3.slice(half3).join(' ');
 
+  const bgurl = headerData.imgURL == "" ? '../assets/robot.png' : headerData.imgURL
+  console.log(bgurl);
+
   return`
-  <div class="header" style="background-image: url(${headerData?.backgroundIMG ? headerData?.imgURL : ''}); background-repeat: no-repeat; background-size: cover; background-position: center;">
+  <div class="header" style="background-image: url(${headerData?.backgroundIMG ? headerData?.imgURL : ""}); background-repeat: no-repeat; background-size: cover; background-position: center;">
        <!-- Titel -->
        <div class="header_left">
         <span class="main_title">
-            <h1>${Title1firstHalf} <span class="blue">${title1secondHalf}</span>  </h1>
+            <h1>${Title1firstHalf || "Take the First Step"} <span class="blue">${title1secondHalf}</span>  </h1>
             <h1>${Title2firstHalf} <span class="blue">${title2secondHalf}</span> </h1>
         </span>
         <!-- DES -->
@@ -54,7 +57,7 @@ function getHeader(headerData){
        <!-- Image -->
        <div class="header_images">
         ${ !headerData?.backgroundIMG ? 
-        `<img class="header_img" src=${headerData?.imgURL} alt=${headerData?.title1}>` : ''
+        `<img class="header_img" src=${bgurl } alt=${headerData?.title1}>` : ''
           }
        </div>
     </div>
@@ -75,7 +78,7 @@ function productCards(product, dashboard=false){
          <!-- <p class="card_dec">${product.description}</p> -->
           <div class="">
             <div>
-              <h4 class="price">Price $${product.price}</h4>
+              <h4 class="price">Price KES ${product.price}</h4>
             </div>
             
           </div>
@@ -187,7 +190,7 @@ function getOrdersHTML(data2,isInOrdersPage=false){
   <div class="orders-container">
                     <div class="orders-header">
                         <h1 class="recent-orders">Recent Orders</h1>
-                        ${!isInOrdersPage ? '<button class="view">View All</button>' : ''}
+                     <!--   ${!isInOrdersPage ? '<button class="view">View All</button>' : ''} -->
                     </div>
 
                     <div class="orders-body">
@@ -207,14 +210,14 @@ function getOrdersHTML(data2,isInOrdersPage=false){
                               return  `
 	                            <div  class="item1">
 	                              <div class="item-product">
-	                              	<img src=${order.images[0]} alt=${order.title}>
+	                              	<img src=${ order.images?.length > 0 && order.images[0]} alt=${order.title}>
 		                              <div>
 		                             	<p class="item-product-title">${order.title}</p>
-		                              <small>Price: $ ${order.price}</small><br>
+		                              <small>Price: KES ${order.price}</small><br>
 	                            	</div>
 	                              </div>
 	                               <h3 class="t-op-nextlvl" >${order.qty}</h3>
-	                               <h3 class="t-op-nextlvl" >$ ${(order.price * order.qty).toFixed(2)}</h3>
+	                               <h3 class="t-op-nextlvl" >KES ${(order.price * order.qty).toFixed(2)}</h3>
                                  <div class="userAddress">
                                  <p>${order.user?.Firstname} ${order.user?.Lastname}</p>
                                  <p>${order.user?.Email} </p>

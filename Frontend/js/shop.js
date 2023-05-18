@@ -33,7 +33,7 @@ const storeCardsHtml=(item)=>{
         <h4>${item.StoreProducts.length}+ Products</h4>
      </div>
      <div class="storeDetails">
-        <h4>$ ${totalPrice.toFixed(2)} Total</h4>
+        <h4>KES ${totalPrice.toFixed(2)} Total</h4>
      </div>
 </div>
     `

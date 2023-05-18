@@ -67,8 +67,7 @@ dashboard.innerHTML = `
                             <h2 class="topic">Total Sales</h2>
                         </div>
                         <div class="text2">
-                            <h2 class="topic-heading"> <i class="fa fa-usd" style="font-size: 15px;"
-                                    aria-hidden="true"></i> ${(storeProducts.reduce((partialSum, a) => partialSum + a.price, 0)).toFixed(2)}</h2>
+                            <h2 class="topic-heading">  KES ${(storeProducts.reduce((partialSum, a) => partialSum + a.price, 0)).toFixed(2)}</h2>
                             <p class="order-card-sales-per">+5.68% <i class="fa fa-arrow-up arrow"
                                     aria-hidden="true"></i> </p>
                         </div>
@@ -81,7 +80,7 @@ dashboard.innerHTML = `
                         </div>
                         <div class="text2">
                             <h2 class="topic-heading">${OrederProducts.length}</h2>
-                            <p class="order-card-sales-per">+34.68% <i class="fa fa-arrow-up arrow"
+                            <p class="order-card-sales-per">+24.68% <i class="fa fa-arrow-up arrow"
                                     aria-hidden="true"></i> </p>
                         </div>
 
@@ -93,8 +92,8 @@ dashboard.innerHTML = `
                             <h2 class="topic">Overall Rattings</h2>
                         </div>
                         <div class="text2">
-                            <h2 class="topic-heading">${storeProducts.reduce((partialSum, a) => partialSum + a.reviews, 0)} </h2>
-                            <p class="order-card-sales-per">4.5<i class="fa fa-star " aria-hidden="true"></i> </p>
+                            <h2 class="topic-heading">${(storeProducts.reduce((partialSum, a) => partialSum + Number(a.rating), 0)/storeProducts.length).toFixed(1)} </h2>
+                            <p class="order-card-sales-per">Out of 5.0 <i class="fa fa-star " aria-hidden="true"></i> </p>
                         </div>
 
                     </div>
@@ -110,6 +109,35 @@ dashboard.innerHTML = `
                                     aria-hidden="true"></i> </p>
                         </div>
                     </div>
+
+          <!-- BOX 3 AGAIN FOR REVIEWS -->
+
+                    <div class="box box3">
+                        <div class="text">
+                            <i class="fa fa-star icons" aria-hidden="true"></i>
+                            <h2 class="topic">Overall Reviews</h2>
+                        </div>
+                        <div class="text2">
+                            <h2 class="topic-heading">${(storeProducts.reduce((partialSum, a) => partialSum + (a.reviews), 0)/storeProducts.length).toFixed(0)} </h2>
+                            <p class="order-card-sales-per">+ 1.95% <i class="fa fa-arrow-up arrow"
+                            aria-hidden="true"></i> </p>
+                        </div>
+                    </div>
+
+                    <!-- BOX 3 AGAIN FOR SOLD ITEMS PRICES -->
+
+                   <div class="box box3">
+                    <div class="text">
+                    <i class="fa fa-credit-card icons" aria-hidden="true"></i>
+                        <h2 class="topic">Sold</h2>
+                    </div>
+                    <div class="text2">
+                        <h2 class="topic-heading"> KES ${(OrederProducts.reduce((partialSum, a) => partialSum + (a.price * a.qty), 0)).toFixed(2)} </h2>
+                    </div>
+                    <p class="order-card-sales-per">+ 07.76% <i class="fa fa-arrow-up arrow"
+                            aria-hidden="true"></i> </p>
+                 </div>
+                
                 </div>
 
                 <!-- Bottom Products Orders section-->

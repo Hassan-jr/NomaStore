@@ -311,7 +311,10 @@ body {
   color: #fff;
   cursor: pointer;
 }
-
+.subLogo{
+  font-size: medium;
+  margin-top: -20px;
+}
 /* ******************************* RESPONSIVENESS ************************************ */
 @media screen and (max-width: 768px) {
   .nav-links {
@@ -333,6 +336,7 @@ body {
    
   }
 
+ 
   .nav-links a {
     margin: 10px 0;
     font-size: large;
