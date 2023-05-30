@@ -5,7 +5,7 @@ const {ObjectId} = require('mongodb');
 async function getCollection(){
         const db = await connectToDb()
         const collection =  db.collection("Products")
-        return collection
+        return  collection
 }
 
 

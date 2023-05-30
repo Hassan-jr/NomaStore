@@ -1,5 +1,5 @@
-const uri = "http://localhost:4000/stores"
-//const uri = "https://nomastore.onrender.com/stores"
+// const uri = "http://localhost:4000/stores"
+const uri = "https://nomastore.onrender.com/stores"
 
 
 // Get all products array

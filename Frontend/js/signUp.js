@@ -1,8 +1,8 @@
 // local host uri 
-const uri = "http://localhost:4000/users"
+//const uri = "http://localhost:4000/users"
 
 // deployes
-//const uri = "https://nomastore.onrender.com/users"
+const uri = "https://nomastore.onrender.com/users"
 
 
 //   Sign up page
